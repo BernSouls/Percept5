@@ -1,0 +1,65 @@
+# [PHASE 2] 0001_matcher_flags
+#
+# CLAIM IDS: none (the enabling change).
+# 
+# MECHANISM: the five NEW flags, every one of them DEFAULTING TO THE
+# HISTORICAL BEHAVIOUR:
+# 
+#     MATCH_EDGE_MASS_CONTAINMENT         B3  the matched edge mass may not
+#                                             exceed the edge mass it came from
+#     MATCH_SKIP_INCOMPARABLE_RELATIONS   B7  a relation with no common ontology
+#                                             is INCOMPARABLE: skipped from the
+#                                             numerator AND the denominator
+#     MATCH_KEEP_HIERARCHY_MEMBERS        P0  keep the member node (the
+#                                             hierarchy step becomes additive)
+#     MATCH_TEMPLATE_MEDIAN_EXEMPLAR      D5  the template is built in the
+#                                             MEDIAN exemplar's space
+#     MATCH_CONSENSUS_COUNT_ABSTENTIONS   D7  an exemplar that did not fill a
+#                                             slot is an ABSTENTION: it stays in
+#                                             the denominator
+# 
+# PRE-REGISTERED CONSTANTS: none -- the flags are switches, not numbers.
+# 
+# GATING FLAG: this patch IS the gating.  It changes no behaviour: every
+# mechanism that follows is OFF until a rule selects it.
+# 
+# THE PIN: tests/matcher/test_phase2_flagged_mechanisms.py::
+#         test_every_new_flag_defaults_to_the_historical_behaviour
+#         (reverting a flag's default reddens exactly one pin)
+# 
+# DEPENDENCIES: none.  Every later patch needs this one.
+#
+# apply from the repository root: git apply -p1 0001_matcher_flags.patch
+diff --git a/src/parameters/_text.py b/src/parameters/_text.py
+--- a/src/parameters/_text.py
++++ b/src/parameters/_text.py
+@@ -2253,6 +2253,29 @@
+ # summed over the two sides; the EVIDENCE_ONLY_EDGES branch (RULE B16) is
+ # untouched. False = the historical mean.
+ EVIDENCE_RELATION_COUNT_APART: bool = False
++# ------------------------------------------------------------------
++# [PHASE 2] THE NEW FLAGS.  Every one of them defaults to the
++# HISTORICAL behaviour, so the overlay loads without changing a
++# single number; each is an arm, selected by a pre-registered rule.
++#
++# MATCH_EDGE_MASS_CONTAINMENT (B3): the matched edge mass may not
++#   exceed the edge mass it was drawn from (the facilitation
++#   (1+log2(n+1)) multiplies the numerator only, so the ratio can
++#   exceed 1 and the score's own min(1.0, ...) hides it).
++# MATCH_SKIP_INCOMPARABLE_RELATIONS (B7): a relation with no common
++#   ontology is INCOMPARABLE, not contradictory: it is skipped from
++#   the numerator AND the denominator.
++# MATCH_KEEP_HIERARCHY_MEMBERS (P0): the hierarchy step keeps the
++#   member node (additive, not subtractive).
++# MATCH_TEMPLATE_MEDIAN_EXEMPLAR (D5): the template is built in the
++#   MEDIAN exemplar's space, not the smallest.
++# MATCH_CONSENSUS_COUNT_ABSTENTIONS (D7): an exemplar that did not
++#   fill a slot is an ABSTENTION: it stays in the denominator.
++MATCH_EDGE_MASS_CONTAINMENT: bool = False
++MATCH_SKIP_INCOMPARABLE_RELATIONS: bool = False
++MATCH_KEEP_HIERARCHY_MEMBERS: bool = False
++MATCH_TEMPLATE_MEDIAN_EXEMPLAR: bool = False
++MATCH_CONSENSUS_COUNT_ABSTENTIONS: bool = False
+ # [P4b] core/schema.py edge_measured_axes (the n of the edge-mass
+ # facilitation f(n) = 1 + log2(n + 1) in mcs_score / mcs_similarity): a slot
+ # the unit table declares a categorical LOOKUP KEY is not a measured axis.

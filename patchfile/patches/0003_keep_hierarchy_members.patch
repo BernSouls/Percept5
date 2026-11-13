@@ -1,0 +1,49 @@
+# [PHASE 2] 0003_keep_hierarchy_members
+#
+# CLAIM ID: P0 (the hierarchy step must be additive, not subtractive).
+# 
+# MECHANISM: `_apply_hierarchy_exclusions` keeps the member node when the flag
+# is on: the member and the parent are both physical, and the
+# content-discriminative mass decides what survives downstream.  No arity or
+# schema change and no parent-slot fabrication.
+# 
+# PRE-REGISTERED CONSTANTS: none.
+# 
+# GATING FLAG: MATCH_KEEP_HIERARCHY_MEMBERS (default OFF).
+# 
+# THE PIN: tests/matcher/test_phase2_flagged_mechanisms.py::
+#         test_p0_the_member_is_kept_only_when_the_flag_is_on
+# 
+# DEPENDENCIES: 0001 (the flag).
+# 
+# MEASURED, AND THIS IS THE IMPORTANT PART: the hierarchy step is INERT on the
+#         four ETH-80 frames -- it deletes 0 of 740 situation-graph edges and 0
+#         nodes (diagnostics/phase2_spine_census.py).  The edge loss (3017 ->
+#         740) happens UPSTREAM, in the situation graph's own construction.
+#         So this flag is a shape, not a gain, and the real P0 target is the
+#         front end, not this step.
+#
+# apply from the repository root: git apply -p1 0003_keep_hierarchy_members.patch
+diff --git a/src/memory/mapper.py b/src/memory/mapper.py
+--- a/src/memory/mapper.py
++++ b/src/memory/mapper.py
+@@ -1744,7 +1744,18 @@
+         return excluded
+ 
+     def _apply_hierarchy_exclusions(self, sg: Subgraph) -> Subgraph:
+-        excluded = self._part_exclusions()
++        # [PHASE2 P0] KEEP THE MEMBER (behind
++        # MATCH_KEEP_HIERARCHY_MEMBERS, default OFF = the historical
++        # behaviour).  The member and the parent are both physical;
++        # content-discriminative mass decides what survives downstream.
++        # MEASURED INERT on the four ETH-80 frames: the hierarchy step
++        # deletes 0 of 740 edges there (the edge loss is upstream, in
++        # the situation graph's own construction) -- so this flag is a
++        # shape, not a gain.
++        if bool(getattr(P, "MATCH_KEEP_HIERARCHY_MEMBERS", False)):
++            excluded = set()
++        else:
++            excluded = self._part_exclusions()
+         if not excluded:
+             return sg
+         if not (sg.nodes & excluded):
