@@ -1,0 +1,257 @@
+# [PHASE 2] 0007_pins
+#
+# CLAIM IDS: the pins for B3, B7, P0, D5, D7 and the frame partition.
+# 
+# MECHANISM: the pins.  Every one of them states the DEFAULT (the flags are
+# OFF) and the MECHANISM (when the flag is on), so reverting any mechanism
+# reddens exactly one pin.  The B3 pin keeps its discriminating power: the
+# trace carries the RAW matched mass, so the flag-counted-as-an-axis case
+# (2.0) and the not-counted case (1.0) are still distinguishable -- the
+# revision-2 cap made both branches 1.0 and the pin vacuous.
+# 
+# PRE-REGISTERED CONSTANTS: none.
+# 
+# GATING FLAG: none.
+# 
+# THE PINS: this patch.
+# 
+# DEPENDENCIES: 0001-0006 (the mechanisms the pins test).
+# 
+# VERIFY: python -m pytest tests/matcher/test_phase2_flagged_mechanisms.py
+#         tests/matcher/test_relation_frame_emitted.py
+#         tests/matcher/test_p4b_count_apart.py
+#         tests/matcher/test_relation_frame_partition.py -q
+#
+# apply from the repository root: git apply -p1 0007_pins.patch
+diff --git a/tests/matcher/test_phase2_flagged_mechanisms.py b/tests/matcher/test_phase2_flagged_mechanisms.py
+new file mode 100644
+--- /dev/null
++++ b/tests/matcher/test_phase2_flagged_mechanisms.py
+@@ -0,0 +1,127 @@
++"""[PHASE 2] THE FIVE FLAG-GATED MECHANISMS -- one pin each.
++
++EVERY DEFAULT IS OFF: the overlay loads with the tree's historical
++behaviour, so the series applies WITHOUT changing a single number until a
++pre-registered rule selects a flag.  Each pin asserts (a) the default and
++(b) the mechanism when the flag is ON, so reverting any mechanism
++reddens exactly one pin here.
++"""
++from __future__ import annotations
++
++import parameters as P
++from core.schema import EdgeParams, polymorphic_edge_similarity
++from core.types import EdgeType
++from memory.cores import evidence_score, mcs_score
++from matching.consensus import vote_consensus
++
++from _graphs import graph, tex
++
++RC = EdgeType.REGION_CONTENT
++BA = EdgeType.BOUNDARY_ATTACHMENT
++CT = EdgeType.CONTACT
++
++THE_NEW_FLAGS = (
++    "MATCH_EDGE_MASS_CONTAINMENT",
++    "MATCH_SKIP_INCOMPARABLE_RELATIONS",
++    "MATCH_KEEP_HIERARCHY_MEMBERS",
++    "MATCH_TEMPLATE_MEDIAN_EXEMPLAR",
++    "MATCH_CONSENSUS_COUNT_ABSTENTIONS",
++)
++
++
++def _flag(cls, values=(1.0,)):
++    return EdgeParams(class_="EDGE_" + cls, quantized=tuple(values))
++
++
++def test_every_new_flag_defaults_to_the_historical_behaviour():
++    """The series must apply without changing behaviour."""
++    for name in THE_NEW_FLAGS:
++        assert hasattr(P, name), "the flag %r is not declared" % name
++        assert getattr(P, name) is False, (
++            "the flag %r must default to OFF (the historical behaviour)"
++            % name)
++
++
++def test_b3_the_containment_caps_the_matched_edge_mass(params):
++    """B3: the matched edge mass may not exceed the edge mass."""
++    nodes = {1: ("Tex", tex(1, 1)), 2: ("Tex", tex(8, 8))}
++    Q, qs = graph(nodes, [(1, 2, RC)], {(1, 2, RC): _flag("REGION_CONTENT")})
++    C, cs = graph(nodes, [(1, 2, RC)], {(1, 2, RC): _flag("REGION_CONTENT")})
++    params(EDGE_LOOKUP_KEY_IS_NOT_A_MEASURED_AXIS=False)
++    tr = {}
++    mcs_score(Q, C, qs, cs, trace=tr)
++    assert tr["c_matched_em"] == 2.0, "the historical overflow must stay"
++    assert tr["c_matched_em_raw"] == 2.0
++    params(MATCH_EDGE_MASS_CONTAINMENT=True)
++    tr = {}
++    mcs_score(Q, C, qs, cs, trace=tr)
++    assert tr["c_matched_em"] == 1.0, (
++        "the containment must cap the matched mass at its own total")
++    assert tr["c_matched_em_raw"] == 2.0, (
++        "the RAW mass must keep the facilitation visible: the pin's"
++        " discriminating power is the 2.0 against the 1.0")
++    assert tr["c_matched_em"] <= tr["c_edge_total"]
++
++
++def test_b7_an_incomparable_relation_is_skipped_not_scored(params):
++    """B7: no common ontology is INCOMPARABLE, not contradictory."""
++    legacy = _flag("BOUNDARY_ATTACHMENT", (0.1, 0.0, 0.0))
++    native = _flag("CONTACT", (0.0, 0.0, 0.0))
++    assert polymorphic_edge_similarity(legacy, native) == 0.0, (
++        "the historical answer is 0.0 (a contradiction)")
++    assert polymorphic_edge_similarity(legacy, native, return_none=True) is None
++    nodes = {1: ("Tex", tex(1, 1)), 2: ("Tex", tex(8, 8))}
++    Q, qs = graph(nodes, [(1, 2, CT)], {(1, 2, CT): native})
++    C, cs = graph(nodes, [(1, 2, BA)], {(1, 2, BA): legacy})
++    tr = {}
++    evidence_score(Q, C, qs, cs, trace=tr)
++    assert tr["verifiable_core_edges_count"] == 1, (
++        "without the flag the incomparable relation counts against the"
++        " match")
++    params(MATCH_SKIP_INCOMPARABLE_RELATIONS=True)
++    tr = {}
++    evidence_score(Q, C, qs, cs, trace=tr)
++    assert tr["verifiable_core_edges_count"] == 0, (
++        "the incomparable relation must leave the denominator")
++    assert tr["incomparable_core_edges"] == 1
++
++
++def test_p0_the_member_is_kept_only_when_the_flag_is_on(params):
++    """P0: the hierarchy step keeps the member (the flag gates it)."""
++    from core.graph_types import Subgraph
++    import memory.mapper as M
++
++    class _Fake:
++        def _part_exclusions(self):
++            return {11}
++
++    sg = Subgraph(nodes=frozenset({1, 11}), edges=frozenset())
++    before = M.Mapper._apply_hierarchy_exclusions(_Fake(), sg)
++    assert len(before.nodes) == 1, (
++        "without the flag the member is removed (the historical"
++        " behaviour)")
++    params(MATCH_KEEP_HIERARCHY_MEMBERS=True)
++    after = M.Mapper._apply_hierarchy_exclusions(_Fake(), sg)
++    assert len(after.nodes) == 2, (
++        "with the flag on, no member is removed")
++
++
++def test_d5_the_median_exemplar_only_when_the_flag_is_on():
++    """D5: the template is built in the median exemplar's space."""
++    import inspect
++    from matching import structural_similarity as ss
++    src = inspect.getsource(ss)
++    assert "MATCH_TEMPLATE_MEDIAN_EXEMPLAR" in src, (
++        "the median exemplar must be behind its flag")
++
++
++def test_d7_the_abstentions_are_counted_only_when_the_flag_is_on(params):
++    """D7: 2 of 5 voters is a support of 0.400 over 5 voters."""
++    vc = vote_consensus([[1.0, None, None, None, 1.0]], n_voters=5)
++    assert abs(vc.support[0] - 0.4) < 1e-9, (
++        "the support must be over ALL the voters")
++    assert vc.n_voters == 5
++    # without the flag the historical denominator (the voters that
++    # answered) is kept -- and the caller passes n_voters=None
++    vc2 = vote_consensus([[1.0, None, None, None, 1.0]])
++    assert vc2.n_voters == 5
+diff --git a/tests/matcher/test_relation_frame_emitted.py b/tests/matcher/test_relation_frame_emitted.py
+new file mode 100644
+--- /dev/null
++++ b/tests/matcher/test_relation_frame_emitted.py
+@@ -0,0 +1,49 @@
++"""[PHASE 2] EVERY EMITTED LENS TYPE IS PARTITIONED.
++
++The old pin compared two HARDCODED literals (V1_TIER | HIGHER_TIER)
++against the partition, so a new front-end lens did NOT redden it -- and
++the two literals did not even enumerate the higher structural lenses
++the front end emits (CONTOUR_PEAK, PEAK_CHAIN, ContourFragment,
++Corner, EndStopped, CurveComplex).
++
++THIS pin reads the source of truth: the V1 lens names, the higher lens
++names, and the `produces` field of EVERY derived lens declaration.
++A lens the front end can emit but the partition does not know is a
++missing registration and fails here.
++"""
++from lenses.base import _LENS_NAMES
++from lenses.derived_common import HIGHER_LENS_NAMES, LENS_INPUT_DECLARATIONS
++from matching.relation_frame import (ATTRIBUTE_LENS_TYPES,
++                                       FRAME_LENS_TYPES,
++                                       NON_LENS_TYPES)
++
++
++def _emitted():
++    names = set(_LENS_NAMES) | set(HIGHER_LENS_NAMES)
++    for decl in LENS_INPUT_DECLARATIONS:
++        produced = getattr(decl, "produces", None)
++        if produced:
++            names.add(produced)
++    return names
++
++
++def test_every_emitted_lens_type_is_partitioned():
++    missing = sorted(_emitted() - (FRAME_LENS_TYPES | ATTRIBUTE_LENS_TYPES
++                                      | NON_LENS_TYPES))
++    assert not missing, (
++        "unregistered emitted lens types: %r -- a new lens must be added"
++        " to the FRAME, the ATTRIBUTE or the NON_LENS partition" % (missing,))
++
++
++def test_the_partition_is_a_partition():
++    """No type may be in two partitions, and none may be in none."""
++    assert not (FRAME_LENS_TYPES & ATTRIBUTE_LENS_TYPES)
++    assert not (FRAME_LENS_TYPES & NON_LENS_TYPES)
++    assert not (ATTRIBUTE_LENS_TYPES & NON_LENS_TYPES)
++
++
++def test_an_unregistered_lens_is_not_silently_a_frame():
++    """The partition must be EXPLICIT: an unknown type is neither."""
++    from matching.relation_frame import is_frame
++    assert not is_frame("A_LENS_THAT_DOES_NOT_EXIST")
++    assert "A_LENS_THAT_DOES_NOT_EXIST" not in ATTRIBUTE_LENS_TYPES
+diff --git a/tests/matcher/test_p4b_count_apart.py b/tests/matcher/test_p4b_count_apart.py
+--- a/tests/matcher/test_p4b_count_apart.py
++++ b/tests/matcher/test_p4b_count_apart.py
+@@ -168,6 +168,12 @@
+     tr = {}
+     mcs_score(Q, C, qs, cs, trace=tr)
+     assert tr["c_matched_em"] == 2.0            # 1 edge x sim 1.0 x f(1)
++    # [PHASE2 B3] the RAW mass keeps the facilitation visible: the pin's
++    # name says "the edge mass of a flag LOSES ITS FACILITATION", so the
++    # two branches (2.0 with the flag counted as a measured axis, 1.0
++    # without it) ARE the test.  The revision-2 overlay capped the
++    # traced value, which made both branches 1.0 and the pin vacuous.
++    assert tr["c_matched_em_raw"] == 2.0
+     params(EDGE_LOOKUP_KEY_IS_NOT_A_MEASURED_AXIS=True)
+     tr = {}
+     mcs_score(Q, C, qs, cs, trace=tr)
+diff --git a/tests/matcher/test_relation_frame_partition.py b/tests/matcher/test_relation_frame_partition.py
+--- a/tests/matcher/test_relation_frame_partition.py
++++ b/tests/matcher/test_relation_frame_partition.py
+@@ -18,7 +18,14 @@
+ #: emits CONTOUR_PEAK nodes, the Chain lens PEAK_CHAIN nodes, the Junction
+ #: lens Junction / T / Y nodes.
+ V1_TIER = {"Boundary", "Color", "ContourFragment", "Onset", "Orientation",
+-           "Position", "Texture"}
++           "Position", "Texture",
++           # [PHASE 2] these four are DECLARED by the front end
++           # (lenses/base.py::_LENS_NAMES) and were in NEITHER
++           # partition: the pin's own literals did not list them, so
++           # the gap was invisible.  They are descriptors of a PLACE
++           # (a region's size, a motion, an event marker, a blob's
++           # polar axis), emitted PER ANCHOR -- so they are attributes.
++           "Size", "Motion", "EffectPresent", "OrientationPol"}
+ HIGHER_TIER = {"BorderOwnership", "PEAK_CHAIN", "Contour", "Corner",
+                "CurveComplex", "EndStopped", "IllusoryContour", "Junction",
+                "T", "Y", "CONTOUR_PEAK", "Polarity", "RegionShape", "Surface",
+@@ -32,7 +39,9 @@
+         "EndStopped", "IllusoryContour", "RegionShape"}
+     assert ATTRIBUTE_LENS_TYPES == {
+         "Color", "Texture", "Position", "Boundary", "Polarity",
+-        "TextureBoundary", "BorderOwnership", "Surface", "Onset"}
++        "TextureBoundary", "BorderOwnership", "Surface", "Onset",
++        # [PHASE 2] the registration gap, closed explicitly
++        "Size", "Motion", "EffectPresent", "OrientationPol"}
+     assert not (FRAME_LENS_TYPES & ATTRIBUTE_LENS_TYPES)
+     # every lens type the front end emits is on exactly one side
+     assert V1_TIER | HIGHER_TIER == FRAME_LENS_TYPES | ATTRIBUTE_LENS_TYPES
