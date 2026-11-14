@@ -122,9 +122,14 @@ NON_LENS_TYPES: FrozenSet[str] = frozenset({
 })
 
 
+# The U20 literal remains pinned; new physical kinds are explicit extensions.
+from core.junction_families import JUNCTION_FAMILY_EXTENSIONS
+FRAME_LENS_EXTENSIONS = frozenset(JUNCTION_FAMILY_EXTENSIONS)
+
+
 def is_frame(lens_type: str) -> bool:
-    """True when `lens_type` is a piece of shape.  Unknown types are not."""
-    return lens_type in FRAME_LENS_TYPES
+    """True for the historical frame or an explicitly registered extension."""
+    return lens_type in FRAME_LENS_TYPES or lens_type in FRAME_LENS_EXTENSIONS
 
 
 def measured_axes(ep: Any) -> Tuple[int, ...]:

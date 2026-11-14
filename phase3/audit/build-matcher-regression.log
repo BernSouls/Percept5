@@ -1,0 +1,592 @@
+.................................................................EEEEEF. [ 13%]
+........................................................................ [ 27%]
+........................................................................ [ 41%]
+........................................................................ [ 55%]
+........................................................................ [ 69%]
+........................................................................ [ 83%]
+.........................F.............................................. [ 97%]
+.............                                                            [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_the_real_front_end_writes_all_three_stage6_relations __
+
+    @pytest.fixture(scope="module")
+    def on():
+>       return graph(True)
+               ^^^^^^^^^^^
+
+tests/matcher/test_frontend_relations.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/matcher/test_frontend_relations.py:80: in graph
+    g = fe.build_graph(_disk_image(), name="phase6_pin_disk",
+diagnostics/eth80_frontend.py:314: in build_graph
+    D_raw, _derived, _S_t, s_t, _T_prev = loop.step(
+dynamics/settle.py:200: in step
+    D_v1, S_t, s_t, T_prev = self.sf.step(
+perception/floor.py:154: in step
+    D_raw = self._get_lens_executor().run_all(
+lenses/base.py:872: in run_all
+    detections.update(self._run_contour_fragments(S_t, obs))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <lenses.base.LensExecutor object at 0x7f6f75af3d90>
+S_t = StatePattern(t=0, X=[[1.0, 0.0056478636582267235, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.375, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0...0, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271], modality='2d', Y_C_time=[], state_hash=10953621756385423661)
+obs = <perception.observation_2d.Observation2D object at 0x7f6f77c38350>
+
+    def _run_contour_fragments(self, S_t: Any, obs: Any = None) -> List[Detection]:
+        """[Stage 3] Pasupathy & Connor object-centred polar boundary fragments.
+    
+        Stream-2 contour polylines are subdivided into arc fragments and each is
+        encoded as (kappa, theta, r, tangent-vs-radial) relative to the object
+        visual-mass centroid. Emitted directly (bypassing the homeostatic
+        `_emit` path, the way the Action lens does) as `CONTOUR_FRAGMENT`
+        detections anchored on the owning contour region.
+        """
+        if obs is None or not hasattr(obs, "get_contours"):
+            return []
+        frs, meta = polar_boundary_fragments(
+            obs.get_contours(),
+            P.CONTOUR_FRAGMENT_LEN_FRAC,
+            P.CONTOUR_FRAGMENT_KAPPA_CAP,
+        )
+        if not frs:
+            return []
+        anchor_of: Dict[Any, Any] = {}
+        for u, r in enumerate(getattr(obs, "_regions", [])):  # TODO(agent): use a public accessor if one exists
+            ci = r.get("_contour_idx")
+            if ci is not None:
+                anchor_of.setdefault(ci, u)
+        out: List[Detection] = []
+        for f in frs:
+            a = anchor_of.get(f["contour"], f["contour"])
+            # [GRADED POPULATION] built from the fragment's CONTINUOUS
+            # measurements (the asinh-compressed signed curvature, the polar
+            # angle, the normalised radius, the tangent-vs-radial angle).
+            pop = population_from_values(
+                "CONTOUR_FRAGMENT",
+                (f.get("kappa_c", 0.0), f.get("theta_c", 0.0),
+                 f.get("r_c", 0.0), f.get("tvr_c", 0.0)))
+            sig = TypedSignature(kind="CANONICAL", class_="CONTOUR_FRAGMENT",
+                                 relation="OBJECT_CENTERED_V4", quantized=f["bins"],
+                                 population=pop)
+            _fd = Detection(k="ContourFragment", source_layer=1, scale=0, sigma=sig, alpha=a,
+                            z=min(1.0, f["arc"] / meta["R"]), t=getattr(S_t, "t", 0),
+                            rho=(("entity", a, 0, "+"), ("fragment", f["frag"], 0, "+")))
+            # [STAGE 6 / R1] The fragment's OWN place and tangent.  Its anchor
+            # `a` is its parent contour's region, shared by every fragment of
+            # that contour, and its signature keeps the tangent only as an
+            # unsigned difference from the radial angle.  Both measurements
+            # exist here; they ride on the detection (not in the signature, so
+            # the node is the same node) for the attachment relation to read.
+            object.__setattr__(_fd, "_frag_mid",
+                               (float(f["mid"][0]), float(f["mid"][1])))
+>           object.__setattr__(_fd, "_frag_host_arc",
+                               (float(f["host_arc_start"]), float(f["host_arc_end"])))
+E           AttributeError: 'Detection' object has no attribute '_frag_host_arc'
+
+lenses/base.py:1280: AttributeError
+__________ ERROR at setup of test_the_switch_off_writes_none_of_them ___________
+
+    @pytest.fixture(scope="module")
+    def off():
+>       return graph(False)
+               ^^^^^^^^^^^^
+
+tests/matcher/test_frontend_relations.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/matcher/test_frontend_relations.py:80: in graph
+    g = fe.build_graph(_disk_image(), name="phase6_pin_disk",
+diagnostics/eth80_frontend.py:314: in build_graph
+    D_raw, _derived, _S_t, s_t, _T_prev = loop.step(
+dynamics/settle.py:200: in step
+    D_v1, S_t, s_t, T_prev = self.sf.step(
+perception/floor.py:154: in step
+    D_raw = self._get_lens_executor().run_all(
+lenses/base.py:872: in run_all
+    detections.update(self._run_contour_fragments(S_t, obs))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <lenses.base.LensExecutor object at 0x7f6f744e4c90>
+S_t = StatePattern(t=0, X=[[1.0, 0.0056478636582267235, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.375, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0...0, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271], modality='2d', Y_C_time=[], state_hash=10953621756385423661)
+obs = <perception.observation_2d.Observation2D object at 0x7f6f74702590>
+
+    def _run_contour_fragments(self, S_t: Any, obs: Any = None) -> List[Detection]:
+        """[Stage 3] Pasupathy & Connor object-centred polar boundary fragments.
+    
+        Stream-2 contour polylines are subdivided into arc fragments and each is
+        encoded as (kappa, theta, r, tangent-vs-radial) relative to the object
+        visual-mass centroid. Emitted directly (bypassing the homeostatic
+        `_emit` path, the way the Action lens does) as `CONTOUR_FRAGMENT`
+        detections anchored on the owning contour region.
+        """
+        if obs is None or not hasattr(obs, "get_contours"):
+            return []
+        frs, meta = polar_boundary_fragments(
+            obs.get_contours(),
+            P.CONTOUR_FRAGMENT_LEN_FRAC,
+            P.CONTOUR_FRAGMENT_KAPPA_CAP,
+        )
+        if not frs:
+            return []
+        anchor_of: Dict[Any, Any] = {}
+        for u, r in enumerate(getattr(obs, "_regions", [])):  # TODO(agent): use a public accessor if one exists
+            ci = r.get("_contour_idx")
+            if ci is not None:
+                anchor_of.setdefault(ci, u)
+        out: List[Detection] = []
+        for f in frs:
+            a = anchor_of.get(f["contour"], f["contour"])
+            # [GRADED POPULATION] built from the fragment's CONTINUOUS
+            # measurements (the asinh-compressed signed curvature, the polar
+            # angle, the normalised radius, the tangent-vs-radial angle).
+            pop = population_from_values(
+                "CONTOUR_FRAGMENT",
+                (f.get("kappa_c", 0.0), f.get("theta_c", 0.0),
+                 f.get("r_c", 0.0), f.get("tvr_c", 0.0)))
+            sig = TypedSignature(kind="CANONICAL", class_="CONTOUR_FRAGMENT",
+                                 relation="OBJECT_CENTERED_V4", quantized=f["bins"],
+                                 population=pop)
+            _fd = Detection(k="ContourFragment", source_layer=1, scale=0, sigma=sig, alpha=a,
+                            z=min(1.0, f["arc"] / meta["R"]), t=getattr(S_t, "t", 0),
+                            rho=(("entity", a, 0, "+"), ("fragment", f["frag"], 0, "+")))
+            # [STAGE 6 / R1] The fragment's OWN place and tangent.  Its anchor
+            # `a` is its parent contour's region, shared by every fragment of
+            # that contour, and its signature keeps the tangent only as an
+            # unsigned difference from the radial angle.  Both measurements
+            # exist here; they ride on the detection (not in the signature, so
+            # the node is the same node) for the attachment relation to read.
+            object.__setattr__(_fd, "_frag_mid",
+                               (float(f["mid"][0]), float(f["mid"][1])))
+>           object.__setattr__(_fd, "_frag_host_arc",
+                               (float(f["host_arc_start"]), float(f["host_arc_end"])))
+E           AttributeError: 'Detection' object has no attribute '_frag_host_arc'
+
+lenses/base.py:1280: AttributeError
+_ ERROR at setup of test_the_slots_of_the_written_relations_take_more_than_one_value _
+
+    @pytest.fixture(scope="module")
+    def on():
+>       return graph(True)
+               ^^^^^^^^^^^
+
+tests/matcher/test_frontend_relations.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/matcher/test_frontend_relations.py:80: in graph
+    g = fe.build_graph(_disk_image(), name="phase6_pin_disk",
+diagnostics/eth80_frontend.py:314: in build_graph
+    D_raw, _derived, _S_t, s_t, _T_prev = loop.step(
+dynamics/settle.py:200: in step
+    D_v1, S_t, s_t, T_prev = self.sf.step(
+perception/floor.py:154: in step
+    D_raw = self._get_lens_executor().run_all(
+lenses/base.py:872: in run_all
+    detections.update(self._run_contour_fragments(S_t, obs))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <lenses.base.LensExecutor object at 0x7f6f75af3d90>
+S_t = StatePattern(t=0, X=[[1.0, 0.0056478636582267235, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.375, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0...0, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271], modality='2d', Y_C_time=[], state_hash=10953621756385423661)
+obs = <perception.observation_2d.Observation2D object at 0x7f6f77c38350>
+
+    def _run_contour_fragments(self, S_t: Any, obs: Any = None) -> List[Detection]:
+        """[Stage 3] Pasupathy & Connor object-centred polar boundary fragments.
+    
+        Stream-2 contour polylines are subdivided into arc fragments and each is
+        encoded as (kappa, theta, r, tangent-vs-radial) relative to the object
+        visual-mass centroid. Emitted directly (bypassing the homeostatic
+        `_emit` path, the way the Action lens does) as `CONTOUR_FRAGMENT`
+        detections anchored on the owning contour region.
+        """
+        if obs is None or not hasattr(obs, "get_contours"):
+            return []
+        frs, meta = polar_boundary_fragments(
+            obs.get_contours(),
+            P.CONTOUR_FRAGMENT_LEN_FRAC,
+            P.CONTOUR_FRAGMENT_KAPPA_CAP,
+        )
+        if not frs:
+            return []
+        anchor_of: Dict[Any, Any] = {}
+        for u, r in enumerate(getattr(obs, "_regions", [])):  # TODO(agent): use a public accessor if one exists
+            ci = r.get("_contour_idx")
+            if ci is not None:
+                anchor_of.setdefault(ci, u)
+        out: List[Detection] = []
+        for f in frs:
+            a = anchor_of.get(f["contour"], f["contour"])
+            # [GRADED POPULATION] built from the fragment's CONTINUOUS
+            # measurements (the asinh-compressed signed curvature, the polar
+            # angle, the normalised radius, the tangent-vs-radial angle).
+            pop = population_from_values(
+                "CONTOUR_FRAGMENT",
+                (f.get("kappa_c", 0.0), f.get("theta_c", 0.0),
+                 f.get("r_c", 0.0), f.get("tvr_c", 0.0)))
+            sig = TypedSignature(kind="CANONICAL", class_="CONTOUR_FRAGMENT",
+                                 relation="OBJECT_CENTERED_V4", quantized=f["bins"],
+                                 population=pop)
+            _fd = Detection(k="ContourFragment", source_layer=1, scale=0, sigma=sig, alpha=a,
+                            z=min(1.0, f["arc"] / meta["R"]), t=getattr(S_t, "t", 0),
+                            rho=(("entity", a, 0, "+"), ("fragment", f["frag"], 0, "+")))
+            # [STAGE 6 / R1] The fragment's OWN place and tangent.  Its anchor
+            # `a` is its parent contour's region, shared by every fragment of
+            # that contour, and its signature keeps the tangent only as an
+            # unsigned difference from the radial angle.  Both measurements
+            # exist here; they ride on the detection (not in the signature, so
+            # the node is the same node) for the attachment relation to read.
+            object.__setattr__(_fd, "_frag_mid",
+                               (float(f["mid"][0]), float(f["mid"][1])))
+>           object.__setattr__(_fd, "_frag_host_arc",
+                               (float(f["host_arc_start"]), float(f["host_arc_end"])))
+E           AttributeError: 'Detection' object has no attribute '_frag_host_arc'
+
+lenses/base.py:1280: AttributeError
+_ ERROR at setup of test_every_node_the_front_end_emits_is_on_exactly_one_side _
+
+    @pytest.fixture(scope="module")
+    def on():
+>       return graph(True)
+               ^^^^^^^^^^^
+
+tests/matcher/test_frontend_relations.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/matcher/test_frontend_relations.py:80: in graph
+    g = fe.build_graph(_disk_image(), name="phase6_pin_disk",
+diagnostics/eth80_frontend.py:314: in build_graph
+    D_raw, _derived, _S_t, s_t, _T_prev = loop.step(
+dynamics/settle.py:200: in step
+    D_v1, S_t, s_t, T_prev = self.sf.step(
+perception/floor.py:154: in step
+    D_raw = self._get_lens_executor().run_all(
+lenses/base.py:872: in run_all
+    detections.update(self._run_contour_fragments(S_t, obs))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <lenses.base.LensExecutor object at 0x7f6f75af3d90>
+S_t = StatePattern(t=0, X=[[1.0, 0.0056478636582267235, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.375, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0...0, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271], modality='2d', Y_C_time=[], state_hash=10953621756385423661)
+obs = <perception.observation_2d.Observation2D object at 0x7f6f77c38350>
+
+    def _run_contour_fragments(self, S_t: Any, obs: Any = None) -> List[Detection]:
+        """[Stage 3] Pasupathy & Connor object-centred polar boundary fragments.
+    
+        Stream-2 contour polylines are subdivided into arc fragments and each is
+        encoded as (kappa, theta, r, tangent-vs-radial) relative to the object
+        visual-mass centroid. Emitted directly (bypassing the homeostatic
+        `_emit` path, the way the Action lens does) as `CONTOUR_FRAGMENT`
+        detections anchored on the owning contour region.
+        """
+        if obs is None or not hasattr(obs, "get_contours"):
+            return []
+        frs, meta = polar_boundary_fragments(
+            obs.get_contours(),
+            P.CONTOUR_FRAGMENT_LEN_FRAC,
+            P.CONTOUR_FRAGMENT_KAPPA_CAP,
+        )
+        if not frs:
+            return []
+        anchor_of: Dict[Any, Any] = {}
+        for u, r in enumerate(getattr(obs, "_regions", [])):  # TODO(agent): use a public accessor if one exists
+            ci = r.get("_contour_idx")
+            if ci is not None:
+                anchor_of.setdefault(ci, u)
+        out: List[Detection] = []
+        for f in frs:
+            a = anchor_of.get(f["contour"], f["contour"])
+            # [GRADED POPULATION] built from the fragment's CONTINUOUS
+            # measurements (the asinh-compressed signed curvature, the polar
+            # angle, the normalised radius, the tangent-vs-radial angle).
+            pop = population_from_values(
+                "CONTOUR_FRAGMENT",
+                (f.get("kappa_c", 0.0), f.get("theta_c", 0.0),
+                 f.get("r_c", 0.0), f.get("tvr_c", 0.0)))
+            sig = TypedSignature(kind="CANONICAL", class_="CONTOUR_FRAGMENT",
+                                 relation="OBJECT_CENTERED_V4", quantized=f["bins"],
+                                 population=pop)
+            _fd = Detection(k="ContourFragment", source_layer=1, scale=0, sigma=sig, alpha=a,
+                            z=min(1.0, f["arc"] / meta["R"]), t=getattr(S_t, "t", 0),
+                            rho=(("entity", a, 0, "+"), ("fragment", f["frag"], 0, "+")))
+            # [STAGE 6 / R1] The fragment's OWN place and tangent.  Its anchor
+            # `a` is its parent contour's region, shared by every fragment of
+            # that contour, and its signature keeps the tangent only as an
+            # unsigned difference from the radial angle.  Both measurements
+            # exist here; they ride on the detection (not in the signature, so
+            # the node is the same node) for the attachment relation to read.
+            object.__setattr__(_fd, "_frag_mid",
+                               (float(f["mid"][0]), float(f["mid"][1])))
+>           object.__setattr__(_fd, "_frag_host_arc",
+                               (float(f["host_arc_start"]), float(f["host_arc_end"])))
+E           AttributeError: 'Detection' object has no attribute '_frag_host_arc'
+
+lenses/base.py:1280: AttributeError
+_ ERROR at setup of test_an_ambiguous_attachment_is_written_absent_and_counted _
+
+    @pytest.fixture(scope="module")
+    def on():
+>       return graph(True)
+               ^^^^^^^^^^^
+
+tests/matcher/test_frontend_relations.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/matcher/test_frontend_relations.py:80: in graph
+    g = fe.build_graph(_disk_image(), name="phase6_pin_disk",
+diagnostics/eth80_frontend.py:314: in build_graph
+    D_raw, _derived, _S_t, s_t, _T_prev = loop.step(
+dynamics/settle.py:200: in step
+    D_v1, S_t, s_t, T_prev = self.sf.step(
+perception/floor.py:154: in step
+    D_raw = self._get_lens_executor().run_all(
+lenses/base.py:872: in run_all
+    detections.update(self._run_contour_fragments(S_t, obs))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <lenses.base.LensExecutor object at 0x7f6f75af3d90>
+S_t = StatePattern(t=0, X=[[1.0, 0.0056478636582267235, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.375, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0...0, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271], modality='2d', Y_C_time=[], state_hash=10953621756385423661)
+obs = <perception.observation_2d.Observation2D object at 0x7f6f77c38350>
+
+    def _run_contour_fragments(self, S_t: Any, obs: Any = None) -> List[Detection]:
+        """[Stage 3] Pasupathy & Connor object-centred polar boundary fragments.
+    
+        Stream-2 contour polylines are subdivided into arc fragments and each is
+        encoded as (kappa, theta, r, tangent-vs-radial) relative to the object
+        visual-mass centroid. Emitted directly (bypassing the homeostatic
+        `_emit` path, the way the Action lens does) as `CONTOUR_FRAGMENT`
+        detections anchored on the owning contour region.
+        """
+        if obs is None or not hasattr(obs, "get_contours"):
+            return []
+        frs, meta = polar_boundary_fragments(
+            obs.get_contours(),
+            P.CONTOUR_FRAGMENT_LEN_FRAC,
+            P.CONTOUR_FRAGMENT_KAPPA_CAP,
+        )
+        if not frs:
+            return []
+        anchor_of: Dict[Any, Any] = {}
+        for u, r in enumerate(getattr(obs, "_regions", [])):  # TODO(agent): use a public accessor if one exists
+            ci = r.get("_contour_idx")
+            if ci is not None:
+                anchor_of.setdefault(ci, u)
+        out: List[Detection] = []
+        for f in frs:
+            a = anchor_of.get(f["contour"], f["contour"])
+            # [GRADED POPULATION] built from the fragment's CONTINUOUS
+            # measurements (the asinh-compressed signed curvature, the polar
+            # angle, the normalised radius, the tangent-vs-radial angle).
+            pop = population_from_values(
+                "CONTOUR_FRAGMENT",
+                (f.get("kappa_c", 0.0), f.get("theta_c", 0.0),
+                 f.get("r_c", 0.0), f.get("tvr_c", 0.0)))
+            sig = TypedSignature(kind="CANONICAL", class_="CONTOUR_FRAGMENT",
+                                 relation="OBJECT_CENTERED_V4", quantized=f["bins"],
+                                 population=pop)
+            _fd = Detection(k="ContourFragment", source_layer=1, scale=0, sigma=sig, alpha=a,
+                            z=min(1.0, f["arc"] / meta["R"]), t=getattr(S_t, "t", 0),
+                            rho=(("entity", a, 0, "+"), ("fragment", f["frag"], 0, "+")))
+            # [STAGE 6 / R1] The fragment's OWN place and tangent.  Its anchor
+            # `a` is its parent contour's region, shared by every fragment of
+            # that contour, and its signature keeps the tangent only as an
+            # unsigned difference from the radial angle.  Both measurements
+            # exist here; they ride on the detection (not in the signature, so
+            # the node is the same node) for the attachment relation to read.
+            object.__setattr__(_fd, "_frag_mid",
+                               (float(f["mid"][0]), float(f["mid"][1])))
+>           object.__setattr__(_fd, "_frag_host_arc",
+                               (float(f["host_arc_start"]), float(f["host_arc_end"])))
+E           AttributeError: 'Detection' object has no attribute '_frag_host_arc'
+
+lenses/base.py:1280: AttributeError
+=================================== FAILURES ===================================
+___________ test_the_graph_cache_key_moves_when_a_graph_switch_moves ___________
+
+params = <function params.<locals>._set at 0x7f6f6f2bd8a0>
+
+    def test_the_graph_cache_key_moves_when_a_graph_switch_moves(params):
+        """PIN (7.28, in its end-to-end form): two graphs that differ must never
+        share a cache key.  The key is read from the same function `graph_for`
+        uses, and the two graphs are the two this module built."""
+        _diag_on_path()
+        import eth80_frontend as fe
+    
+        params(GRAPH_STAGE6_RELATIONS=False, BINDER_COMPLETE_POSITION_MAP=False)
+        k_off = fe.frontend_source_digest()
+        params(GRAPH_STAGE6_RELATIONS=True, BINDER_COMPLETE_POSITION_MAP=True)
+        k_on = fe.frontend_source_digest()
+        assert k_off != k_on
+        # and the graphs the two keys name really are different
+>       assert len(_edges(off := graph(False), EdgeType.BOUNDARY_ATTACHMENT)) != \
+                                 ^^^^^^^^^^^^
+            len(_edges(graph(True), EdgeType.BOUNDARY_ATTACHMENT))
+
+tests/matcher/test_frontend_relations.py:234: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/matcher/test_frontend_relations.py:80: in graph
+    g = fe.build_graph(_disk_image(), name="phase6_pin_disk",
+diagnostics/eth80_frontend.py:314: in build_graph
+    D_raw, _derived, _S_t, s_t, _T_prev = loop.step(
+dynamics/settle.py:200: in step
+    D_v1, S_t, s_t, T_prev = self.sf.step(
+perception/floor.py:154: in step
+    D_raw = self._get_lens_executor().run_all(
+lenses/base.py:872: in run_all
+    detections.update(self._run_contour_fragments(S_t, obs))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <lenses.base.LensExecutor object at 0x7f6f73684c90>
+S_t = StatePattern(t=0, X=[[1.0, 0.0056478636582267235, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.375, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0...0, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271], modality='2d', Y_C_time=[], state_hash=10953621756385423661)
+obs = <perception.observation_2d.Observation2D object at 0x7f6f73544910>
+
+    def _run_contour_fragments(self, S_t: Any, obs: Any = None) -> List[Detection]:
+        """[Stage 3] Pasupathy & Connor object-centred polar boundary fragments.
+    
+        Stream-2 contour polylines are subdivided into arc fragments and each is
+        encoded as (kappa, theta, r, tangent-vs-radial) relative to the object
+        visual-mass centroid. Emitted directly (bypassing the homeostatic
+        `_emit` path, the way the Action lens does) as `CONTOUR_FRAGMENT`
+        detections anchored on the owning contour region.
+        """
+        if obs is None or not hasattr(obs, "get_contours"):
+            return []
+        frs, meta = polar_boundary_fragments(
+            obs.get_contours(),
+            P.CONTOUR_FRAGMENT_LEN_FRAC,
+            P.CONTOUR_FRAGMENT_KAPPA_CAP,
+        )
+        if not frs:
+            return []
+        anchor_of: Dict[Any, Any] = {}
+        for u, r in enumerate(getattr(obs, "_regions", [])):  # TODO(agent): use a public accessor if one exists
+            ci = r.get("_contour_idx")
+            if ci is not None:
+                anchor_of.setdefault(ci, u)
+        out: List[Detection] = []
+        for f in frs:
+            a = anchor_of.get(f["contour"], f["contour"])
+            # [GRADED POPULATION] built from the fragment's CONTINUOUS
+            # measurements (the asinh-compressed signed curvature, the polar
+            # angle, the normalised radius, the tangent-vs-radial angle).
+            pop = population_from_values(
+                "CONTOUR_FRAGMENT",
+                (f.get("kappa_c", 0.0), f.get("theta_c", 0.0),
+                 f.get("r_c", 0.0), f.get("tvr_c", 0.0)))
+            sig = TypedSignature(kind="CANONICAL", class_="CONTOUR_FRAGMENT",
+                                 relation="OBJECT_CENTERED_V4", quantized=f["bins"],
+                                 population=pop)
+            _fd = Detection(k="ContourFragment", source_layer=1, scale=0, sigma=sig, alpha=a,
+                            z=min(1.0, f["arc"] / meta["R"]), t=getattr(S_t, "t", 0),
+                            rho=(("entity", a, 0, "+"), ("fragment", f["frag"], 0, "+")))
+            # [STAGE 6 / R1] The fragment's OWN place and tangent.  Its anchor
+            # `a` is its parent contour's region, shared by every fragment of
+            # that contour, and its signature keeps the tangent only as an
+            # unsigned difference from the radial angle.  Both measurements
+            # exist here; they ride on the detection (not in the signature, so
+            # the node is the same node) for the attachment relation to read.
+            object.__setattr__(_fd, "_frag_mid",
+                               (float(f["mid"][0]), float(f["mid"][1])))
+>           object.__setattr__(_fd, "_frag_host_arc",
+                               (float(f["host_arc_start"]), float(f["host_arc_end"])))
+E           AttributeError: 'Detection' object has no attribute '_frag_host_arc'
+
+lenses/base.py:1280: AttributeError
+____ test_switch_off_is_the_old_graph_and_switch_on_adds_only_the_relations ____
+
+params = <function params.<locals>._set at 0x7f6f725dd9e0>
+
+    def test_switch_off_is_the_old_graph_and_switch_on_adds_only_the_relations(params):
+        """RULE: the relations are one grouped switch.  Off: none of the three
+        edge types exists.  On: they appear; every node that is not a CurveComplex
+        is the same node, and every other edge among those nodes is the same edge
+        (the CurveComplex lens regroups under the same switch, R5)."""
+        here = os.path.dirname(os.path.abspath(__file__))
+        diag = os.path.join(os.path.dirname(here), "diagnostics")
+        if diag not in sys.path:
+            sys.path.insert(0, diag)
+        import eth80_frontend as fe
+    
+        new = {EdgeType.BOUNDARY_ATTACHMENT, EdgeType.BOUNDARY_SUCCESSOR,
+               EdgeType.ILLUSORY_INDUCER}
+        img = _disk_image()
+        params(GRAPH_STAGE6_RELATIONS=False, BINDER_COMPLETE_POSITION_MAP=False)
+>       off = fe.build_graph(img, name="disk", record_co_located=False)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/matcher/test_stage6_relations.py:721: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+diagnostics/eth80_frontend.py:314: in build_graph
+    D_raw, _derived, _S_t, s_t, _T_prev = loop.step(
+dynamics/settle.py:200: in step
+    D_v1, S_t, s_t, T_prev = self.sf.step(
+perception/floor.py:154: in step
+    D_raw = self._get_lens_executor().run_all(
+lenses/base.py:872: in run_all
+    detections.update(self._run_contour_fragments(S_t, obs))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <lenses.base.LensExecutor object at 0x7f6f722b3d90>
+S_t = StatePattern(t=0, X=[[1.0, 0.0056478636582267235, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.375, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0...0, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271], modality='2d', Y_C_time=[], state_hash=10953621756385423661)
+obs = <perception.observation_2d.Observation2D object at 0x7f6f7261fcd0>
+
+    def _run_contour_fragments(self, S_t: Any, obs: Any = None) -> List[Detection]:
+        """[Stage 3] Pasupathy & Connor object-centred polar boundary fragments.
+    
+        Stream-2 contour polylines are subdivided into arc fragments and each is
+        encoded as (kappa, theta, r, tangent-vs-radial) relative to the object
+        visual-mass centroid. Emitted directly (bypassing the homeostatic
+        `_emit` path, the way the Action lens does) as `CONTOUR_FRAGMENT`
+        detections anchored on the owning contour region.
+        """
+        if obs is None or not hasattr(obs, "get_contours"):
+            return []
+        frs, meta = polar_boundary_fragments(
+            obs.get_contours(),
+            P.CONTOUR_FRAGMENT_LEN_FRAC,
+            P.CONTOUR_FRAGMENT_KAPPA_CAP,
+        )
+        if not frs:
+            return []
+        anchor_of: Dict[Any, Any] = {}
+        for u, r in enumerate(getattr(obs, "_regions", [])):  # TODO(agent): use a public accessor if one exists
+            ci = r.get("_contour_idx")
+            if ci is not None:
+                anchor_of.setdefault(ci, u)
+        out: List[Detection] = []
+        for f in frs:
+            a = anchor_of.get(f["contour"], f["contour"])
+            # [GRADED POPULATION] built from the fragment's CONTINUOUS
+            # measurements (the asinh-compressed signed curvature, the polar
+            # angle, the normalised radius, the tangent-vs-radial angle).
+            pop = population_from_values(
+                "CONTOUR_FRAGMENT",
+                (f.get("kappa_c", 0.0), f.get("theta_c", 0.0),
+                 f.get("r_c", 0.0), f.get("tvr_c", 0.0)))
+            sig = TypedSignature(kind="CANONICAL", class_="CONTOUR_FRAGMENT",
+                                 relation="OBJECT_CENTERED_V4", quantized=f["bins"],
+                                 population=pop)
+            _fd = Detection(k="ContourFragment", source_layer=1, scale=0, sigma=sig, alpha=a,
+                            z=min(1.0, f["arc"] / meta["R"]), t=getattr(S_t, "t", 0),
+                            rho=(("entity", a, 0, "+"), ("fragment", f["frag"], 0, "+")))
+            # [STAGE 6 / R1] The fragment's OWN place and tangent.  Its anchor
+            # `a` is its parent contour's region, shared by every fragment of
+            # that contour, and its signature keeps the tangent only as an
+            # unsigned difference from the radial angle.  Both measurements
+            # exist here; they ride on the detection (not in the signature, so
+            # the node is the same node) for the attachment relation to read.
+            object.__setattr__(_fd, "_frag_mid",
+                               (float(f["mid"][0]), float(f["mid"][1])))
+>           object.__setattr__(_fd, "_frag_host_arc",
+                               (float(f["host_arc_start"]), float(f["host_arc_end"])))
+E           AttributeError: 'Detection' object has no attribute '_frag_host_arc'
+
+lenses/base.py:1280: AttributeError
+=========================== short test summary info ============================
+FAILED tests/matcher/test_frontend_relations.py::test_the_graph_cache_key_moves_when_a_graph_switch_moves
+FAILED tests/matcher/test_stage6_relations.py::test_switch_off_is_the_old_graph_and_switch_on_adds_only_the_relations
+ERROR tests/matcher/test_frontend_relations.py::test_the_real_front_end_writes_all_three_stage6_relations
+ERROR tests/matcher/test_frontend_relations.py::test_the_switch_off_writes_none_of_them
+ERROR tests/matcher/test_frontend_relations.py::test_the_slots_of_the_written_relations_take_more_than_one_value
+ERROR tests/matcher/test_frontend_relations.py::test_every_node_the_front_end_emits_is_on_exactly_one_side
+ERROR tests/matcher/test_frontend_relations.py::test_an_ambiguous_attachment_is_written_absent_and_counted
+2 failed, 510 passed, 5 errors in 33.25s

@@ -1,0 +1,28 @@
+{
+  "all_imported_product_paths": {
+    "core": "/home/user/Percept5/core",
+    "core.hashing": "/home/user/Percept5/core/hashing.py",
+    "core.population": "/home/user/Percept5/core/population.py",
+    "core.registries": "/home/user/Percept5/core/registries.py",
+    "core.slots": "/home/user/Percept5/core/slots.py",
+    "core.types": "/home/user/Percept5/core/types.py",
+    "parameters": "/home/user/Percept5/parameters/__init__.py",
+    "parameters._text": "/home/user/Percept5/parameters/_text.py",
+    "phase3": "/home/user/Percept5/phase3/__init__.py",
+    "phase3.harness": "/home/user/Percept5/phase3/harness",
+    "phase3.runtime": "/home/user/Percept5/phase3/runtime/__init__.py",
+    "phase3.runtime.bootstrap": "/home/user/Percept5/phase3/runtime/bootstrap.py"
+  },
+  "entry_script": "/home/user/Percept5/phase3/harness/prepare_corpora.py",
+  "hash_seed": "0",
+  "modules": {
+    "core.types": "/home/user/Percept5/core/types.py",
+    "parameters": "/home/user/Percept5/parameters/__init__.py"
+  },
+  "python": "3.11.2 (main, Apr  8 2026, 01:58:00) [GCC 12.2.0]",
+  "root": "/home/user/Percept5",
+  "sha256": {
+    "core.types": "c7e88a5c7567ffcf74a41ef14b3d71032e8185cb69c1c64c6b5ae497c80b7d4f",
+    "parameters": "2335d5651033e9e05a6216546839e2ac3ee90b7129e87a98159dffb2a3a1c699"
+  }
+}

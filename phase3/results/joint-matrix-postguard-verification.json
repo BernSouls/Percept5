@@ -1,0 +1,45 @@
+{
+  "comparisons": [
+    {
+      "class": "apple",
+      "frame": "apple2-022-000.png",
+      "equal": true
+    },
+    {
+      "class": "car",
+      "frame": "car2-022-000.png",
+      "equal": true
+    },
+    {
+      "class": "cow",
+      "frame": "cow2-022-000.png",
+      "equal": true
+    },
+    {
+      "class": "cup",
+      "frame": "cup2-022-000.png",
+      "equal": true
+    },
+    {
+      "class": "dog",
+      "frame": "dog2-022-000.png",
+      "equal": true
+    },
+    {
+      "class": "horse",
+      "frame": "horse2-022-000.png",
+      "equal": true
+    },
+    {
+      "class": "pear",
+      "frame": "pear2-022-000.png",
+      "equal": true
+    },
+    {
+      "class": "tomato",
+      "frame": "tomato2-022-000.png",
+      "equal": true
+    }
+  ],
+  "all_equal": true
+}

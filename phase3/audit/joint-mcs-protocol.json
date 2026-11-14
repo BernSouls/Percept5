@@ -1,0 +1,14 @@
+{
+  "protocol_id": "eth80-joint-mcs-v1",
+  "registration": "Written before any ETH80 class-matrix pair is scored; no post-observation tuning.",
+  "corpus": "ETH80_ALL8; native resolution, pinned reference object 1 and 16 held-out views from objects 2 and 3 per class",
+  "orientation": "row i is the single reference graph of class i; column j is the mean over all 16 held-out graphs of class j",
+  "graphs": "fresh product frontend, existing perceptual selection and named feature overlay, 512-edge frame budget; no content pooling, no template, no class labels in matcher, no filter or training",
+  "solver": "matching.alignment.global_consistency_alignment; same-lens signature similarity, one-to-one Hungarian seed followed by bounded reassignment with graded relational agreement; existing parameters MATCH_UNMATCHED_COST=0, MATCH_SYSTEMATICITY_WEIGHT=0.5, MATCH_ALIGN_ROUNDS=4, MATCH_ALIGN_MAX_PAIR_EVALS=200000, MATCH_ALIGN_BUDGET_REFINEMENT_ONLY=true; solve in both directions and choose the larger balanced score. The bounded heuristic is not certified globally optimal.",
+  "score": "2*(sum of mapped node signature similarities + sum of preserved same-type edge credits)/(nodes_A+nodes_B+edges_A+edges_B); each edge contributes its EdgeParams similarity if available on both sides, otherwise typed-edge presence (1); identity-only/no-shared-graded-axis contributions are presence evidence, never included in physical mean; empty denominator scores zero. No node boosts, learned distributions, axis-count edge amplification or null calibration.",
+  "mcs_similarity_decision": "The existing mcs_similarity has symmetric normalization but defaults to binary node credit and facilitates matched edge mass by axis count before capping; use the direct graded symmetric score instead.",
+  "pair_diagnostics": "average matched node and edge counts over 16 comparisons; mean graded edge similarity pooled over only matched edges with at least one shared graded axis; separately count graded and presence-only edges, unmatched nodes and budget exhaustions",
+  "repeat": "independent process with PYTHONHASHSEED 0 and 1729, OPENBLAS_NUM_THREADS=1, same hash-verified selected graph inputs, compare complete non-timing outputs and SHA-256",
+  "provenance": "each input extraction and every comparison asserts local module __file__ and frontend contract",
+  "tuning": "none; no changes after observing matrix"
+}

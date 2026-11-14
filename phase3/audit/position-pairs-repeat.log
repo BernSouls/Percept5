@@ -1,0 +1,27 @@
+built box_over_box 520 594 7.709351661000255
+built box_over_box_haze 520 535 7.340334556000016
+built box_over_box_test 500 565 6.867552245000297
+built cylinder_over_box 530 775 8.198869849999937
+built cylinder_over_box_shift 528 848 8.465814006999608
+built f_box_a 559 497 7.361151527000402
+built f_box_b 529 546 8.02941927699976
+built f_ctrl_box 379 312 8.158396195000023
+built f_ctrl_disk 397 393 7.670873406999817
+built f_cyl_a 503 659 7.24880204999954
+built f_cyl_b 492 589 8.272137148000184
+built f_disk_a 448 557 7.638292291000653
+built f_disk_b 479 606 7.94075805600005
+built f_haze_a 513 493 7.069931962000737
+built f_haze_b 523 571 7.51856995199978
+built single_box 375 372 8.304631903999507
+built single_disk 343 438 8.0124107620004
+pair box_over_box box_over_box_test 0.9305647329731241
+pair box_over_box box_over_box_haze 0.930721414715609
+pair cylinder_over_box cylinder_over_box_shift 0.9307721983725332
+pair f_box_a f_box_b 0.9298987924996686
+pair f_haze_a f_haze_b 0.9312567074537107
+pair f_disk_a f_disk_b 0.9318015033799493
+pair f_cyl_a f_cyl_b 0.9299079292081974
+pair single_disk f_ctrl_disk 0.9299494271204027
+pair single_box f_ctrl_box 0.9299465167928428
+DONE 0.9305120525245647

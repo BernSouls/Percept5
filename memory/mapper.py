@@ -26,6 +26,7 @@ Dependencies:
 """
 
 from __future__ import annotations
+from core.frontend_contract import frontend_contract
 
 from collections import defaultdict, deque
 from dataclasses import dataclass, field
@@ -685,8 +686,51 @@ class Mapper:
         self.transfer_loop_diag["query_action_hits"] += 1
         return best
 
+    @frontend_contract()
     def query_category(self, t, label_signal, window_subgraph,
                       read_only: bool = False) -> CategoryMatch:
+        from matching.perceptual_selection import prepare_perceptual_graph
+        if window_subgraph.perceptual_prepared:
+            selected = window_subgraph
+        else:
+            selected, diag = prepare_perceptual_graph(window_subgraph, self._sig_lookup)
+            self.diagnostics["perceptual_selection"] = diag
+        overrides = selected.signature_overrides
+        saved_provider, saved_cache = self._sig_provider, self._sig_cache
+        self._sig_provider = lambda nid: overrides.get(nid) or saved_provider(nid)
+        self._sig_cache = {}
+        try:
+            # Live matching is direct graph-to-graph, not pooled or
+            # discriminatively weighted. Historical method remains callable.
+            return self._query_category_joint(t, selected, read_only)
+        finally:
+            self._sig_provider, self._sig_cache = saved_provider, saved_cache
+
+    def _query_category_joint(self, t, query, read_only=False):
+        """Compare complete selected organizations to stored references."""
+        from matching.joint_mcs import joint_mcs
+        if not read_only:
+            self._begin_step(t)
+        self.diagnostics['category_queries'] += 1
+        self._last_query_core = query
+        self._last_query_kind = CoreKind.CATEGORY
+        signatures = self._collect_signatures(query)
+        labels = []
+        for entry in self.cl.entries:
+            if (entry.kind != CoreKind.CATEGORY or entry.core_tier != 'perceptual'
+                or getattr(entry, 'core_status', CoreStatus.CRYSTALLIZED) == CoreStatus.REJECTED
+                or not isinstance(entry.payload, CorePayload_Category)):
+                continue
+            result = joint_mcs(query, entry.core_subgraph, signatures, entry.core_node_signatures)
+            labels.append(CategoryLabel(core_hash=entry.canonical_hash, label=entry.payload.label,
+                raw_score=result.score, confidence=result.score * float(entry.reliability),
+                rank_score=result.score))
+        labels.sort(key=lambda cl: (-cl.rank_score, _label_sort_key(cl.label)))
+        self.diagnostics['category_labels_returned'] = len(labels)
+        return CategoryMatch(labels=labels)
+
+    def _query_category_selected(self, t, label_signal, window_subgraph,
+                                 read_only: bool = False) -> CategoryMatch:
         """Rank CATEGORY cores against a window.
 
         Args:
@@ -809,10 +853,10 @@ class Mapper:
 
             query_sigs = self._collect_signatures(content_query_core)
 
-            from consolidator import evidence_score, decide_with_gap
+            from consolidator import evidence_score, decide_with_gap, mcs_similarity
 
             per_label_best: Dict[Any, float] = {}
-            per_core: List[Tuple[CoreEntry, float, Dict[int, int]]] = []
+            per_core: List[Tuple[CoreEntry, float, Dict[int, int], float]] = []
             for idx in candidate_idxs:
                 entry = self.cl.entries[idx]
                 if getattr(entry, "core_status", CoreStatus.CRYSTALLIZED) == CoreStatus.REJECTED:
@@ -836,10 +880,12 @@ class Mapper:
                     query_sigs,
                     entry.core_node_signatures,
                 )
+                rank, _ = mcs_similarity(content_query_core, weighted_core,
+                                         query_sigs, entry.core_node_signatures)
                 label = entry.payload.label
                 if ev > per_label_best.get(label, -1.0):
                     per_label_best[label] = ev
-                per_core.append((entry, ev, corr))
+                per_core.append((entry, ev, corr, float(rank)))
 
             accepted, predicted_label, gap = decide_with_gap(per_label_best)
 
@@ -847,13 +893,13 @@ class Mapper:
                 accepted = False
 
             labels: List[CategoryLabel] = []
-            for entry, ev, corr in per_core:
+            for entry, ev, corr, rank in per_core:
                 labels.append(CategoryLabel(
                     core_hash=entry.canonical_hash,
                     label=entry.payload.label,
                     raw_score=float(ev),
                     confidence=float(ev) * float(entry.reliability),
-                    rank_score=float(ev),
+                    rank_score=float(rank),
                 ))
             labels.sort(key=lambda cl: (-cl.rank_score, _label_sort_key(cl.label)))
 
@@ -873,11 +919,12 @@ class Mapper:
             )
 
             if accepted and not read_only:
-                accepted_entry = next(
-                    (e for e, _, _ in per_core if e.payload.label == predicted_label),
-                    None,
+                accepted_match = max(
+                    (item for item in per_core if item[0].payload.label == predicted_label),
+                    key=lambda item: item[1], default=None,
                 )
-                if accepted_entry is not None:
+                if accepted_match is not None:
+                    accepted_entry, _, _, accepted_rank = accepted_match
                     identity_like = Identity(
                         core_hash=accepted_entry.canonical_hash,
                         score=per_label_best.get(predicted_label, 0.0),
@@ -886,7 +933,7 @@ class Mapper:
                             * float(accepted_entry.reliability),
                         matched_elements=0,
                         query_members=frozenset(),
-                        rank_score=per_label_best.get(predicted_label, 0.0),
+                        rank_score=accepted_rank,
                     )
                     if not read_only:
                         self._write_back(t, (identity_like,), CoreKind.CATEGORY)
@@ -1643,6 +1690,24 @@ class Mapper:
             return Subgraph(nodes=frozenset(), edges=frozenset(),
                             anchor_of_node={})
 
+        from core.frontend_contract import frontend_contract_active
+        if frontend_contract_active():
+            from matching.perceptual_selection import prepare_perceptual_graph
+            edges = {}
+            for n in sorted(live):
+                for e in self.cg.get_outgoing_edges(n):
+                    if e.child in live and self._edge_included(e, t):
+                        key = (e.parent, e.child, e.edge_type)
+                        # Fresh uncommitted binder edges have zero EMA weight;
+                        # their measured signal is the actual writer strength.
+                        edges[key] = max(float(e.weight), float(e.pending_signal))
+            complete = Subgraph(nodes=frozenset(live), edges=frozenset(edges),
+                                weights=edges, edge_params=edge_params_for(self.cg, edges),
+                                anchor_of_node=anchor_positions_for(live, self.cg.pattern_node_position))
+            selected, diag = prepare_perceptual_graph(complete, self._sig_lookup)
+            self.diagnostics["perceptual_selection"] = diag
+            return selected
+
         live_keyed = {n: self._node_canonical_key(n) for n in live}
 
         # Undirected weighted degree over the live set: the structural
@@ -1783,6 +1848,8 @@ class Mapper:
             anchor_of_node=anchor_out, node_weights=node_weights,
             weights=weights,
             t_junctions=getattr(sg, "t_junctions", frozenset()),
+            signature_overrides={n: v for n, v in sg.signature_overrides.items() if n in nodes},
+            perceptual_prepared=sg.perceptual_prepared,
         )
 
     # -------------------------------------------------------------------------
@@ -2078,6 +2145,15 @@ class Mapper:
         still the sharper template, and it is applied to the
         anti-unified core.
         """
+        from core.frontend_contract import frontend_contract_active
+        if frontend_contract_active():
+            # This input was already structure-selected from the complete
+            # frame. The old 20-node anti-unifier could immediately delete
+            # its families, edge parameters and graded signature overlay.
+            # Category matching must consume the selected perceptual graph;
+            # cognitive/action size limits remain unchanged.
+            return window
+
         # [O5a] Arm 1: the label-free support-weighted anti-unification.
         core = _support_weighted_anti_unification(
             window, self._sig_lookup, CORE_SIZE_CAP_NODES)
@@ -2104,11 +2180,15 @@ class Mapper:
         if template is None or not template.nodes:
             return window
 
-        # Deterministic exemplar: lowest WL hash (§5.3.2 representative).
-        exemplar = min(
-            positives,
-            key=lambda sg: _subgraph_wl_hash(sg, self._sig_lookup),
-        )
+        # [BUILD D5] The same median exemplar as structural_intersection;
+        # materializing in a different space undid the template's node/edge
+        # correspondence. Historical lowest-WL arm remains behind the flag.
+        from matching.structural_similarity import select_template_exemplar
+        if bool(getattr(P, "MATCH_TEMPLATE_MEDIAN_EXEMPLAR", False)):
+            exemplar = select_template_exemplar(positives)
+        else:
+            exemplar = min(positives,
+                           key=lambda sg: _subgraph_wl_hash(sg, self._sig_lookup))
         materialized = _materialize(template, exemplar, self._sig_lookup)
         if _subgraph_size(materialized) == 0:
             return window

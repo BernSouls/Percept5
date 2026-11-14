@@ -1,0 +1,54 @@
+{
+  "all_exactly_symmetric": true,
+  "all_original_scores_reproduced": true,
+  "pairs": [
+    {
+      "A": "apple1-000-000.png",
+      "A_to_B": 0.5750821925208364,
+      "B": "horse2-022-000.png",
+      "B_to_A": 0.5750821925208364,
+      "difference": 0.0,
+      "exactly_symmetric": true,
+      "heldout_class": "horse",
+      "original_score": 0.5750821925208364,
+      "reference_class": "apple",
+      "reproduces_original": true
+    },
+    {
+      "A": "horse1-000-000.png",
+      "A_to_B": 0.43728928738116757,
+      "B": "apple2-022-000.png",
+      "B_to_A": 0.43728928738116757,
+      "difference": 0.0,
+      "exactly_symmetric": true,
+      "heldout_class": "apple",
+      "original_score": 0.43728928738116757,
+      "reference_class": "horse",
+      "reproduces_original": true
+    },
+    {
+      "A": "car1-000-000.png",
+      "A_to_B": 0.35594565868472045,
+      "B": "cup2-022-000.png",
+      "B_to_A": 0.35594565868472045,
+      "difference": 0.0,
+      "exactly_symmetric": true,
+      "heldout_class": "cup",
+      "original_score": 0.35594565868472045,
+      "reference_class": "car",
+      "reproduces_original": true
+    },
+    {
+      "A": "car1-000-000.png",
+      "A_to_B": 0.48095243394346404,
+      "B": "car2-022-000.png",
+      "B_to_A": 0.48095243394346404,
+      "difference": 0.0,
+      "exactly_symmetric": true,
+      "heldout_class": "car",
+      "original_score": 0.48095243394346404,
+      "reference_class": "car",
+      "reproduces_original": true
+    }
+  ]
+}

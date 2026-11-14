@@ -544,7 +544,6 @@ def _sig_sim(a: Optional[TypedSignature], b: Optional[TypedSignature]) -> float:
     """
     if a is None or b is None:
         return 0.0
-
     # V4 Boundary Conformation: evaluate CONTOUR sequences with turning function alignment
     if (
         getattr(a, "class_", "") in ("CONTOUR", "CONTOUR_CONTENT")
@@ -561,10 +560,15 @@ def _sig_sim(a: Optional[TypedSignature], b: Optional[TypedSignature]) -> float:
         base_cycles = CIRCULAR_CYCLE_LENGTHS.get("CONTOUR", {})
 
         total_sq = 0.0
+        measured_base = 0
+        from core.registries import is_absent
         # [O2] The seven CONTOUR BASE slots, by name.
         a_base = slot_values(a, "CONTOUR", _CONTOUR_BASE_NAMES)
         b_base = slot_values(b, "CONTOUR", _CONTOUR_BASE_NAMES)
         for i in range(min(7, len(a_base), len(b_base))):
+            if is_absent(a_base[i]) or is_absent(b_base[i]):
+                continue
+            measured_base += 1
             d = abs(a_base[i] - b_base[i])
             if i in base_cycles:
                 n = base_cycles[i]
@@ -572,7 +576,7 @@ def _sig_sim(a: Optional[TypedSignature], b: Optional[TypedSignature]) -> float:
             sigma = base_ranges[i] / 3.0 if base_ranges[i] > 0.0 else 1.0
             total_sq += (d / sigma) ** 2
 
-        base_sim = math.exp(-total_sq / 7.0)
+        base_sim = math.exp(-total_sq / measured_base) if measured_base else 0.0
         # [STAGE 10 / AUDIT B4] THE GRADED FORMULA IS NOW GRADED.  The old
         # code returned 0.0 whenever base_sim <= 0.05, a hidden BINARY GATE
         # that contradicted the documented 0.35*base + 0.65*curv: a contour
@@ -585,13 +589,20 @@ def _sig_sim(a: Optional[TypedSignature], b: Optional[TypedSignature]) -> float:
         # Open-ended slicing guarantees resilience against CONTOUR_N_SEQ parameter changes
         seq_a = slot_slice(a, "CONTOUR", _CONTOUR_CURV_NAMES)
         seq_b = slot_slice(b, "CONTOUR", _CONTOUR_CURV_NAMES)
-        turns_a = [(float(q) - 4.0) * (math.pi / 4.0) for q in seq_a]
-        turns_b = [(float(q) - 4.0) * (math.pi / 4.0) for q in seq_b]
+        pairs = [(x, y) for x, y in zip(seq_a, seq_b)
+                 if not is_absent(x) and not is_absent(y)]
+        turns_a = [(float(x) - 4.0) * (math.pi / 4.0) for x, _ in pairs]
+        turns_b = [(float(y) - 4.0) * (math.pi / 4.0) for _, y in pairs]
         is_closed = (slot_value(a, "CONTOUR", "closure", default=0.0) >= 0.5)
 
-        curv_sim = turning_function_similarity(turns_a, turns_b, closed=is_closed, sigma=0.45)
-        # 35% base invariant features + 65% boundary conformation curvature sequence
-        return float(clamp(0.35 * base_sim + 0.65 * curv_sim, 0.0, 1.0))
+        curv_sim = (turning_function_similarity(turns_a, turns_b, closed=is_closed, sigma=0.45)
+                    if pairs else 0.0)
+        # Skip an unmeasured group rather than treating it as disagreement.
+        denominator = (0.35 if measured_base else 0.0) + (0.65 if pairs else 0.0)
+        physical = ((0.35 * base_sim + 0.65 * curv_sim) / denominator
+                    if denominator else 0.0)
+        from core.graded_features import feature_similarity
+        return float(clamp(feature_similarity(a, b, physical), 0.0, 1.0))
 
     # [O7] THE CONTEXT IS PASSED.  The similarity kernel supports a
     # per-context learned metric (core/registries.resolve_slot_weights),
@@ -617,6 +628,8 @@ GESTALT_LENS_BOOST: Dict[str, float] = {
     "Corner": 1.2,
     "T": 1.2,
     "Y": 1.2,
+    "L": 1.2,
+    "Arrow": 1.2,
 }
 
 
@@ -897,14 +910,14 @@ def _relational_agreement(
 
     edges_u = inc_a.get(u)
     if edges_u:
-        kept = 0.0
+        terms = []
         for w, et, outward in edges_u:
             mw = mapping.get(w)
             if mw is None:
                 if _t_junction_near_nodes(anchors_a.get(u),
                                           anchors_a.get(w), junc_a,
                                           index=tj_a):
-                    kept += P.PARTIAL_OCCLUSION_CREDIT
+                    terms.append(P.PARTIAL_OCCLUSION_CREDIT)
                 continue
             if et in UNDIRECTED_EDGE_TYPES:
                 lo, hi = (v, mw) if v < mw else (mw, v)
@@ -914,8 +927,8 @@ def _relational_agreement(
             if ok:
                 a1, a2 = (u, w) if outward else (w, u)
                 b1, b2 = (v, mw) if outward else (mw, v)
-                kept += _pair_edge_sim(a1, a2, b1, b2, et, p_a, p_b)
-        agree_u = kept / len(edges_u)
+                terms.append(_pair_edge_sim(a1, a2, b1, b2, et, p_a, p_b))
+        agree_u = math.fsum(terms) / len(edges_u)
     else:
         agree_u = 1.0
 
@@ -923,7 +936,7 @@ def _relational_agreement(
     if edges_v:
         if rev is None:
             rev = {vv: uu for uu, vv in mapping.items()}
-        kept = 0.0
+        terms = []
         counted = 0
         for x, et, outward in edges_v:
             # [STAGE 10 / AUDIT B1] the denominator is ALL of v's relations,
@@ -938,7 +951,7 @@ def _relational_agreement(
                 if _t_junction_near_nodes(anchors_b.get(v),
                                           anchors_b.get(x), junc_b,
                                           index=tj_b):
-                    kept += P.PARTIAL_OCCLUSION_CREDIT
+                    terms.append(P.PARTIAL_OCCLUSION_CREDIT)
                 continue
             if et in UNDIRECTED_EDGE_TYPES:
                 lo, hi = (u, ux) if u < ux else (ux, u)
@@ -951,8 +964,8 @@ def _relational_agreement(
             if ok:
                 b1, b2 = (v, x) if outward else (x, v)
                 a1, a2 = (u, ux) if outward else (ux, u)
-                kept += _pair_edge_sim(a1, a2, b1, b2, et, p_a, p_b)
-        agree_v = min(1.0, kept / counted) if counted else 1.0
+                terms.append(_pair_edge_sim(a1, a2, b1, b2, et, p_a, p_b))
+        agree_v = min(1.0, math.fsum(terms) / counted) if counted else 1.0
     else:
         agree_v = 1.0
     return min(agree_u, agree_v)
@@ -1042,7 +1055,8 @@ def _t_junction_near_nodes(anchor_a, anchor_b, junctions,
 
 def _incidence(sg: Subgraph, sigs: Dict[int, Tuple[str, TypedSignature]]):
     inc: Dict[int, List[Tuple[int, EdgeType, bool]]] = defaultdict(list)
-    for srt, dst, et in sg.edges:
+    # Canonical incidence order, including direction as a tie-break.
+    for srt, dst, et in sorted(sg.edges, key=lambda e: (min(e[0], e[1]), max(e[0], e[1]), e[2].value, e[0], e[1])):
         if srt in sigs and dst in sigs:
             inc[srt].append((dst, et, True))
             inc[dst].append((srt, et, False))
@@ -1166,7 +1180,7 @@ def organization_alignment(
             q = base * agree
             if q > 0.0:
                 qvals[u] = q
-        return mapping, qvals, sum(qvals.values())
+        return mapping, qvals, math.fsum(qvals.values())
 
     results = [_refine(_assign(_sig_w)), _refine(_assign(_prof_w))]
     results.sort(key=lambda r: -r[2])
@@ -1214,8 +1228,8 @@ def edge_structural_alignment(
 
     # 2. Topological alignment modulated by relational EdgeParams similarity
     set_b = set(edges_b)
-    aligned_w = 0.0
-    for src, dst, et in edges_a:
+    aligned_terms = []
+    for src, dst, et in sorted(edges_a, key=lambda e: (min(e[0], e[1]), max(e[0], e[1]), e[2].value, e[0], e[1])):
         mapped_src = node_mapping.get(src)
         mapped_dst = node_mapping.get(dst)
         if mapped_src is not None and mapped_dst is not None:
@@ -1226,9 +1240,9 @@ def edge_structural_alignment(
                 is_matched = (mapped_src, mapped_dst, et) in set_b
 
             if is_matched:
-                aligned_w += _pair_edge_sim(src, dst, mapped_src, mapped_dst, et, params_a, params_b)
+                aligned_terms.append(_pair_edge_sim(src, dst, mapped_src, mapped_dst, et, params_a, params_b))
 
-    topo_align = aligned_w / (max(len_a, len_b) + EPSILON)
+    topo_align = math.fsum(aligned_terms) / (max(len_a, len_b) + EPSILON)
     edge_score = W_SIZE * edge_ratio + W_TYPE * binder_overlap + W_ALIGN * topo_align
     return clamp(edge_score, 0.0, 1.0)
 
@@ -1370,6 +1384,16 @@ class StructuralTemplate:
     edges: List[Tuple] = field(default_factory=list)
 
 
+def select_template_exemplar(positives: List[Subgraph]) -> Subgraph:
+    """One median rule for intersection AND materialization (D5, both sites)."""
+    if not positives: raise ValueError("no template positives")
+    key = lambda sg: (len(sg.nodes), len(sg.edges), sorted(sg.nodes))
+    if bool(getattr(P, "MATCH_TEMPLATE_MEDIAN_EXEMPLAR", False)):
+        ordered = sorted(positives, key=key)
+        return ordered[len(ordered) // 2]
+    return min(positives, key=key)
+
+
 def structural_intersection(
     positives: List[Subgraph],
     sig_provider: SignatureProvider,
@@ -1432,12 +1456,7 @@ def structural_intersection(
     # MATCH_TEMPLATE_MEDIAN_EXEMPLAR, default OFF = the historical
     # behaviour): a node absent from the smallest (occluded) view can
     # never enter the template.
-    if bool(getattr(P, "MATCH_TEMPLATE_MEDIAN_EXEMPLAR", False)):
-        _ordered = sorted(positives,
-                          key=lambda sg: (len(sg.nodes), len(sg.edges), sorted(sg.nodes)))
-        exemplar = _ordered[len(_ordered) // 2]
-    else:
-        exemplar = min(positives, key=lambda sg: (len(sg.nodes), len(sg.edges), sorted(sg.nodes)))
+    exemplar = select_template_exemplar(positives)
     other_positives = [sg for sg in positives if sg is not exemplar]
 
     if diag is not None:

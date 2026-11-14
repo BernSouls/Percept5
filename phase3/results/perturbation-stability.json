@@ -1,0 +1,158 @@
+{
+  "controls": [
+    {
+      "edges": 35,
+      "isotropy_elongation_pearson": 0.9999999999999998,
+      "isotropy_values": {
+        "max": 0.9977385183388615,
+        "median": 0.968112078835216,
+        "min": 0.8224357401439436,
+        "n": 256,
+        "p95": 0.9934040116351525
+      },
+      "largest_component": 21,
+      "name": "flat_grey_96",
+      "nodes": 117,
+      "orientation_bound": 0,
+      "orientation_raw": 0,
+      "orientation_window": 0,
+      "regions": 256,
+      "roughness_below_gate": 256,
+      "roughness_values": {
+        "max": 1.7881393432617188e-07,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 256,
+        "p95": 1.7881393432617188e-07
+      }
+    },
+    {
+      "edges": 43,
+      "isotropy_elongation_pearson": 1.0,
+      "isotropy_values": {
+        "max": 0.9971623095673623,
+        "median": 0.9426343881022663,
+        "min": 0.8293923370425268,
+        "n": 256,
+        "p95": 0.990163707603561
+      },
+      "largest_component": 25,
+      "name": "flat_white_96",
+      "nodes": 121,
+      "orientation_bound": 0,
+      "orientation_raw": 0,
+      "orientation_window": 0,
+      "regions": 256,
+      "roughness_below_gate": 256,
+      "roughness_values": {
+        "max": 2.384185791015625e-07,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 256,
+        "p95": 2.384185791015625e-07
+      }
+    },
+    {
+      "edges": 679,
+      "isotropy_elongation_pearson": 0.9906846103296582,
+      "isotropy_values": {
+        "max": 0.9980652977948166,
+        "median": 0.956276615917356,
+        "min": 0.0,
+        "n": 309,
+        "p95": 0.9881623549333504
+      },
+      "largest_component": 174,
+      "name": "noise_96",
+      "nodes": 894,
+      "orientation_bound": 41,
+      "orientation_raw": 41,
+      "orientation_window": 41,
+      "regions": 309,
+      "roughness_below_gate": 23,
+      "roughness_values": {
+        "max": 0.26593413949012756,
+        "median": 0.20900948345661163,
+        "min": 0.0,
+        "n": 309,
+        "p95": 0.23792506158351895
+      }
+    },
+    {
+      "edges": 36,
+      "isotropy_elongation_pearson": 0.9999999999999999,
+      "isotropy_values": {
+        "max": 0.9678422348661182,
+        "median": 0.8279231939941529,
+        "min": 0.6979838255084218,
+        "n": 256,
+        "p95": 0.9155389399813887
+      },
+      "largest_component": 27,
+      "name": "flat_grey_256",
+      "nodes": 139,
+      "orientation_bound": 0,
+      "orientation_raw": 0,
+      "orientation_window": 0,
+      "regions": 256,
+      "roughness_below_gate": 256,
+      "roughness_values": {
+        "max": 1.7881393432617188e-07,
+        "median": 5.960464477539063e-08,
+        "min": 5.960464477539063e-08,
+        "n": 256,
+        "p95": 1.1920928955078125e-07
+      }
+    }
+  ],
+  "occlusion": {
+    "contours_base": 18,
+    "contours_occluded": 19,
+    "corpus": "SYNTHETIC_CONTROLS",
+    "edges_base": 563,
+    "edges_occluded": 733,
+    "fixture": "nonconvex_polygon_central_20pct_width_removed",
+    "fragment_drift_px": {
+      "max": 58.137767414994535,
+      "median": 34.20526275297414,
+      "min": 15.231546211727817,
+      "n": 7,
+      "p95": 56.607753917907516
+    },
+    "fragments_base": 16,
+    "fragments_occluded": 22,
+    "matches": 7,
+    "nodes_base": 372,
+    "nodes_occluded": 460,
+    "removed_fraction_of_width": 0.2,
+    "signature_changed": 7,
+    "unmatched_base": 9,
+    "unmatched_occluded": 15
+  },
+  "pm2": {
+    "drift_largest_per_translation_p95_px": 86.6687703738113,
+    "drift_max_over_all_matched_fragments_px": 96.46242791885346,
+    "drift_median_of_per_translation_medians_px": 2.0,
+    "fragment_matches_total": 536,
+    "fragment_signature_changed_total": 319,
+    "graded_bins_same": 3216,
+    "graded_bins_share": 0.7011118378024853,
+    "matched_edges": 4587,
+    "topological_identity_same": 4314,
+    "topological_identity_share": 0.9404839764551994,
+    "translations": 32
+  },
+  "pm3": {
+    "drift_largest_per_translation_p95_px": 78.36612788698955,
+    "drift_max_over_all_matched_fragments_px": 102.30347012687302,
+    "drift_median_of_per_translation_medians_px": 1.0,
+    "fragment_matches_total": 584,
+    "fragment_signature_changed_total": 332,
+    "graded_bins_same": 2645,
+    "graded_bins_share": 0.7064636752136753,
+    "matched_edges": 3744,
+    "topological_identity_same": 3531,
+    "topological_identity_share": 0.9431089743589743,
+    "translations": 32
+  }
+}

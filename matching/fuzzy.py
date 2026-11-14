@@ -25,6 +25,7 @@ Pure and deterministic. No corpus state, no scoring tuned against an outcome.
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 from typing import Dict, List, Mapping, Optional, Sequence, Tuple
 
 import parameters as P
@@ -75,9 +76,8 @@ def _edge_param_mean(
         for (s, d, et) in sg_b.edges if et in UNDIRECTED_EDGE_TYPES
     }
     b_dir = {(s, d, et) for (s, d, et) in sg_b.edges if et not in UNDIRECTED_EDGE_TYPES}
-    total = 0.0
-    n = 0
-    for (s, d, et) in sorted(sg_a.edges, key=lambda t: (t[0], t[1], getattr(t[2], "value", 0))):
+    terms = []
+    for (s, d, et) in sorted(sg_a.edges, key=lambda t: (min(t[0], t[1]), max(t[0], t[1]), getattr(t[2], "value", 0), t[0], t[1])):
         ms = mapping.get(s)
         md = mapping.get(d)
         if ms is None or md is None:
@@ -91,11 +91,10 @@ def _edge_param_mean(
             continue
         ep_a = _lookup_edge_params(sg_a.edge_params, s, d, et)
         ep_b = _lookup_edge_params(sg_b.edge_params, ms, md, et)
-        total += _pair_edge_sim_typed(
+        terms.append(_pair_edge_sim_typed(
             s, d, et, ep_a, ms, md, et, ep_b, use_confidence,
-        )
-        n += 1
-    return total / n if n else 1.0
+        ))
+    return math.fsum(terms) / len(terms) if terms else 1.0
 
 
 def fuzzy_match(
@@ -142,9 +141,13 @@ def fuzzy_match(
         [_sig_sim(sa, sb) for sb in sigs_b] for sa in sigs_a
     ]
 
-    chance = mean_pairwise_similarity(matrix)
-
     from .alignment import global_consistency_alignment
+    from core.frontend_contract import frontend_contract_active
+    edge_similarity = None
+    if frontend_contract_active():
+        from matching.joint_mcs import edge_pair_credit
+        def edge_similarity(x, y, u, v, et):
+            return edge_pair_credit(sg_a, sg_b, x, y, u, v, et)
     al = global_consistency_alignment(
         nodes_a,
         nodes_b,
@@ -156,19 +159,35 @@ def fuzzy_match(
         rounds=rounds,
         max_pair_evals=max_pair_evals,
         sim=matrix,
+        edge_similarity=edge_similarity,
         budget_refinement_only=bool(
             getattr(P, "MATCH_ALIGN_BUDGET_REFINEMENT_ONLY", True)),
     )
 
+    # Registered off-correspondence null: selected pairs are evidence, not
+    # null alternatives. With no alternatives the null is unobserved; use
+    # zero as the reference and discount evidence by one half below.
+    alternatives = [matrix[i][j] for i, u in enumerate(nodes_a)
+                    for j, v in enumerate(nodes_b) if al.mapping.get(u) != v]
+    chance = sum(alternatives) / len(alternatives) if alternatives else 0.0
     ntot = len(nodes_a) + len(nodes_b)
     weighted = 2.0 * sum(al.quality.values()) / ntot if ntot else 0.0
     node_cal = NullModel(chance).calibrate(weighted)
+    if not alternatives and nodes_a and nodes_b:
+        node_cal *= 0.5
     quality_mean = (
         sum(al.quality.values()) / len(al.quality) if al.quality else 0.0
     )
     edge_param_mean = _edge_param_mean(sg_a, sg_b, al.mapping, use_confidence)
-    edge_term = al.edge_coverage() * edge_param_mean
-    score = node_cal * ((1.0 - edge_weight) + edge_weight * edge_term)
+    # No relations on BOTH sides is a neutral relational factor, not a
+    # half-credit discount. Otherwise retain the shipped weighted blend of
+    # node evidence and relational coverage.
+    if not sg_a.edges and not sg_b.edges:
+        edge_term = 1.0
+        score = node_cal
+    else:
+        edge_term = al.edge_coverage() * edge_param_mean
+        score = node_cal * ((1.0 - edge_weight) + edge_weight * edge_term)
 
     return FuzzyMatch(
         mapping=dict(al.mapping),

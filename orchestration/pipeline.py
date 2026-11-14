@@ -21,6 +21,7 @@ from typing import Any, Callable, Dict, FrozenSet, List, Optional, Set, Tuple
 from collections import defaultdict, deque
 
 import parameters as P
+from core.frontend_contract import frontend_contract
 from core.hashing import (
     _detection_sort_key,
     _node_signature_hash,
@@ -1080,6 +1081,7 @@ class Pipeline:
             anchor_positions=_ap, extraction_scale=_es)
         return dets, S_t, s_t, T_prev
 
+    @frontend_contract()
     def step(self):
         """Execute one full v31 step."""
         t = self.t
@@ -2195,7 +2197,11 @@ class Pipeline:
                 and self.category_manager is not None
             ):
                 self._category_match_this_step = {}
-                situation_for_cat = self.mapper.build_situation_subgraph(t)
+                # Category perception is a frame input, not the cognitive
+                # fired/focus situation (which retains its own 50-node cap).
+                # Build from the complete live pattern graph even when
+                # learned concepts have fired this step.
+                situation_for_cat = self.mapper._spatial_situation(t)
                 labels_sorted = sorted(
                     self._derive_label_signals(t),
                     key=lambda s: serialize_value(s.label),
@@ -3254,8 +3260,21 @@ class Pipeline:
         window = self.providers.state_index(s_t)
         if window is None or not window.nodes:
             return
-        self.window_buffer.evict_stale(t)
         label_signals = self._derive_label_signals(t)
+        from core.frontend_contract import frontend_contract_active
+        if frontend_contract_active():
+            # Register one reference observation per present label; do not
+            # collect negative windows or invoke the supervised manager.
+            for signal in label_signals:
+                if signal.polarity <= 0:
+                    continue
+                exists = any(e.kind == CoreKind.CATEGORY and e.core_tier == 'perceptual'
+                             and getattr(e.payload, 'label', None) == signal.label
+                             for e in self.consolidator.core_library.entries)
+                if not exists:
+                    self._extract_category_core(t, signal.label, [window], [])
+            return
+        self.window_buffer.evict_stale(t)
         for sig in label_signals:
             self.window_buffer.record(sig.label, sig.polarity, window, t)
         # [Phase 1 Decision 2 / V5-04] Manager owns the ready-trigger +
@@ -3412,8 +3431,9 @@ class Pipeline:
         if not positives:
             self.consolidation_diagnostics["category_insufficient_windows"] += 1
             return
-        negatives = index.windows_without(members, len(positives))
-        if not negatives and len(index) > 0:
+        from core.frontend_contract import frontend_contract_active
+        negatives = [] if frontend_contract_active() else index.windows_without(members, len(positives))
+        if not frontend_contract_active() and not negatives and len(index) > 0:
             # Distinguish WHY negatives are empty.
             # [ISSUE 4 FIX / ADAPTATION — FIX B] StatePatternIndex is
             # label-agnostic: windows are keyed by state id and carry no
@@ -3537,6 +3557,12 @@ class Pipeline:
         (_consolidation_sweep, _trigger_bootstrap_consolidation,
         _update_label_windows) guards it.
         """
+        from core.frontend_contract import frontend_contract_active
+        if frontend_contract_active():
+            # One observation becomes a reference; no positive/negative
+            # training, diversity gate, discrimination or learned weights.
+            return self.consolidator.discriminative_core(
+                t, label, positives, (), source_concept_id=source_concept_id)
         if len(positives) < P.THETA_CATEGORY_MIN_POSITIVES:
             self.consolidation_diagnostics[
                 "category_insufficient_windows"
@@ -4125,6 +4151,11 @@ class StatePatternIndex:
         self._index[s_t] = Subgraph(
             nodes=frozenset(nodes),
             edges=frozenset(edges),
+            # Preserve current writer signal for downstream family selection,
+            # including newly observed edges whose EMA has not yet committed.
+            weights={e: max(float(self.cg.edges[e].weight),
+                            float(self.cg.edges[e].pending_signal))
+                     for e in edges if e in self.cg.edges},
             # [Pass 24] Populate edge_params from the concept graph's edge
             # store. Without this, _mcs_accumulate's graded edge matching
             # never fires: qp/cp are both None and param_sim falls through

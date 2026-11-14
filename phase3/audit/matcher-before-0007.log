@@ -1,0 +1,199 @@
+.................................................................EEEEEF. [ 14%]
+......................................................................F. [ 28%]
+........................................................................ [ 43%]
+........................................................................ [ 57%]
+........................................................................ [ 71%]
+........................................................................ [ 86%]
+................F........F...........................................    [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_the_real_front_end_writes_all_three_stage6_relations __
+
+    @pytest.fixture(scope="module")
+    def on():
+>       return graph(True)
+               ^^^^^^^^^^^
+
+tests/matcher/test_frontend_relations.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+switches_on = True
+
+    def graph(switches_on: bool):
+        """The real front end's graph of the scene, built once per switch setting."""
+        key = bool(switches_on)
+        if key in _CACHE:
+            return _CACHE[key]
+        _diag_on_path()
+>       import eth80_frontend as fe
+E       ModuleNotFoundError: No module named 'eth80_frontend'
+
+tests/matcher/test_frontend_relations.py:73: ModuleNotFoundError
+__________ ERROR at setup of test_the_switch_off_writes_none_of_them ___________
+
+    @pytest.fixture(scope="module")
+    def off():
+>       return graph(False)
+               ^^^^^^^^^^^^
+
+tests/matcher/test_frontend_relations.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+switches_on = False
+
+    def graph(switches_on: bool):
+        """The real front end's graph of the scene, built once per switch setting."""
+        key = bool(switches_on)
+        if key in _CACHE:
+            return _CACHE[key]
+        _diag_on_path()
+>       import eth80_frontend as fe
+E       ModuleNotFoundError: No module named 'eth80_frontend'
+
+tests/matcher/test_frontend_relations.py:73: ModuleNotFoundError
+_ ERROR at setup of test_the_slots_of_the_written_relations_take_more_than_one_value _
+
+    @pytest.fixture(scope="module")
+    def on():
+>       return graph(True)
+               ^^^^^^^^^^^
+
+tests/matcher/test_frontend_relations.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+switches_on = True
+
+    def graph(switches_on: bool):
+        """The real front end's graph of the scene, built once per switch setting."""
+        key = bool(switches_on)
+        if key in _CACHE:
+            return _CACHE[key]
+        _diag_on_path()
+>       import eth80_frontend as fe
+E       ModuleNotFoundError: No module named 'eth80_frontend'
+
+tests/matcher/test_frontend_relations.py:73: ModuleNotFoundError
+_ ERROR at setup of test_every_node_the_front_end_emits_is_on_exactly_one_side _
+
+    @pytest.fixture(scope="module")
+    def on():
+>       return graph(True)
+               ^^^^^^^^^^^
+
+tests/matcher/test_frontend_relations.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+switches_on = True
+
+    def graph(switches_on: bool):
+        """The real front end's graph of the scene, built once per switch setting."""
+        key = bool(switches_on)
+        if key in _CACHE:
+            return _CACHE[key]
+        _diag_on_path()
+>       import eth80_frontend as fe
+E       ModuleNotFoundError: No module named 'eth80_frontend'
+
+tests/matcher/test_frontend_relations.py:73: ModuleNotFoundError
+_ ERROR at setup of test_an_ambiguous_attachment_is_written_absent_and_counted _
+
+    @pytest.fixture(scope="module")
+    def on():
+>       return graph(True)
+               ^^^^^^^^^^^
+
+tests/matcher/test_frontend_relations.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+switches_on = True
+
+    def graph(switches_on: bool):
+        """The real front end's graph of the scene, built once per switch setting."""
+        key = bool(switches_on)
+        if key in _CACHE:
+            return _CACHE[key]
+        _diag_on_path()
+>       import eth80_frontend as fe
+E       ModuleNotFoundError: No module named 'eth80_frontend'
+
+tests/matcher/test_frontend_relations.py:73: ModuleNotFoundError
+=================================== FAILURES ===================================
+___________ test_the_graph_cache_key_moves_when_a_graph_switch_moves ___________
+
+params = <function params.<locals>._set at 0x7f094e2adbc0>
+
+    def test_the_graph_cache_key_moves_when_a_graph_switch_moves(params):
+        """PIN (7.28, in its end-to-end form): two graphs that differ must never
+        share a cache key.  The key is read from the same function `graph_for`
+        uses, and the two graphs are the two this module built."""
+        _diag_on_path()
+>       import eth80_frontend as fe
+E       ModuleNotFoundError: No module named 'eth80_frontend'
+
+tests/matcher/test_frontend_relations.py:226: ModuleNotFoundError
+____________________ test_the_partition_is_the_pinned_list _____________________
+
+    def test_the_partition_is_the_pinned_list():
+        assert FRAME_LENS_TYPES == {
+            "Contour", "ContourFragment", "Corner", "Junction", "T", "Y",
+            "CurveComplex", "Orientation", "CONTOUR_PEAK", "PEAK_CHAIN",
+            "EndStopped", "IllusoryContour", "RegionShape"}
+>       assert ATTRIBUTE_LENS_TYPES == {
+            "Color", "Texture", "Position", "Boundary", "Polarity",
+            "TextureBoundary", "BorderOwnership", "Surface", "Onset"}
+E       AssertionError: assert frozenset({'B...'Onset', ...}) == {'BorderOwner...osition', ...}
+E         
+E         Extra items in the left set:
+E         'EffectPresent'
+E         'Size'
+E         'OrientationPol'
+E         'Motion'
+E         Use -v to get more diff
+
+tests/matcher/test_relation_frame_partition.py:33: AssertionError
+____ test_switch_off_is_the_old_graph_and_switch_on_adds_only_the_relations ____
+
+params = <function params.<locals>._set at 0x7f094e1709a0>
+
+    def test_switch_off_is_the_old_graph_and_switch_on_adds_only_the_relations(params):
+        """RULE: the relations are one grouped switch.  Off: none of the three
+        edge types exists.  On: they appear; every node that is not a CurveComplex
+        is the same node, and every other edge among those nodes is the same edge
+        (the CurveComplex lens regroups under the same switch, R5)."""
+        here = os.path.dirname(os.path.abspath(__file__))
+        diag = os.path.join(os.path.dirname(here), "diagnostics")
+        if diag not in sys.path:
+            sys.path.insert(0, diag)
+>       import eth80_frontend as fe
+E       ModuleNotFoundError: No module named 'eth80_frontend'
+
+tests/matcher/test_stage6_relations.py:715: ModuleNotFoundError
+______________ test_the_graph_cache_key_carries_the_switch_values ______________
+
+params = <function params.<locals>._set at 0x7f094e173100>
+
+    def test_the_graph_cache_key_carries_the_switch_values(params):
+        """PIN (T1).  Two arm values of one front-end switch -- same source bytes,
+        same image, same process -- must key to two different cache entries.  The
+        committed T1 run did not: both arms recorded the same `frontend_digest`
+        and the same 208 matched edges, and the run reported 0 of 75 predictions
+        moved because it had measured one graph twice."""
+        # the front end lives in diagnostics/, which is not on the pins' path
+        diag = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                            "diagnostics")
+        if diag not in sys.path:
+            sys.path.insert(0, diag)
+>       import eth80_frontend as fe
+E       ModuleNotFoundError: No module named 'eth80_frontend'
+
+tests/matcher/test_stage6_relations.py:1019: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/matcher/test_frontend_relations.py::test_the_graph_cache_key_moves_when_a_graph_switch_moves
+FAILED tests/matcher/test_relation_frame_partition.py::test_the_partition_is_the_pinned_list
+FAILED tests/matcher/test_stage6_relations.py::test_switch_off_is_the_old_graph_and_switch_on_adds_only_the_relations
+FAILED tests/matcher/test_stage6_relations.py::test_the_graph_cache_key_carries_the_switch_values
+ERROR tests/matcher/test_frontend_relations.py::test_the_real_front_end_writes_all_three_stage6_relations
+ERROR tests/matcher/test_frontend_relations.py::test_the_switch_off_writes_none_of_them
+ERROR tests/matcher/test_frontend_relations.py::test_the_slots_of_the_written_relations_take_more_than_one_value
+ERROR tests/matcher/test_frontend_relations.py::test_every_node_the_front_end_emits_is_on_exactly_one_side
+ERROR tests/matcher/test_frontend_relations.py::test_an_ambiguous_attachment_is_written_absent_and_counted
+4 failed, 492 passed, 5 errors in 9.73s

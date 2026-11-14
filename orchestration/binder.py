@@ -1853,6 +1853,7 @@ class Binder:
                 if u == v:
                     continue
                 dist = _pos_dist(det_pos[a], det_pos[b])
+                if dist > 3.0 * R: continue
                 delta = abs(det_theta[a] - det_theta[b])
                 # theta is a half-circle quantity: pi - delta folds the
                 # wrap-around without a modulo.
@@ -1887,7 +1888,12 @@ class Binder:
                                    default=4.0)
                 chir_b = slot_value(b.sigma, "CONTOUR", "chirality",
                                    default=4.0)
-                curv_agree = max(0.0, min(1.0, 1.0 - abs(chir_a - chir_b) / 8.0))
+                from core.registries import is_absent
+                from core.frontend_contract import frontend_contract_active
+                if frontend_contract_active() and (len(a.sigma.quantized) <= 6 or len(b.sigma.quantized) <= 6 or is_absent(chir_a) or is_absent(chir_b)):
+                    curv_agree = None
+                else:
+                    curv_agree = max(0.0, min(1.0, 1.0 - abs(chir_a - chir_b) / 8.0))
                 ep = _edge_params(
                     "EDGE_CONTOUR_CONTINUITY",
                     {"dist": dist_w, "turn": turn, "curv_agree": curv_agree},
@@ -1901,7 +1907,7 @@ class Binder:
                         {"gap": dist_w,
                          "turn_angle": turn,
                          "perp_offset": None,
-                         "curv_agree": curv_agree * 2.0 - 1.0},
+                         "curv_agree": (curv_agree * 2.0 - 1.0 if curv_agree is not None else None)},
                         # [0,1] chirality agreement re-ranged to [-1,1]:
                         # opposite-sign chirality IS full disagreement.
                         sign=1, confidence=float(clamp(signal, 0.0, 1.0)),
@@ -1958,6 +1964,7 @@ class Binder:
                 if u == v:
                     continue
                 dist = _pos_dist(det_pos[j], det_pos[c])
+                if dist > 3.0 * R: continue
                 signal = 1.0 / (1.0 + dist / R)
                 # [Pass 22] Incidence angle: the chord from the junction to
                 # the contour versus the contour's own dominant tangent. High
@@ -3092,7 +3099,10 @@ class Binder:
                 continue
             u = node_ids[a]
             q_a = a.sigma.quantized
-            chir_a = (q_a[6] - 4.0) if len(q_a) > 6 else 0.0
+            from core.frontend_contract import frontend_contract_active
+            from core.registries import is_absent
+            measured_a = len(q_a) > 6 and not is_absent(q_a[6])
+            chir_a = (q_a[6] - 4.0) if measured_a else 0.0
             for j in range(i + 1, len(contour_dets)):
                 b = contour_dets[j]
                 pb = anchor_positions.get(b.alpha)
@@ -3108,17 +3118,21 @@ class Binder:
                 if dist > 2.0 * R:
                     continue
                 q_b = b.sigma.quantized
-                chir_b = (q_b[6] - 4.0) if len(q_b) > 6 else 0.0
-                same_sign = (chir_a * chir_b > 0.0) or (abs(chir_a) < 0.5 and abs(chir_b) < 0.5)
+                measured_b = len(q_b) > 6 and not is_absent(q_b[6])
+                chir_b = (q_b[6] - 4.0) if measured_b else 0.0
+                measured = measured_a and measured_b
+                same_sign = ((not measured and frontend_contract_active()) or
+                             (chir_a * chir_b > 0.0) or (abs(chir_a) < 0.5 and abs(chir_b) < 0.5))
                 if not same_sign:
                     continue
-                signal = math.exp(-dist / R) * (1.0 - abs(chir_a - chir_b) / 8.0)
+                signal = math.exp(-dist / R) * (1.0 - abs(chir_a - chir_b) / 8.0 if measured or not frontend_contract_active() else 1.0)
                 if signal <= 0.0:
                     continue
                 # [P2] THE NAMED WRITER: the difference of the two contours'
                 # NET SIGNED TURNS in RADIANS (the chirality is the net
                 # signed turn over 2*pi) and the separation in WAVELENGTHS.
-                curv_diff = abs(chir_a - chir_b) * 2.0 * math.pi
+                curv_diff = (abs(chir_a - chir_b) * 2.0 * math.pi
+                             if measured or not frontend_contract_active() else None)
                 dist_w = dist / max(extraction_scale, 1e-6)
                 src, dst = (u, v) if u < v else (v, u)
                 ep = _edge_params(
@@ -3133,7 +3147,8 @@ class Binder:
                         {"gap": dist_w,
                          "turn_angle": None,
                          "perp_offset": None,
-                         "curv_agree": (1.0 - curv_diff / 8.0) * 2.0 - 1.0},
+                         "curv_agree": ((1.0 - curv_diff / 8.0) * 2.0 - 1.0
+                                        if curv_diff is not None else None)},
                         sign=1, confidence=float(clamp(signal, 0.0, 1.0)),
                         enabled=True,
                     )
@@ -5776,6 +5791,7 @@ class Binder:
                 if not all(math.isfinite(x) for x in pb[:2]):
                     continue
                 dist = _pos_dist(pa[:2], pb[:2])
+                if dist > 3.0 * r_med: continue
                 if not math.isfinite(dist):
                     continue
                 signal = math.exp(-dist / (r_med + EPSILON))
@@ -6163,7 +6179,11 @@ class Binder:
             # relation are CATEGORICAL lookup keys.
             gap_sp = chord / max(L, 1e-6)
             perp_sp = perp / max(L, 1e-6)
-            rel = _polarity_relation(_pol_of(rep[f_]), _pol_of(rep[s_]))
+            _pol_f, _pol_s = _pol_of(rep[f_]), _pol_of(rep[s_])
+            rel = _polarity_relation(_pol_f, _pol_s)
+            from core.frontend_contract import frontend_contract_active
+            measured_rel = (None if frontend_contract_active() and
+                            (_pol_f is None or _pol_s is None) else rel)
             signal = sig * (1.0 if mutual
                             else P.ORIENTATION_CONTINUITY_MUTUAL_FLOOR)
             if rel == 0.0:
@@ -6173,7 +6193,7 @@ class Binder:
                 "EDGE_ORIENTATION_CONTINUITY",
                 {"dist": gap_sp, "perp": perp_sp, "cocirc_asym": asym,
                  "turn": turn, "tail_role": _role(fi), "head_role": _role(si),
-                 "polarity_rel": rel},
+                 "polarity_rel": measured_rel},
                 sign=1,
                 confidence=float(clamp(signal, 0.0, 1.0)),
             )
@@ -7002,6 +7022,7 @@ class Binder:
                 dx = pb[0] - pa[0]
                 dy = pb[1] - pa[1]
                 dist = math.sqrt(dx * dx + dy * dy)
+                if dist > 3.0 * tau_gap: continue
                 sig_angle = math.exp(
                     -((d_theta - angle_center) / sigma_theta) ** 2
                 )

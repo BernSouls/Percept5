@@ -1,0 +1,1086 @@
+{
+  "repository": "chenchkx/ETH-80",
+  "commit": "9243466b9ca5f15765c88fdaf17c4f10c15a8574",
+  "archive_sha256": "77ef3bcada529341efe5a84f1da344f3e7dbabc8ddfadf6f494b3378332d90b5",
+  "split_tag": "ETH80-split-v1",
+  "files": [
+    {
+      "class": "apple",
+      "source_path": "1/1/apple1-000-000.png",
+      "path": "data/ETH-80/apple/apple1-000-000.png",
+      "sha256": "02194e917e53eeb1b701d1e6366db62744487136fbf1235fa849e9a35d8a196b",
+      "bytes": 105062
+    },
+    {
+      "class": "apple",
+      "source_path": "1/1/apple1-045-180.png",
+      "path": "data/ETH-80/apple/apple1-045-180.png",
+      "sha256": "d601460e016e2e995685e34e62f7c7b1b4adc4fc1c4fcc84e0526b5af9126e74",
+      "bytes": 99619
+    },
+    {
+      "class": "apple",
+      "source_path": "1/1/apple1-045-270.png",
+      "path": "data/ETH-80/apple/apple1-045-270.png",
+      "sha256": "15ad7b28001158f2b400c350e96efa4e3d855234557ad65c5ed119cc5e17e5be",
+      "bytes": 97073
+    },
+    {
+      "class": "apple",
+      "source_path": "1/1/apple1-066-117.png",
+      "path": "data/ETH-80/apple/apple1-066-117.png",
+      "sha256": "60d49c7b1b423adb49c87c7bd94b2c143cb6edd230fb5e0ff82854a8f416def1",
+      "bytes": 88877
+    },
+    {
+      "class": "apple",
+      "source_path": "1/1/apple1-090-045.png",
+      "path": "data/ETH-80/apple/apple1-090-045.png",
+      "sha256": "f0a42d2652621d722b84f0ade6c187f9a15db86d35850b90e52b4dc3e1e97d7f",
+      "bytes": 80799
+    },
+    {
+      "class": "apple",
+      "source_path": "1/1/apple1-090-158.png",
+      "path": "data/ETH-80/apple/apple1-090-158.png",
+      "sha256": "2d123459734a27fea6d5e4108b70b8a921ec7c822e12dad550b50d1ef95f80d5",
+      "bytes": 87882
+    },
+    {
+      "class": "apple",
+      "source_path": "1/1/apple1-090-202.png",
+      "path": "data/ETH-80/apple/apple1-090-202.png",
+      "sha256": "70f8e292e8239f8f3c960fc47188abd5156c6d3ba06f20d3db7e178fb206f596",
+      "bytes": 89552
+    },
+    {
+      "class": "apple",
+      "source_path": "1/1/apple1-090-292.png",
+      "path": "data/ETH-80/apple/apple1-090-292.png",
+      "sha256": "442ea99a394aa4b7b5f7ba84916bfbd6ebda5bffc0b773b39c6537dc998e608e",
+      "bytes": 87985
+    },
+    {
+      "class": "apple",
+      "source_path": "1/10/apple10-035-225.png",
+      "path": "data/ETH-80/apple/apple10-035-225.png",
+      "sha256": "aeaf007b8abd1a39a9fa0cd3ebf01d49d2cfab4bd7927436c5dcddb1a8f9ad10",
+      "bytes": 110581
+    },
+    {
+      "class": "apple",
+      "source_path": "1/10/apple10-045-090.png",
+      "path": "data/ETH-80/apple/apple10-045-090.png",
+      "sha256": "65695e52b0f5708ce4e7600b99f7e104e0a47fb72a5c48e83e26d5ee26bb4091",
+      "bytes": 102348
+    },
+    {
+      "class": "apple",
+      "source_path": "1/10/apple10-066-117.png",
+      "path": "data/ETH-80/apple/apple10-066-117.png",
+      "sha256": "25cf4bb24f0eb39ae729bd6c2d1d296861eacebb6f2da5f93e3e3c3af231716d",
+      "bytes": 95177
+    },
+    {
+      "class": "apple",
+      "source_path": "1/10/apple10-068-000.png",
+      "path": "data/ETH-80/apple/apple10-068-000.png",
+      "sha256": "22fe9b5255ab55aabe7b39fcb8fdac372e3a55a8fff8ee3bceafbf0a2b64c574",
+      "bytes": 96566
+    },
+    {
+      "class": "apple",
+      "source_path": "1/10/apple10-068-270.png",
+      "path": "data/ETH-80/apple/apple10-068-270.png",
+      "sha256": "a422b717ca9dde743c5cb22d391b0b03d61c9f9907ab60ef1ac91faf0612c697",
+      "bytes": 98390
+    },
+    {
+      "class": "apple",
+      "source_path": "1/2/apple2-090-225.png",
+      "path": "data/ETH-80/apple/apple2-090-225.png",
+      "sha256": "92b65cd17453bd1b5989dc5d4347833fb225da7f6b1aa04b33b017cd2ff82059",
+      "bytes": 78469
+    },
+    {
+      "class": "apple",
+      "source_path": "1/3/apple3-068-090.png",
+      "path": "data/ETH-80/apple/apple3-068-090.png",
+      "sha256": "6d3fb610841154c8daaf6a03faea4b299010206404abcd653fec439b4fe687a9",
+      "bytes": 88595
+    },
+    {
+      "class": "apple",
+      "source_path": "1/3/apple3-068-180.png",
+      "path": "data/ETH-80/apple/apple3-068-180.png",
+      "sha256": "5699225dcd35b36d8f898a3286084770cff9d3e2c8637a48c0e00bd23ccc953c",
+      "bytes": 86604
+    },
+    {
+      "class": "apple",
+      "source_path": "1/3/apple3-068-270.png",
+      "path": "data/ETH-80/apple/apple3-068-270.png",
+      "sha256": "f27fe1a53c9e16d4ff68a67e6d7d0ece3dca3aeb2761995224b49cfef436c926",
+      "bytes": 86963
+    },
+    {
+      "class": "apple",
+      "source_path": "1/3/apple3-090-180.png",
+      "path": "data/ETH-80/apple/apple3-090-180.png",
+      "sha256": "15d6f0f5e875fdd9be24b842e5076d6169aa218af13f05d8cd59165e13bc5ff7",
+      "bytes": 81680
+    },
+    {
+      "class": "apple",
+      "source_path": "1/3/apple3-090-315.png",
+      "path": "data/ETH-80/apple/apple3-090-315.png",
+      "sha256": "eb4e30f08b74560956ca2add590611e4362cd2d98e0693d32b4adc0e02c9ecb2",
+      "bytes": 83354
+    },
+    {
+      "class": "apple",
+      "source_path": "1/4/apple4-022-270.png",
+      "path": "data/ETH-80/apple/apple4-022-270.png",
+      "sha256": "c52de9da521bc5787db2e4d6b43c1e3aab4fe6958c3b123dba82a657d96e3a6a",
+      "bytes": 93033
+    },
+    {
+      "class": "apple",
+      "source_path": "1/4/apple4-066-153.png",
+      "path": "data/ETH-80/apple/apple4-066-153.png",
+      "sha256": "47679c99c149e7802ab2646d33e8c1fca32c9329505a5e5e34d6ad3f4877e3d5",
+      "bytes": 83916
+    },
+    {
+      "class": "apple",
+      "source_path": "1/4/apple4-066-333.png",
+      "path": "data/ETH-80/apple/apple4-066-333.png",
+      "sha256": "eff41ed827312e3f758083ff048082ae8ab9596c00206e27ba1f61777572668a",
+      "bytes": 81941
+    },
+    {
+      "class": "apple",
+      "source_path": "1/6/apple6-066-243.png",
+      "path": "data/ETH-80/apple/apple6-066-243.png",
+      "sha256": "a990d3cc9755bf399718d8b599b70e3794ddafe64b7e85d6f10fb0137c67f884",
+      "bytes": 99429
+    },
+    {
+      "class": "apple",
+      "source_path": "1/6/apple6-066-297.png",
+      "path": "data/ETH-80/apple/apple6-066-297.png",
+      "sha256": "d031a0432610ca8c5738482a9baa4b255f602c7db54e7eece385411e012a54a3",
+      "bytes": 99888
+    },
+    {
+      "class": "apple",
+      "source_path": "1/6/apple6-090-292.png",
+      "path": "data/ETH-80/apple/apple6-090-292.png",
+      "sha256": "e8058de1ff2db3ccaa3f4cf235027f4da06d5ee3fdcc5f3e7b3f438b66f8174f",
+      "bytes": 91928
+    },
+    {
+      "class": "apple",
+      "source_path": "1/7/apple7-035-225.png",
+      "path": "data/ETH-80/apple/apple7-035-225.png",
+      "sha256": "3d92c162bec3dd5035f8f623df26593e95cec671042b3f8c77072457492b4da7",
+      "bytes": 103138
+    },
+    {
+      "class": "apple",
+      "source_path": "1/7/apple7-066-027.png",
+      "path": "data/ETH-80/apple/apple7-066-027.png",
+      "sha256": "30be9e85194acb59b7f4e87f13c8266e8b7878c27b98f586cfe0db44c34ec8a1",
+      "bytes": 90862
+    },
+    {
+      "class": "apple",
+      "source_path": "1/7/apple7-090-180.png",
+      "path": "data/ETH-80/apple/apple7-090-180.png",
+      "sha256": "1ace23ec6958d1a62046dd9af37a7412cdb64a05f3d2068c40d67335d6d356b2",
+      "bytes": 95530
+    },
+    {
+      "class": "apple",
+      "source_path": "1/7/apple7-090-292.png",
+      "path": "data/ETH-80/apple/apple7-090-292.png",
+      "sha256": "ce726775cfd330b1d22379ef4a48d97e4b1496ed64090302fbf09179e49bb2cd",
+      "bytes": 89574
+    },
+    {
+      "class": "apple",
+      "source_path": "1/8/apple8-068-090.png",
+      "path": "data/ETH-80/apple/apple8-068-090.png",
+      "sha256": "9b5ed4b4e924799a8d5259f6fd50f27644ac5f8131d7a4c733faffcdeb65a04a",
+      "bytes": 92666
+    },
+    {
+      "class": "apple",
+      "source_path": "1/8/apple8-068-270.png",
+      "path": "data/ETH-80/apple/apple8-068-270.png",
+      "sha256": "4cbe0ff5b8e67572959f3da18ac9a5fd14d433555d89926c065bbcb01b6b05dd",
+      "bytes": 88247
+    },
+    {
+      "class": "apple",
+      "source_path": "1/9/apple9-045-090.png",
+      "path": "data/ETH-80/apple/apple9-045-090.png",
+      "sha256": "01c4449d6a07f1941be633920bca16cd911a88555a8614462d04c696258bc084",
+      "bytes": 99840
+    },
+    {
+      "class": "apple",
+      "source_path": "1/9/apple9-090-270.png",
+      "path": "data/ETH-80/apple/apple9-090-270.png",
+      "sha256": "6036bbb4a9c78c5007cfecb6ffa931c6dcb0bc4f8f0fe85642dcbe1ddd62644d",
+      "bytes": 90452
+    },
+    {
+      "class": "car",
+      "source_path": "2/1/car1-000-000.png",
+      "path": "data/ETH-80/car/car1-000-000.png",
+      "sha256": "ddea70072b7665dac84a78cc0d08243801794123449e80abbffeb1a0efb7d2d3",
+      "bytes": 108784
+    },
+    {
+      "class": "car",
+      "source_path": "2/1/car1-022-090.png",
+      "path": "data/ETH-80/car/car1-022-090.png",
+      "sha256": "bfdb480795d537d28d596a6c054dda1580cabd527156fbf9b2bbabfc2444a928",
+      "bytes": 108229
+    },
+    {
+      "class": "car",
+      "source_path": "2/1/car1-022-270.png",
+      "path": "data/ETH-80/car/car1-022-270.png",
+      "sha256": "058849e3d45cc90128b727908b065f151c1db7b6a2f614dc8fa0a59c93ace19b",
+      "bytes": 105145
+    },
+    {
+      "class": "car",
+      "source_path": "2/1/car1-045-180.png",
+      "path": "data/ETH-80/car/car1-045-180.png",
+      "sha256": "e6add83a4181e6c28a1aa1faede4f5f297d5bff0f22a4364c29ebf56b4c3d212",
+      "bytes": 113894
+    },
+    {
+      "class": "car",
+      "source_path": "2/1/car1-045-270.png",
+      "path": "data/ETH-80/car/car1-045-270.png",
+      "sha256": "4dc79de635d4e9d684ba8b7a07dd274ed3fd7f448e0e25c26fe2f8a269aeabc9",
+      "bytes": 103699
+    },
+    {
+      "class": "car",
+      "source_path": "2/1/car1-090-068.png",
+      "path": "data/ETH-80/car/car1-090-068.png",
+      "sha256": "344199e763559bf4d7d9adb03e824265b1eb082f22dbd1e2363895c757798085",
+      "bytes": 86787
+    },
+    {
+      "class": "car",
+      "source_path": "2/1/car1-090-090.png",
+      "path": "data/ETH-80/car/car1-090-090.png",
+      "sha256": "b22370d7bcfa8e069095080c0b56f480b902db813a19f9809c6d6677678c1472",
+      "bytes": 83105
+    },
+    {
+      "class": "car",
+      "source_path": "2/10/car14-022-270.png",
+      "path": "data/ETH-80/car/car14-022-270.png",
+      "sha256": "2da868393264b8e1e442d6d616ac2a3f6d9db9a90b13d6b4dae237696533429f",
+      "bytes": 115501
+    },
+    {
+      "class": "car",
+      "source_path": "2/10/car14-045-180.png",
+      "path": "data/ETH-80/car/car14-045-180.png",
+      "sha256": "7ec2fbda9b13a0040ca3d02a454f6f13a330e1412e9de891431fe8555f3dc7cf",
+      "bytes": 124509
+    },
+    {
+      "class": "car",
+      "source_path": "2/10/car14-066-027.png",
+      "path": "data/ETH-80/car/car14-066-027.png",
+      "sha256": "e858e335909f917a844a2716cc641b279455e783a0ecc47ec6ba4832f2d78942",
+      "bytes": 110136
+    },
+    {
+      "class": "car",
+      "source_path": "2/10/car14-090-135.png",
+      "path": "data/ETH-80/car/car14-090-135.png",
+      "sha256": "0922ae150ecb5530c95e5cac619473775070308179721f208d528e7d0fe0aa04",
+      "bytes": 90924
+    },
+    {
+      "class": "car",
+      "source_path": "2/10/car14-090-225.png",
+      "path": "data/ETH-80/car/car14-090-225.png",
+      "sha256": "13653d044aa07b21c28637344aa20c83b65ba2b6f0f834914749ece2665cf5f2",
+      "bytes": 90446
+    },
+    {
+      "class": "car",
+      "source_path": "2/2/car2-035-315.png",
+      "path": "data/ETH-80/car/car2-035-315.png",
+      "sha256": "22d59622af325dd2189b2ef52d3dc9e58b21d9c7df39ec92d3ca7b138f201d03",
+      "bytes": 120136
+    },
+    {
+      "class": "car",
+      "source_path": "2/2/car2-068-270.png",
+      "path": "data/ETH-80/car/car2-068-270.png",
+      "sha256": "7630893827d87443b577c1fa5986a778578a0497c4f56ebd5a73068e24db7430",
+      "bytes": 99149
+    },
+    {
+      "class": "car",
+      "source_path": "2/2/car2-090-068.png",
+      "path": "data/ETH-80/car/car2-090-068.png",
+      "sha256": "dad11a76ca8f6c46b50f1b74b5945df4b2ac2ca394ed3de54c4069f0097471c1",
+      "bytes": 89272
+    },
+    {
+      "class": "car",
+      "source_path": "2/2/car2-090-158.png",
+      "path": "data/ETH-80/car/car2-090-158.png",
+      "sha256": "0f8677e8406fa5f7ac554b4ca289ec91d441b460454a0d9d3a4f556f4d5ec8b3",
+      "bytes": 91636
+    },
+    {
+      "class": "car",
+      "source_path": "2/3/car3-000-000.png",
+      "path": "data/ETH-80/car/car3-000-000.png",
+      "sha256": "2ee245b72553839cb04b1eb312f904f8d7823cc8c34cc1400d63b292958aba41",
+      "bytes": 126385
+    },
+    {
+      "class": "car",
+      "source_path": "2/3/car3-066-207.png",
+      "path": "data/ETH-80/car/car3-066-207.png",
+      "sha256": "56c8c69268e570bda1343c6f2f27f7228d786b910d008b2027d6c27500b26c34",
+      "bytes": 116222
+    },
+    {
+      "class": "car",
+      "source_path": "2/3/car3-066-297.png",
+      "path": "data/ETH-80/car/car3-066-297.png",
+      "sha256": "ee1517bc94b61875980ea82267aaadcd463b3400dbc72e9c67064557faeaa79b",
+      "bytes": 111939
+    },
+    {
+      "class": "car",
+      "source_path": "2/3/car3-068-090.png",
+      "path": "data/ETH-80/car/car3-068-090.png",
+      "sha256": "6d102e95c88583d69a8609c0cd1166dc45fc339b43009d7f2369b028b8f5963a",
+      "bytes": 102197
+    },
+    {
+      "class": "car",
+      "source_path": "2/3/car3-090-068.png",
+      "path": "data/ETH-80/car/car3-090-068.png",
+      "sha256": "8d28c985cb49a01d68b75799461ddb26cce4b0615eaccacca48c9a25dad73c0a",
+      "bytes": 90777
+    },
+    {
+      "class": "car",
+      "source_path": "2/4/car11-022-000.png",
+      "path": "data/ETH-80/car/car11-022-000.png",
+      "sha256": "f24a4eeae90dbb8fbbbef665a9efe09ebc11c3e357891f1d325662643af3eeb4",
+      "bytes": 123660
+    },
+    {
+      "class": "car",
+      "source_path": "2/4/car11-090-045.png",
+      "path": "data/ETH-80/car/car11-090-045.png",
+      "sha256": "081738b2cc0e6969b29829da3f1a9c10561918dd8866215cf5eb1404067eac2e",
+      "bytes": 94278
+    },
+    {
+      "class": "car",
+      "source_path": "2/4/car11-090-202.png",
+      "path": "data/ETH-80/car/car11-090-202.png",
+      "sha256": "baf4550e5444a2b09f6f7ff08421b5a4e373e417db552e5c15005945eacea739",
+      "bytes": 92770
+    },
+    {
+      "class": "car",
+      "source_path": "2/4/car11-090-248.png",
+      "path": "data/ETH-80/car/car11-090-248.png",
+      "sha256": "c0791c16cf47a1bb8d009d9bc5e1befa8a8e896635fcb519e7af58fbc2b2e89d",
+      "bytes": 89294
+    },
+    {
+      "class": "car",
+      "source_path": "2/4/car11-090-270.png",
+      "path": "data/ETH-80/car/car11-090-270.png",
+      "sha256": "606b89e7b364e934a2e750ad92199ca9f492bc780214cded06d7622cd0afd289",
+      "bytes": 86431
+    },
+    {
+      "class": "car",
+      "source_path": "2/4/car11-090-338.png",
+      "path": "data/ETH-80/car/car11-090-338.png",
+      "sha256": "3c2158a35ad84cf9060d7f0d24d53497fa59f6f5b2184b6e87527e71cc4f2f7b",
+      "bytes": 93066
+    },
+    {
+      "class": "car",
+      "source_path": "2/5/car5-035-135.png",
+      "path": "data/ETH-80/car/car5-035-135.png",
+      "sha256": "530d134750bfe057c93fe9da28cbd2177b03b2dc7e8b0e6fb5853975194f43a5",
+      "bytes": 125907
+    },
+    {
+      "class": "car",
+      "source_path": "2/5/car5-066-333.png",
+      "path": "data/ETH-80/car/car5-066-333.png",
+      "sha256": "a52a61286182b71064d0d849739d8c65b21a8b60c229d28f9346ef04e5ac9ab4",
+      "bytes": 107370
+    },
+    {
+      "class": "car",
+      "source_path": "2/5/car5-090-112.png",
+      "path": "data/ETH-80/car/car5-090-112.png",
+      "sha256": "ea5e01795fe8292f819ce8b27b2e2577ae571b629c25fe1a6f02253ff73599a9",
+      "bytes": 90340
+    },
+    {
+      "class": "car",
+      "source_path": "2/6/car6-035-045.png",
+      "path": "data/ETH-80/car/car6-035-045.png",
+      "sha256": "a0c1494a86cedc74e5d099ddbe49c713179d63f70f6bed7946d6fce82f459c5b",
+      "bytes": 109476
+    },
+    {
+      "class": "car",
+      "source_path": "2/6/car6-045-270.png",
+      "path": "data/ETH-80/car/car6-045-270.png",
+      "sha256": "8b9531f0270260938cf420964068bf655c2c018c2629a5cbb81e9d1f17539a8f",
+      "bytes": 101312
+    },
+    {
+      "class": "car",
+      "source_path": "2/6/car6-066-243.png",
+      "path": "data/ETH-80/car/car6-066-243.png",
+      "sha256": "f330a0868a35f2cdf4fb14311b793b8f9a20d504bd1bfbef3ff5fc9fac972265",
+      "bytes": 103029
+    },
+    {
+      "class": "car",
+      "source_path": "2/6/car6-090-090.png",
+      "path": "data/ETH-80/car/car6-090-090.png",
+      "sha256": "d6a4a1b26eec797f41776c3a246382f28a94c946dd1fbe34ef4b8076221bf64a",
+      "bytes": 82486
+    },
+    {
+      "class": "car",
+      "source_path": "2/6/car6-090-270.png",
+      "path": "data/ETH-80/car/car6-090-270.png",
+      "sha256": "8ebc72a27d7bc6e24798add6dc3c8c6da3bc5b09f176408cdbdd499ec2f35d49",
+      "bytes": 83303
+    },
+    {
+      "class": "car",
+      "source_path": "2/7/car7-035-135.png",
+      "path": "data/ETH-80/car/car7-035-135.png",
+      "sha256": "bf90ed6c7f90f8050bd56e37d36c6ccfa2227bc85a01c102029faf6e02a9806e",
+      "bytes": 127873
+    },
+    {
+      "class": "car",
+      "source_path": "2/7/car7-066-027.png",
+      "path": "data/ETH-80/car/car7-066-027.png",
+      "sha256": "cbf62decdafabe3359fc9608bcccefee57b8450f8f9629dd469c6f03e0a2eb94",
+      "bytes": 112962
+    },
+    {
+      "class": "car",
+      "source_path": "2/7/car7-090-022.png",
+      "path": "data/ETH-80/car/car7-090-022.png",
+      "sha256": "0c79c9d518955733b3562798d3ff50d263461753774ec781fadbd0126c71591c",
+      "bytes": 94184
+    },
+    {
+      "class": "car",
+      "source_path": "2/7/car7-090-068.png",
+      "path": "data/ETH-80/car/car7-090-068.png",
+      "sha256": "73edc63dd72c26725346416199ffb07e0ab8097e484c35e2f4dd94b147e21315",
+      "bytes": 90035
+    },
+    {
+      "class": "car",
+      "source_path": "2/7/car7-090-158.png",
+      "path": "data/ETH-80/car/car7-090-158.png",
+      "sha256": "caef98397dbb6197a549264c3047818cf661ba778a07c628dc46d471aedd33d8",
+      "bytes": 92873
+    },
+    {
+      "class": "car",
+      "source_path": "2/7/car7-090-202.png",
+      "path": "data/ETH-80/car/car7-090-202.png",
+      "sha256": "cbbdda55dbc02675427143b827afc1a1eb624b906eaee49397f65d1492d3d40e",
+      "bytes": 93691
+    },
+    {
+      "class": "car",
+      "source_path": "2/7/car7-090-292.png",
+      "path": "data/ETH-80/car/car7-090-292.png",
+      "sha256": "21bdb25e2b438536908daf081def87135d624055e4ae8c2856334fd23f35ddd6",
+      "bytes": 90181
+    },
+    {
+      "class": "car",
+      "source_path": "2/8/car12-066-207.png",
+      "path": "data/ETH-80/car/car12-066-207.png",
+      "sha256": "88408ab3c701b718cb7c33b5331d7c1d5fbf206f4ae869d01ba978fe9073d8a2",
+      "bytes": 117834
+    },
+    {
+      "class": "car",
+      "source_path": "2/8/car12-090-000.png",
+      "path": "data/ETH-80/car/car12-090-000.png",
+      "sha256": "ae9ad8c4884056c5bc80dfd78a9dff0cf62bc8051b4428582b1f77b37cad27e2",
+      "bytes": 93976
+    },
+    {
+      "class": "car",
+      "source_path": "2/8/car12-090-112.png",
+      "path": "data/ETH-80/car/car12-090-112.png",
+      "sha256": "3c49c061cf1ec1047e542e735950cad42ecb35f431882118d5d82328341d6ec1",
+      "bytes": 90239
+    },
+    {
+      "class": "car",
+      "source_path": "2/8/car12-090-202.png",
+      "path": "data/ETH-80/car/car12-090-202.png",
+      "sha256": "8b1b1802e5a32b4a486c614c030adc3dd67f81f0295e1c1ce5885b16943994a0",
+      "bytes": 95256
+    },
+    {
+      "class": "car",
+      "source_path": "2/8/car12-090-225.png",
+      "path": "data/ETH-80/car/car12-090-225.png",
+      "sha256": "e673383084c70a55c14ffd19e5df9dd4bbc41a4fafb82bee533d05f5f6f1726e",
+      "bytes": 93019
+    },
+    {
+      "class": "car",
+      "source_path": "2/9/car9-022-000.png",
+      "path": "data/ETH-80/car/car9-022-000.png",
+      "sha256": "d797820526ad99c348ccba3895c9e4770556b401fb03c2d633e5a4eaf015f9ce",
+      "bytes": 115919
+    },
+    {
+      "class": "car",
+      "source_path": "2/9/car9-068-180.png",
+      "path": "data/ETH-80/car/car9-068-180.png",
+      "sha256": "6f2a50dcab3b29ffe242a305e7f2fd69dd1db1d2a9066672465cf3909bcf0ac2",
+      "bytes": 106979
+    },
+    {
+      "class": "cup",
+      "source_path": "4/1/cup1-000-000.png",
+      "path": "data/ETH-80/cup/cup1-000-000.png",
+      "sha256": "652ebf342527d2ec01dbfd61bbee740fbf87a1ed706591357661ff84cd148dc8",
+      "bytes": 89897
+    },
+    {
+      "class": "cup",
+      "source_path": "4/1/cup1-068-180.png",
+      "path": "data/ETH-80/cup/cup1-068-180.png",
+      "sha256": "767d25f138267665db4c2c3301f391005b4b4d75e5fd93266ee312ae4d577db2",
+      "bytes": 76547
+    },
+    {
+      "class": "cup",
+      "source_path": "4/1/cup1-090-158.png",
+      "path": "data/ETH-80/cup/cup1-090-158.png",
+      "sha256": "49daffe671fbcc25f8e6cbac5561df1c28694a5c30a333ca8af3c4d6843c3e91",
+      "bytes": 71742
+    },
+    {
+      "class": "cup",
+      "source_path": "4/1/cup1-090-248.png",
+      "path": "data/ETH-80/cup/cup1-090-248.png",
+      "sha256": "2ecde0d7669d0a8deb9df5392d885f25c9ff7e190be854f880accc46ddd8807f",
+      "bytes": 72609
+    },
+    {
+      "class": "cup",
+      "source_path": "4/10/cup10-090-158.png",
+      "path": "data/ETH-80/cup/cup10-090-158.png",
+      "sha256": "9f76ce4f43f5e320c790393ca5c1c36c33dbfca53d7e2633e7a0f159fc4e5abf",
+      "bytes": 76426
+    },
+    {
+      "class": "cup",
+      "source_path": "4/10/cup10-090-270.png",
+      "path": "data/ETH-80/cup/cup10-090-270.png",
+      "sha256": "e52186ada3b4a2cf0e709617efff7dea8ff41add415e8cc598c4f0b183cad633",
+      "bytes": 76184
+    },
+    {
+      "class": "cup",
+      "source_path": "4/2/cup2-022-090.png",
+      "path": "data/ETH-80/cup/cup2-022-090.png",
+      "sha256": "da3d8ba653ef608e339d1be4683012e1ba7569712cea92b89733801c6b0e8003",
+      "bytes": 91582
+    },
+    {
+      "class": "cup",
+      "source_path": "4/2/cup2-045-000.png",
+      "path": "data/ETH-80/cup/cup2-045-000.png",
+      "sha256": "e55475f461be5d78a6787cc62f92c5f43700c6a048e4dc0caf58684a57fde97d",
+      "bytes": 79787
+    },
+    {
+      "class": "cup",
+      "source_path": "4/2/cup2-068-270.png",
+      "path": "data/ETH-80/cup/cup2-068-270.png",
+      "sha256": "73dcd841365ce9d778a63d280f2a320a0ad57e579f9efca0293726090ef1c797",
+      "bytes": 79304
+    },
+    {
+      "class": "cup",
+      "source_path": "4/2/cup2-090-000.png",
+      "path": "data/ETH-80/cup/cup2-090-000.png",
+      "sha256": "b507968eaa9f358f9a478a1179f37408b6423cd4a8c5afd4f94845f105929d69",
+      "bytes": 72894
+    },
+    {
+      "class": "cup",
+      "source_path": "4/2/cup2-090-270.png",
+      "path": "data/ETH-80/cup/cup2-090-270.png",
+      "sha256": "537b3875e1ef3bf735d4aab7f49f6545dfc9f9e1b3100f89e03d49f23e38f260",
+      "bytes": 71430
+    },
+    {
+      "class": "cup",
+      "source_path": "4/3/cup3-090-202.png",
+      "path": "data/ETH-80/cup/cup3-090-202.png",
+      "sha256": "1e996126afed3aec465d20b214a007dcce3150d663e79e30055b5a491905dfef",
+      "bytes": 74427
+    },
+    {
+      "class": "cup",
+      "source_path": "4/4/cup4-022-270.png",
+      "path": "data/ETH-80/cup/cup4-022-270.png",
+      "sha256": "7d31f778ce12f3e59e876f05f07231e94673cae8a8e5a2b8cc134b35d9a72cd5",
+      "bytes": 91420
+    },
+    {
+      "class": "cup",
+      "source_path": "4/4/cup4-035-045.png",
+      "path": "data/ETH-80/cup/cup4-035-045.png",
+      "sha256": "288c0158b7655e3033b42a44ca728121e75252ebdc82bf46eea65882ab41f48f",
+      "bytes": 86737
+    },
+    {
+      "class": "cup",
+      "source_path": "4/4/cup4-066-117.png",
+      "path": "data/ETH-80/cup/cup4-066-117.png",
+      "sha256": "d80b57c441c99d07ab74fde4a0b959d28aa0ca895b74da61be2323aae25288b5",
+      "bytes": 82570
+    },
+    {
+      "class": "cup",
+      "source_path": "4/5/cup5-022-270.png",
+      "path": "data/ETH-80/cup/cup5-022-270.png",
+      "sha256": "8eeff3f6262c65e15d997af5125e8978728fd6fc657cfa90174fdcdff1e65bb0",
+      "bytes": 86360
+    },
+    {
+      "class": "cup",
+      "source_path": "4/5/cup5-035-315.png",
+      "path": "data/ETH-80/cup/cup5-035-315.png",
+      "sha256": "2533888139beaf1afebbc1f0b951adfcee577100f0d7c1eb3408c38db6a94919",
+      "bytes": 87243
+    },
+    {
+      "class": "cup",
+      "source_path": "4/5/cup5-045-270.png",
+      "path": "data/ETH-80/cup/cup5-045-270.png",
+      "sha256": "e11317b0b8e57673e3fa9137af264c3456d71ca1b052c765d173563530ff9e3d",
+      "bytes": 88561
+    },
+    {
+      "class": "cup",
+      "source_path": "4/5/cup5-066-207.png",
+      "path": "data/ETH-80/cup/cup5-066-207.png",
+      "sha256": "bf926c2baa613ee7324d4725cf2aa3a3beb6edf7f94d5b8a20f2cf67e6a861c0",
+      "bytes": 86229
+    },
+    {
+      "class": "cup",
+      "source_path": "4/5/cup5-090-135.png",
+      "path": "data/ETH-80/cup/cup5-090-135.png",
+      "sha256": "69c3d9c456c8aa07926003718e791313fe88772e2be4ebe6b7d32bfb873f3cb5",
+      "bytes": 79564
+    },
+    {
+      "class": "cup",
+      "source_path": "4/5/cup5-090-292.png",
+      "path": "data/ETH-80/cup/cup5-090-292.png",
+      "sha256": "0df5ddffcb77bbe5aeac1a4f6c2415716cb8aa4b7a7a5db076de4d9711e1488f",
+      "bytes": 79089
+    },
+    {
+      "class": "cup",
+      "source_path": "4/6/cup6-090-315.png",
+      "path": "data/ETH-80/cup/cup6-090-315.png",
+      "sha256": "4a270df74ee5db426ba4e505f14ed76ceb64ba9c10c92810d8a951c9b6319e53",
+      "bytes": 71521
+    },
+    {
+      "class": "cup",
+      "source_path": "4/7/cup7-045-180.png",
+      "path": "data/ETH-80/cup/cup7-045-180.png",
+      "sha256": "609485196f6fe3b94ff357ac023b5f249f8f0e14846fbbbe169271fd74090884",
+      "bytes": 87728
+    },
+    {
+      "class": "cup",
+      "source_path": "4/7/cup7-068-270.png",
+      "path": "data/ETH-80/cup/cup7-068-270.png",
+      "sha256": "3953552d09820c183d887e20c54e2d9c8fd069a525a658c92e4732a00b19f90d",
+      "bytes": 82565
+    },
+    {
+      "class": "cup",
+      "source_path": "4/7/cup7-090-090.png",
+      "path": "data/ETH-80/cup/cup7-090-090.png",
+      "sha256": "07b750d1e3d100fdac4861d66255b2f03fe40663ab83bf4c85278b125e3a3c59",
+      "bytes": 76160
+    },
+    {
+      "class": "cup",
+      "source_path": "4/7/cup7-090-112.png",
+      "path": "data/ETH-80/cup/cup7-090-112.png",
+      "sha256": "0584d1ef8611343be214d29d98e58148321ce4e65c6542952a840fc3d732284f",
+      "bytes": 76726
+    },
+    {
+      "class": "cup",
+      "source_path": "4/7/cup7-090-135.png",
+      "path": "data/ETH-80/cup/cup7-090-135.png",
+      "sha256": "fd3d9393fa6a75764532ad39ff75c4f47371bd7c6ba54b0c61fb31dcff8e81ec",
+      "bytes": 77474
+    },
+    {
+      "class": "cup",
+      "source_path": "4/7/cup7-090-158.png",
+      "path": "data/ETH-80/cup/cup7-090-158.png",
+      "sha256": "b0bedef856f59467b45befa9c10a1383855b4504fab21df35eebe0bd27aefbc6",
+      "bytes": 77219
+    },
+    {
+      "class": "cup",
+      "source_path": "4/7/cup7-090-270.png",
+      "path": "data/ETH-80/cup/cup7-090-270.png",
+      "sha256": "b5ba9e8527fe8b8eb8de389125534db286c7558b707f0994dd2575d2acea92d2",
+      "bytes": 74634
+    },
+    {
+      "class": "cup",
+      "source_path": "4/8/cup8-022-000.png",
+      "path": "data/ETH-80/cup/cup8-022-000.png",
+      "sha256": "74af3ba95f791e9a9527275b250dfd752f14eb9c2770a36bb8f93c67eb1efbe6",
+      "bytes": 116679
+    },
+    {
+      "class": "cup",
+      "source_path": "4/8/cup8-045-180.png",
+      "path": "data/ETH-80/cup/cup8-045-180.png",
+      "sha256": "5c8529ed3bb22bf9d01a88d207473a557466bbf387bf837edec7360a49d90c72",
+      "bytes": 111217
+    },
+    {
+      "class": "cup",
+      "source_path": "4/8/cup8-068-180.png",
+      "path": "data/ETH-80/cup/cup8-068-180.png",
+      "sha256": "124acaefc92ecb2063009633fcae32f2b62b23099a7a8cd68492c841e4c8041f",
+      "bytes": 100914
+    },
+    {
+      "class": "cup",
+      "source_path": "4/8/cup8-090-292.png",
+      "path": "data/ETH-80/cup/cup8-090-292.png",
+      "sha256": "72bf5fececcf47c91bbcabdb46e0167387b76d7263ab592c10114c4dba754a8c",
+      "bytes": 89775
+    },
+    {
+      "class": "cup",
+      "source_path": "4/8/cup8-090-338.png",
+      "path": "data/ETH-80/cup/cup8-090-338.png",
+      "sha256": "7e28ee569c2d2db61c665694854f73d3146c05ac7d2a23aa54e83831c9eeebf9",
+      "bytes": 90769
+    },
+    {
+      "class": "cup",
+      "source_path": "4/9/cup9-022-270.png",
+      "path": "data/ETH-80/cup/cup9-022-270.png",
+      "sha256": "c044bda1a42602905cdf6df9d33a76af672bef13927e3f367d70b0ad8f6979c6",
+      "bytes": 112496
+    },
+    {
+      "class": "cup",
+      "source_path": "4/9/cup9-045-180.png",
+      "path": "data/ETH-80/cup/cup9-045-180.png",
+      "sha256": "283b4e4d2b4ed702ed18eb4f4c8692bfa87cbc24da7dcf0bbb814eb5dde3246e",
+      "bytes": 109515
+    },
+    {
+      "class": "cup",
+      "source_path": "4/9/cup9-090-338.png",
+      "path": "data/ETH-80/cup/cup9-090-338.png",
+      "sha256": "fa827e071d191b369d34a85defe07ae2fec1042b43b6f2017ca730e0c7a38ad8",
+      "bytes": 93105
+    },
+    {
+      "class": "horse",
+      "source_path": "6/1/horse1-000-000.png",
+      "path": "data/ETH-80/horse/horse1-000-000.png",
+      "sha256": "0d7b53b901c465fe5ac63a4aa30701bc336e799dcb821392782f604950e7a1a6",
+      "bytes": 113475
+    },
+    {
+      "class": "horse",
+      "source_path": "6/1/horse1-045-180.png",
+      "path": "data/ETH-80/horse/horse1-045-180.png",
+      "sha256": "c0384fa3dc863e090c43f2282dc2cccb68792cdf47a12b3a1accf18317dc7f85",
+      "bytes": 105155
+    },
+    {
+      "class": "horse",
+      "source_path": "6/1/horse1-066-333.png",
+      "path": "data/ETH-80/horse/horse1-066-333.png",
+      "sha256": "552415bee9b33ae70a2dc972db822d267e539fd7297b48574886b47d60a5942b",
+      "bytes": 100739
+    },
+    {
+      "class": "horse",
+      "source_path": "6/1/horse1-090-045.png",
+      "path": "data/ETH-80/horse/horse1-090-045.png",
+      "sha256": "9112ec0516e0d34612e91122ea1ae26eca3388742600fa6f0ff7050254b23fb4",
+      "bytes": 96285
+    },
+    {
+      "class": "horse",
+      "source_path": "6/1/horse1-090-090.png",
+      "path": "data/ETH-80/horse/horse1-090-090.png",
+      "sha256": "ed9cfe8c9d3afc8f1f9d8cc62ecfa2721969d698d898fe712dc83af7a29e01be",
+      "bytes": 92355
+    },
+    {
+      "class": "horse",
+      "source_path": "6/10/horse10-035-045.png",
+      "path": "data/ETH-80/horse/horse10-035-045.png",
+      "sha256": "10d481c9cbebb3c80a75c619e1a64c84f04b8ed50603ce93e2cf39accb8a8246",
+      "bytes": 101612
+    },
+    {
+      "class": "horse",
+      "source_path": "6/10/horse10-068-090.png",
+      "path": "data/ETH-80/horse/horse10-068-090.png",
+      "sha256": "3a3cfec90909284a8dc8cb160e5acf4f8624aad8af546772bbbee98b5fb96402",
+      "bytes": 95745
+    },
+    {
+      "class": "horse",
+      "source_path": "6/10/horse10-090-225.png",
+      "path": "data/ETH-80/horse/horse10-090-225.png",
+      "sha256": "29e5b4bdd27f8aacd803c65b5cf660cc8e3bac425ceb9168b2bcbcea1c0930b8",
+      "bytes": 92712
+    },
+    {
+      "class": "horse",
+      "source_path": "6/10/horse10-090-292.png",
+      "path": "data/ETH-80/horse/horse10-090-292.png",
+      "sha256": "6323b2a31fc03382f8a207fcb7dcb9a6701acbf41e2b006f44ef36bfb003d511",
+      "bytes": 89830
+    },
+    {
+      "class": "horse",
+      "source_path": "6/10/horse10-090-338.png",
+      "path": "data/ETH-80/horse/horse10-090-338.png",
+      "sha256": "a48aeab1b2aa0a904522efc7f621ecc2e393f702bafa97ff43cbf662a6d880b6",
+      "bytes": 93134
+    },
+    {
+      "class": "horse",
+      "source_path": "6/2/horse2-022-180.png",
+      "path": "data/ETH-80/horse/horse2-022-180.png",
+      "sha256": "413623f2c45bb38a7469dd3e23fe14961ef3665775626ba3f06912c8b78e30b4",
+      "bytes": 100920
+    },
+    {
+      "class": "horse",
+      "source_path": "6/2/horse2-090-248.png",
+      "path": "data/ETH-80/horse/horse2-090-248.png",
+      "sha256": "70192133681f3651fb6eae1a441a7ddc923bc43af5d5d22cbc0b54ced2e3cb53",
+      "bytes": 87473
+    },
+    {
+      "class": "horse",
+      "source_path": "6/2/horse2-090-270.png",
+      "path": "data/ETH-80/horse/horse2-090-270.png",
+      "sha256": "598c9f7fe2db3fff835392934f410e7725bcfac6e2a68bc1b5a701c8d2893a4d",
+      "bytes": 86490
+    },
+    {
+      "class": "horse",
+      "source_path": "6/3/horse3-035-045.png",
+      "path": "data/ETH-80/horse/horse3-035-045.png",
+      "sha256": "88ae1c82efc86c886d2470fbcd93a5ebd492e2a9bdbe1fc8dbf824a372873aa0",
+      "bytes": 102367
+    },
+    {
+      "class": "horse",
+      "source_path": "6/3/horse3-068-270.png",
+      "path": "data/ETH-80/horse/horse3-068-270.png",
+      "sha256": "6d3c6c13e2d52165ac75dbb1dc68de1bc672efb7f7185818c7ced11ef04a35e9",
+      "bytes": 96540
+    },
+    {
+      "class": "horse",
+      "source_path": "6/3/horse3-090-112.png",
+      "path": "data/ETH-80/horse/horse3-090-112.png",
+      "sha256": "ad521539e049a210eccc7ea62b85d157c00a8524c1bd206c1b1256d73b6d3d69",
+      "bytes": 93758
+    },
+    {
+      "class": "horse",
+      "source_path": "6/3/horse3-090-315.png",
+      "path": "data/ETH-80/horse/horse3-090-315.png",
+      "sha256": "8e09dce996658380d5d58a54410a98afd4d67c2780ee07612997412c8886abd0",
+      "bytes": 97439
+    },
+    {
+      "class": "horse",
+      "source_path": "6/4/horse4-045-090.png",
+      "path": "data/ETH-80/horse/horse4-045-090.png",
+      "sha256": "1d675e9f0db8d19d7be0fa122dec30c1672829e60d3d288b51c7d64b83e74466",
+      "bytes": 94788
+    },
+    {
+      "class": "horse",
+      "source_path": "6/4/horse4-066-027.png",
+      "path": "data/ETH-80/horse/horse4-066-027.png",
+      "sha256": "7facaf9aeba6c86351bd482abfb4f2bcce601dff7fc6f06d1ad5ec3ef6545ce3",
+      "bytes": 96665
+    },
+    {
+      "class": "horse",
+      "source_path": "6/4/horse4-090-292.png",
+      "path": "data/ETH-80/horse/horse4-090-292.png",
+      "sha256": "7cd16a3eb171745e4a1591acd34ff962c6f9475fe2144c843161834555d5b492",
+      "bytes": 92303
+    },
+    {
+      "class": "horse",
+      "source_path": "6/5/horse5-066-243.png",
+      "path": "data/ETH-80/horse/horse5-066-243.png",
+      "sha256": "ab25a0e666a00a289306b7160170dfb2e406bfe271205572fe965507f8089720",
+      "bytes": 97849
+    },
+    {
+      "class": "horse",
+      "source_path": "6/5/horse5-090-022.png",
+      "path": "data/ETH-80/horse/horse5-090-022.png",
+      "sha256": "2797ed66d950f49050729d451f722375396c863736b1f1bc14456d8730a78e6e",
+      "bytes": 100263
+    },
+    {
+      "class": "horse",
+      "source_path": "6/5/horse5-090-158.png",
+      "path": "data/ETH-80/horse/horse5-090-158.png",
+      "sha256": "439aab3f15b4b7c232dfd9d369859313878033fbbbba379b4aa195876c8ca2d6",
+      "bytes": 94433
+    },
+    {
+      "class": "horse",
+      "source_path": "6/6/horse6-045-090.png",
+      "path": "data/ETH-80/horse/horse6-045-090.png",
+      "sha256": "0cda4bfe54ca51e151d65a226d92d950381ca8874e6458f71bbd2a9fd6709992",
+      "bytes": 89717
+    },
+    {
+      "class": "horse",
+      "source_path": "6/6/horse6-068-270.png",
+      "path": "data/ETH-80/horse/horse6-068-270.png",
+      "sha256": "5748210f398ecf2a565d94b5bc8f18263a4e6ba2b000a65f2f2ab0f4e8f8b277",
+      "bytes": 87469
+    },
+    {
+      "class": "horse",
+      "source_path": "6/7/horse7-066-153.png",
+      "path": "data/ETH-80/horse/horse7-066-153.png",
+      "sha256": "4adc37ed72b6d63f36e6e1038263f61058bb1bb3392fdb346b7578a8f2245ff6",
+      "bytes": 97382
+    },
+    {
+      "class": "horse",
+      "source_path": "6/7/horse7-090-022.png",
+      "path": "data/ETH-80/horse/horse7-090-022.png",
+      "sha256": "a97e48b7b88801d486132a8a004cd8e2697acc8bc77c0953104a36aa934627cb",
+      "bytes": 96714
+    },
+    {
+      "class": "horse",
+      "source_path": "6/7/horse7-090-135.png",
+      "path": "data/ETH-80/horse/horse7-090-135.png",
+      "sha256": "43b3b237dd621a545804c97c847fcf11b5245bb772fb5b0af5648f6612304281",
+      "bytes": 92314
+    },
+    {
+      "class": "horse",
+      "source_path": "6/8/horse8-066-063.png",
+      "path": "data/ETH-80/horse/horse8-066-063.png",
+      "sha256": "967964592be14aa4825ec65d0f3ee801f45b76f283026cdff0884919c77e3476",
+      "bytes": 101186
+    },
+    {
+      "class": "horse",
+      "source_path": "6/8/horse8-066-207.png",
+      "path": "data/ETH-80/horse/horse8-066-207.png",
+      "sha256": "631f5166be851db5992ca3cb54527775798a95e975faf6e9e2dcab20351bba5f",
+      "bytes": 102476
+    },
+    {
+      "class": "horse",
+      "source_path": "6/8/horse8-066-297.png",
+      "path": "data/ETH-80/horse/horse8-066-297.png",
+      "sha256": "d925ecd37562956780b034f8a482adb7016a0a517c32edd571db7e5090ff7248",
+      "bytes": 96699
+    },
+    {
+      "class": "horse",
+      "source_path": "6/8/horse8-068-000.png",
+      "path": "data/ETH-80/horse/horse8-068-000.png",
+      "sha256": "456775e223ef7c9f55da331929b65026d2eb5c9b7455f13e60db284c3ae2d544",
+      "bytes": 100117
+    },
+    {
+      "class": "horse",
+      "source_path": "6/8/horse8-068-270.png",
+      "path": "data/ETH-80/horse/horse8-068-270.png",
+      "sha256": "f8462660d384adb4a6d3f95fb4ae1ea0c028657220ecd296a036bb79dbc60136",
+      "bytes": 97197
+    },
+    {
+      "class": "horse",
+      "source_path": "6/8/horse8-090-090.png",
+      "path": "data/ETH-80/horse/horse8-090-090.png",
+      "sha256": "a397d72b0690e320373d3a4e7c74a1347317ce6bf70e70352dc73dfa341e14b5",
+      "bytes": 91123
+    },
+    {
+      "class": "horse",
+      "source_path": "6/8/horse8-090-292.png",
+      "path": "data/ETH-80/horse/horse8-090-292.png",
+      "sha256": "669f3a6689d73bb60bfd275d34365c1c3e1f68c819a807bb910509824cbf26b8",
+      "bytes": 90494
+    }
+  ]
+}

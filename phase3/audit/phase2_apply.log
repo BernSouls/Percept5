@@ -1,0 +1,109 @@
+Phase 2 integration — original delivery dry runs
+Root layout: product packages are at repository root, delivery uses src/ prefixes.
+Every unmodified patch is first checked exactly as delivered, then with explicit -p2 for src paths where applicable.
+==== 0000_harness_figground_pipeline.patch unmodified git apply --check -p1
+error: tests/figground/pipeline.py: No such file or directory
+exit=1
+explicit -p2 check (strips src/)
+error: figground/pipeline.py: No such file or directory
+exit=1
+==== 0001_matcher_flags.patch unmodified git apply --check -p1
+error: src/parameters/_text.py: No such file or directory
+exit=1
+explicit -p2 check (strips src/)
+error: patch failed: parameters/_text.py:2253
+error: parameters/_text.py: patch does not apply
+exit=1
+==== 0002_edge_mass_containment_and_incomparable.patch unmodified git apply --check -p1
+error: src/memory/cores.py: No such file or directory
+error: src/core/schema.py: No such file or directory
+exit=1
+explicit -p2 check (strips src/)
+error: patch failed: memory/cores.py:1455
+error: memory/cores.py: patch does not apply
+error: patch failed: core/schema.py:2031
+error: core/schema.py: patch does not apply
+exit=1
+==== 0003_keep_hierarchy_members.patch unmodified git apply --check -p1
+error: src/memory/mapper.py: No such file or directory
+exit=1
+explicit -p2 check (strips src/)
+error: patch failed: memory/mapper.py:1744
+error: memory/mapper.py: patch does not apply
+exit=1
+==== 0004_median_exemplar_template.patch unmodified git apply --check -p1
+error: src/matching/structural_similarity.py: No such file or directory
+exit=1
+explicit -p2 check (strips src/)
+error: patch failed: matching/structural_similarity.py:1428
+error: matching/structural_similarity.py: patch does not apply
+exit=1
+==== 0005_count_absent_consensus_voters.patch unmodified git apply --check -p1
+error: src/matching/consensus.py: No such file or directory
+error: src/matching/fuzzy.py: No such file or directory
+exit=1
+explicit -p2 check (strips src/)
+error: patch failed: matching/consensus.py:120
+error: matching/consensus.py: patch does not apply
+error: patch failed: matching/fuzzy.py:250
+error: matching/fuzzy.py: patch does not apply
+exit=1
+==== 0006_frame_partition_registration.patch unmodified git apply --check -p1
+error: src/matching/relation_frame.py: No such file or directory
+exit=1
+explicit -p2 check (strips src/)
+error: patch failed: matching/relation_frame.py:92
+error: matching/relation_frame.py: patch does not apply
+exit=1
+==== 0007_pins.patch unmodified git apply --check -p1
+error: tests/matcher/test_p4b_count_apart.py: No such file or directory
+error: tests/matcher/test_relation_frame_partition.py: No such file or directory
+exit=1
+explicit -p2 check (strips src/)
+error: matcher/test_p4b_count_apart.py: No such file or directory
+error: matcher/test_relation_frame_partition.py: No such file or directory
+exit=1
+Reverse checks of already-present mechanisms (no files written)
+==== 0001_matcher_flags.patch git apply --reverse --check -p2
+exit=0
+==== 0002_edge_mass_containment_and_incomparable.patch git apply --reverse --check -p2
+exit=0
+==== 0003_keep_hierarchy_members.patch git apply --reverse --check -p2
+exit=0
+==== 0004_median_exemplar_template.patch git apply --reverse --check -p2
+exit=0
+==== 0005_count_absent_consensus_voters.patch git apply --reverse --check -p2
+exit=0
+==== 0006_frame_partition_registration.patch git apply --reverse --check -p2
+exit=0
+
+Missing pin dependencies isolated
+new pin files only check exit=0
+==== 0000 actual apply after provenance-recorded target recovery
+error: patch failed: tests/figground/pipeline.py:462
+error: tests/figground/pipeline.py: patch does not apply
+exit=1
+==== 0007 actual apply after provenance-recorded target recovery
+error: patch failed: tests/matcher/test_p4b_count_apart.py:168
+error: tests/matcher/test_p4b_count_apart.py: patch does not apply
+error: patch failed: tests/matcher/test_relation_frame_partition.py:18
+error: tests/matcher/test_relation_frame_partition.py: patch does not apply
+exit=1
+
+Line-ending-safe application (patch bytes unchanged; target files are LF, patches CRLF)
+==== 0000_harness_figground_pipeline.patch git apply --ignore-space-change -p1
+exit=0
+==== 0007_pins.patch git apply --ignore-space-change -p1
+patchfile/patches/0007_pins.patch:31: trailing whitespace.
+"""[PHASE 2] THE FIVE FLAG-GATED MECHANISMS -- one pin each.
+patchfile/patches/0007_pins.patch:32: trailing whitespace.
+
+patchfile/patches/0007_pins.patch:33: trailing whitespace.
+EVERY DEFAULT IS OFF: the overlay loads with the tree's historical
+patchfile/patches/0007_pins.patch:34: trailing whitespace.
+behaviour, so the series applies WITHOUT changing a single number until a
+patchfile/patches/0007_pins.patch:35: trailing whitespace.
+pre-registered rule selects a flag.  Each pin asserts (a) the default and
+warning: squelched 171 whitespace errors
+warning: 176 lines add whitespace errors.
+exit=0

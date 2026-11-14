@@ -1,0 +1,559 @@
+{
+  "frames": [
+    {
+      "arm": "reference",
+      "edges": 1467,
+      "label": "apple",
+      "name": "apple1-000-000.png",
+      "nodes": 900
+    },
+    {
+      "arm": "reference",
+      "edges": 998,
+      "label": "car",
+      "name": "car1-000-000.png",
+      "nodes": 760
+    },
+    {
+      "arm": "reference",
+      "edges": 954,
+      "label": "cup",
+      "name": "cup1-000-000.png",
+      "nodes": 620
+    },
+    {
+      "arm": "reference",
+      "edges": 525,
+      "label": "horse",
+      "name": "horse1-000-000.png",
+      "nodes": 766
+    },
+    {
+      "arm": "eval",
+      "edges": 1177,
+      "label": "apple",
+      "name": "apple1-045-180.png",
+      "nodes": 811
+    },
+    {
+      "arm": "eval",
+      "edges": 1095,
+      "label": "apple",
+      "name": "apple1-045-270.png",
+      "nodes": 799
+    },
+    {
+      "arm": "eval",
+      "edges": 1375,
+      "label": "apple",
+      "name": "apple1-066-117.png",
+      "nodes": 743
+    },
+    {
+      "arm": "eval",
+      "edges": 851,
+      "label": "apple",
+      "name": "apple1-090-045.png",
+      "nodes": 548
+    },
+    {
+      "arm": "eval",
+      "edges": 890,
+      "label": "apple",
+      "name": "apple1-090-158.png",
+      "nodes": 732
+    },
+    {
+      "arm": "eval",
+      "edges": 778,
+      "label": "apple",
+      "name": "apple1-090-202.png",
+      "nodes": 661
+    },
+    {
+      "arm": "eval",
+      "edges": 801,
+      "label": "apple",
+      "name": "apple1-090-292.png",
+      "nodes": 696
+    },
+    {
+      "arm": "eval",
+      "edges": 793,
+      "label": "apple",
+      "name": "apple2-090-225.png",
+      "nodes": 552
+    },
+    {
+      "arm": "eval",
+      "edges": 1003,
+      "label": "apple",
+      "name": "apple3-068-090.png",
+      "nodes": 569
+    },
+    {
+      "arm": "eval",
+      "edges": 1051,
+      "label": "apple",
+      "name": "apple3-068-180.png",
+      "nodes": 540
+    },
+    {
+      "arm": "eval",
+      "edges": 929,
+      "label": "apple",
+      "name": "apple3-068-270.png",
+      "nodes": 550
+    },
+    {
+      "arm": "eval",
+      "edges": 867,
+      "label": "apple",
+      "name": "apple3-090-180.png",
+      "nodes": 515
+    },
+    {
+      "arm": "eval",
+      "edges": 785,
+      "label": "apple",
+      "name": "apple3-090-315.png",
+      "nodes": 580
+    },
+    {
+      "arm": "eval",
+      "edges": 1171,
+      "label": "apple",
+      "name": "apple4-022-270.png",
+      "nodes": 729
+    },
+    {
+      "arm": "eval",
+      "edges": 1173,
+      "label": "apple",
+      "name": "apple4-066-153.png",
+      "nodes": 613
+    },
+    {
+      "arm": "eval",
+      "edges": 1015,
+      "label": "apple",
+      "name": "apple4-066-333.png",
+      "nodes": 523
+    },
+    {
+      "arm": "eval",
+      "edges": 1114,
+      "label": "car",
+      "name": "car1-022-090.png",
+      "nodes": 823
+    },
+    {
+      "arm": "eval",
+      "edges": 1240,
+      "label": "car",
+      "name": "car1-022-270.png",
+      "nodes": 814
+    },
+    {
+      "arm": "eval",
+      "edges": 1125,
+      "label": "car",
+      "name": "car1-045-180.png",
+      "nodes": 884
+    },
+    {
+      "arm": "eval",
+      "edges": 1255,
+      "label": "car",
+      "name": "car1-045-270.png",
+      "nodes": 875
+    },
+    {
+      "arm": "eval",
+      "edges": 752,
+      "label": "car",
+      "name": "car1-090-068.png",
+      "nodes": 678
+    },
+    {
+      "arm": "eval",
+      "edges": 550,
+      "label": "car",
+      "name": "car1-090-090.png",
+      "nodes": 624
+    },
+    {
+      "arm": "eval",
+      "edges": 1115,
+      "label": "car",
+      "name": "car2-035-315.png",
+      "nodes": 934
+    },
+    {
+      "arm": "eval",
+      "edges": 655,
+      "label": "car",
+      "name": "car2-068-270.png",
+      "nodes": 855
+    },
+    {
+      "arm": "eval",
+      "edges": 584,
+      "label": "car",
+      "name": "car2-090-068.png",
+      "nodes": 644
+    },
+    {
+      "arm": "eval",
+      "edges": 792,
+      "label": "car",
+      "name": "car2-090-158.png",
+      "nodes": 730
+    },
+    {
+      "arm": "eval",
+      "edges": 926,
+      "label": "car",
+      "name": "car3-000-000.png",
+      "nodes": 842
+    },
+    {
+      "arm": "eval",
+      "edges": 825,
+      "label": "car",
+      "name": "car3-066-207.png",
+      "nodes": 883
+    },
+    {
+      "arm": "eval",
+      "edges": 769,
+      "label": "car",
+      "name": "car3-066-297.png",
+      "nodes": 859
+    },
+    {
+      "arm": "eval",
+      "edges": 727,
+      "label": "car",
+      "name": "car3-068-090.png",
+      "nodes": 876
+    },
+    {
+      "arm": "eval",
+      "edges": 853,
+      "label": "car",
+      "name": "car3-090-068.png",
+      "nodes": 673
+    },
+    {
+      "arm": "eval",
+      "edges": 904,
+      "label": "car",
+      "name": "car11-022-000.png",
+      "nodes": 892
+    },
+    {
+      "arm": "eval",
+      "edges": 549,
+      "label": "car",
+      "name": "car11-090-045.png",
+      "nodes": 641
+    },
+    {
+      "arm": "eval",
+      "edges": 552,
+      "label": "car",
+      "name": "car11-090-202.png",
+      "nodes": 627
+    },
+    {
+      "arm": "eval",
+      "edges": 609,
+      "label": "car",
+      "name": "car11-090-248.png",
+      "nodes": 641
+    },
+    {
+      "arm": "eval",
+      "edges": 499,
+      "label": "car",
+      "name": "car11-090-270.png",
+      "nodes": 591
+    },
+    {
+      "arm": "eval",
+      "edges": 491,
+      "label": "car",
+      "name": "car11-090-338.png",
+      "nodes": 580
+    },
+    {
+      "arm": "eval",
+      "edges": 1001,
+      "label": "car",
+      "name": "car5-035-135.png",
+      "nodes": 799
+    },
+    {
+      "arm": "eval",
+      "edges": 694,
+      "label": "car",
+      "name": "car5-066-333.png",
+      "nodes": 822
+    },
+    {
+      "arm": "eval",
+      "edges": 604,
+      "label": "car",
+      "name": "car5-090-112.png",
+      "nodes": 712
+    },
+    {
+      "arm": "eval",
+      "edges": 1414,
+      "label": "cup",
+      "name": "cup1-068-180.png",
+      "nodes": 704
+    },
+    {
+      "arm": "eval",
+      "edges": 956,
+      "label": "cup",
+      "name": "cup1-090-158.png",
+      "nodes": 602
+    },
+    {
+      "arm": "eval",
+      "edges": 828,
+      "label": "cup",
+      "name": "cup1-090-248.png",
+      "nodes": 497
+    },
+    {
+      "arm": "eval",
+      "edges": 1197,
+      "label": "cup",
+      "name": "cup2-022-090.png",
+      "nodes": 677
+    },
+    {
+      "arm": "eval",
+      "edges": 1075,
+      "label": "cup",
+      "name": "cup2-045-000.png",
+      "nodes": 657
+    },
+    {
+      "arm": "eval",
+      "edges": 859,
+      "label": "cup",
+      "name": "cup2-068-270.png",
+      "nodes": 553
+    },
+    {
+      "arm": "eval",
+      "edges": 801,
+      "label": "cup",
+      "name": "cup2-090-000.png",
+      "nodes": 548
+    },
+    {
+      "arm": "eval",
+      "edges": 746,
+      "label": "cup",
+      "name": "cup2-090-270.png",
+      "nodes": 465
+    },
+    {
+      "arm": "eval",
+      "edges": 808,
+      "label": "cup",
+      "name": "cup3-090-202.png",
+      "nodes": 636
+    },
+    {
+      "arm": "eval",
+      "edges": 1202,
+      "label": "cup",
+      "name": "cup4-022-270.png",
+      "nodes": 697
+    },
+    {
+      "arm": "eval",
+      "edges": 1727,
+      "label": "cup",
+      "name": "cup4-035-045.png",
+      "nodes": 833
+    },
+    {
+      "arm": "eval",
+      "edges": 1520,
+      "label": "cup",
+      "name": "cup4-066-117.png",
+      "nodes": 798
+    },
+    {
+      "arm": "eval",
+      "edges": 1090,
+      "label": "cup",
+      "name": "cup5-022-270.png",
+      "nodes": 600
+    },
+    {
+      "arm": "eval",
+      "edges": 1020,
+      "label": "cup",
+      "name": "cup5-035-315.png",
+      "nodes": 625
+    },
+    {
+      "arm": "eval",
+      "edges": 1338,
+      "label": "cup",
+      "name": "cup5-045-270.png",
+      "nodes": 694
+    },
+    {
+      "arm": "eval",
+      "edges": 1079,
+      "label": "cup",
+      "name": "cup5-066-207.png",
+      "nodes": 624
+    },
+    {
+      "arm": "eval",
+      "edges": 987,
+      "label": "cup",
+      "name": "cup5-090-135.png",
+      "nodes": 727
+    },
+    {
+      "arm": "eval",
+      "edges": 591,
+      "label": "cup",
+      "name": "cup5-090-292.png",
+      "nodes": 585
+    },
+    {
+      "arm": "eval",
+      "edges": 848,
+      "label": "horse",
+      "name": "horse1-045-180.png",
+      "nodes": 865
+    },
+    {
+      "arm": "eval",
+      "edges": 938,
+      "label": "horse",
+      "name": "horse1-066-333.png",
+      "nodes": 927
+    },
+    {
+      "arm": "eval",
+      "edges": 734,
+      "label": "horse",
+      "name": "horse1-090-045.png",
+      "nodes": 850
+    },
+    {
+      "arm": "eval",
+      "edges": 747,
+      "label": "horse",
+      "name": "horse1-090-090.png",
+      "nodes": 805
+    },
+    {
+      "arm": "eval",
+      "edges": 900,
+      "label": "horse",
+      "name": "horse2-022-180.png",
+      "nodes": 812
+    },
+    {
+      "arm": "eval",
+      "edges": 825,
+      "label": "horse",
+      "name": "horse2-090-248.png",
+      "nodes": 780
+    },
+    {
+      "arm": "eval",
+      "edges": 615,
+      "label": "horse",
+      "name": "horse2-090-270.png",
+      "nodes": 725
+    },
+    {
+      "arm": "eval",
+      "edges": 758,
+      "label": "horse",
+      "name": "horse3-035-045.png",
+      "nodes": 878
+    },
+    {
+      "arm": "eval",
+      "edges": 753,
+      "label": "horse",
+      "name": "horse3-068-270.png",
+      "nodes": 815
+    },
+    {
+      "arm": "eval",
+      "edges": 763,
+      "label": "horse",
+      "name": "horse3-090-112.png",
+      "nodes": 807
+    },
+    {
+      "arm": "eval",
+      "edges": 901,
+      "label": "horse",
+      "name": "horse3-090-315.png",
+      "nodes": 840
+    },
+    {
+      "arm": "eval",
+      "edges": 756,
+      "label": "horse",
+      "name": "horse4-045-090.png",
+      "nodes": 867
+    },
+    {
+      "arm": "eval",
+      "edges": 824,
+      "label": "horse",
+      "name": "horse4-066-027.png",
+      "nodes": 807
+    },
+    {
+      "arm": "eval",
+      "edges": 815,
+      "label": "horse",
+      "name": "horse4-090-292.png",
+      "nodes": 742
+    },
+    {
+      "arm": "eval",
+      "edges": 821,
+      "label": "horse",
+      "name": "horse5-066-243.png",
+      "nodes": 842
+    },
+    {
+      "arm": "eval",
+      "edges": 1231,
+      "label": "horse",
+      "name": "horse5-090-022.png",
+      "nodes": 843
+    },
+    {
+      "arm": "eval",
+      "edges": 1004,
+      "label": "horse",
+      "name": "horse5-090-158.png",
+      "nodes": 863
+    }
+  ],
+  "n_frames": 79,
+  "seconds": 821.0204188760003
+}

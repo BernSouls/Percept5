@@ -1,0 +1,79 @@
+1/79 apple/apple1-000-000.png: resumed cached measurement
+2/79 car/car1-000-000.png: resumed cached measurement
+3/79 cup/cup1-000-000.png: resumed cached measurement
+4/79 horse/horse1-000-000.png: resumed cached measurement
+5/79 apple/apple1-045-180.png: resumed cached measurement
+6/79 apple/apple1-045-270.png: resumed cached measurement
+7/79 apple/apple1-066-117.png: resumed cached measurement
+8/79 apple/apple1-090-045.png: resumed cached measurement
+9/79 apple/apple1-090-158.png: resumed cached measurement
+10/79 apple/apple1-090-202.png: resumed cached measurement
+11/79 apple/apple1-090-292.png: resumed cached measurement
+12/79 apple/apple2-090-225.png: resumed cached measurement
+13/79 apple/apple3-068-090.png: resumed cached measurement
+14/79 apple/apple3-068-180.png: resumed cached measurement
+15/79 apple/apple3-068-270.png: resumed cached measurement
+16/79 apple/apple3-090-180.png: resumed cached measurement
+17/79 apple/apple3-090-315.png: resumed cached measurement
+18/79 apple/apple4-022-270.png: resumed cached measurement
+19/79 apple/apple4-066-153.png: resumed cached measurement
+20/79 apple/apple4-066-333.png: resumed cached measurement
+21/79 car/car1-022-090.png: resumed cached measurement
+22/79 car/car1-022-270.png: resumed cached measurement
+23/79 car/car1-045-180.png: resumed cached measurement
+24/79 car/car1-045-270.png: resumed cached measurement
+25/79 car/car1-090-068.png: resumed cached measurement
+26/79 car/car1-090-090.png: resumed cached measurement
+27/79 car/car2-035-315.png: resumed cached measurement
+28/79 car/car2-068-270.png: resumed cached measurement
+29/79 car/car2-090-068.png: resumed cached measurement
+30/79 car/car2-090-158.png: resumed cached measurement
+31/79 car/car3-000-000.png: resumed cached measurement
+32/79 car/car3-066-207.png: resumed cached measurement
+33/79 car/car3-066-297.png: resumed cached measurement
+34/79 car/car3-068-090.png: resumed cached measurement
+35/79 car/car3-090-068.png: resumed cached measurement
+36/79 car/car11-022-000.png: resumed cached measurement
+37/79 car/car11-090-045.png: resumed cached measurement
+38/79 car/car11-090-202.png: resumed cached measurement
+39/79 car/car11-090-248.png: resumed cached measurement
+40/79 car/car11-090-270.png: resumed cached measurement
+41/79 car/car11-090-338.png: resumed cached measurement
+42/79 car/car5-035-135.png: resumed cached measurement
+43/79 car/car5-066-333.png: resumed cached measurement
+44/79 car/car5-090-112.png: resumed cached measurement
+45/79 cup/cup1-068-180.png: resumed cached measurement
+46/79 cup/cup1-090-158.png: resumed cached measurement
+47/79 cup/cup1-090-248.png: nodes=497 edges=828 spatial=50/3 10.16s
+48/79 cup/cup2-022-090.png: nodes=677 edges=1197 spatial=50/4 10.63s
+49/79 cup/cup2-045-000.png: nodes=657 edges=1075 spatial=50/3 10.51s
+50/79 cup/cup2-068-270.png: nodes=553 edges=859 spatial=50/3 10.19s
+51/79 cup/cup2-090-000.png: nodes=548 edges=801 spatial=50/6 10.20s
+52/79 cup/cup2-090-270.png: nodes=465 edges=746 spatial=50/4 10.24s
+53/79 cup/cup3-090-202.png: nodes=636 edges=808 spatial=50/4 9.65s
+54/79 cup/cup4-022-270.png: nodes=697 edges=1202 spatial=50/4 10.87s
+55/79 cup/cup4-035-045.png: nodes=833 edges=1727 spatial=50/4 10.88s
+56/79 cup/cup4-066-117.png: nodes=798 edges=1520 spatial=50/3 10.48s
+57/79 cup/cup5-022-270.png: nodes=600 edges=1090 spatial=50/1 10.73s
+58/79 cup/cup5-035-315.png: nodes=625 edges=1020 spatial=50/1 10.55s
+59/79 cup/cup5-045-270.png: nodes=694 edges=1338 spatial=50/2 10.66s
+60/79 cup/cup5-066-207.png: nodes=624 edges=1079 spatial=50/2 10.05s
+61/79 cup/cup5-090-135.png: nodes=727 edges=987 spatial=50/3 10.61s
+62/79 cup/cup5-090-292.png: nodes=585 edges=591 spatial=50/2 10.27s
+63/79 horse/horse1-045-180.png: nodes=865 edges=848 spatial=50/2 10.43s
+64/79 horse/horse1-066-333.png: nodes=927 edges=938 spatial=50/3 10.17s
+65/79 horse/horse1-090-045.png: nodes=850 edges=734 spatial=50/2 11.06s
+66/79 horse/horse1-090-090.png: nodes=805 edges=747 spatial=50/0 10.61s
+67/79 horse/horse2-022-180.png: nodes=812 edges=900 spatial=50/1 11.30s
+68/79 horse/horse2-090-248.png: nodes=780 edges=825 spatial=50/2 11.11s
+69/79 horse/horse2-090-270.png: nodes=725 edges=615 spatial=50/1 10.75s
+70/79 horse/horse3-035-045.png: nodes=878 edges=758 spatial=50/2 12.00s
+71/79 horse/horse3-068-270.png: nodes=815 edges=753 spatial=50/0 11.64s
+72/79 horse/horse3-090-112.png: nodes=807 edges=763 spatial=50/3 11.20s
+73/79 horse/horse3-090-315.png: nodes=840 edges=901 spatial=50/2 11.02s
+74/79 horse/horse4-045-090.png: nodes=867 edges=756 spatial=50/3 11.05s
+75/79 horse/horse4-066-027.png: nodes=807 edges=824 spatial=50/1 10.78s
+76/79 horse/horse4-090-292.png: nodes=742 edges=815 spatial=50/2 11.68s
+77/79 horse/horse5-066-243.png: nodes=842 edges=821 spatial=50/4 10.92s
+78/79 horse/horse5-090-022.png: nodes=843 edges=1231 spatial=50/5 11.33s
+79/79 horse/horse5-090-158.png: nodes=863 edges=1004 spatial=50/3 10.83s

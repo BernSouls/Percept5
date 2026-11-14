@@ -1,0 +1,28 @@
+{
+  "analyze_census_exit": 0,
+  "analyze_census_repeat_changed_result_files": [],
+  "analyze_census_repeat_exit": 0,
+  "branch": "arena/5afe7334-percept5",
+  "head": "1c35a03f20c848cd898119d984c2165c1b410d2c",
+  "junction_views_exit": 0,
+  "matcher_final": "510 passed in 41.19s",
+  "pins_final": "38 passed in 1.12s",
+  "position_pairs_exit": 0,
+  "position_pairs_repeat_exit": 0,
+  "position_pairs_repeat_hash_match": true,
+  "result_sha256": {
+    "phase3/results/distance-spans.json": "3069b631776b27457bb8685634de2cfa0b099a24e577fc5c9ef7bcd6132f53b1",
+    "phase3/results/entropy-presence.json": "09a234a3b183c0fcec2b61eb920b60023f9eeea03acae552ed42e9b31bfa5958",
+    "phase3/results/filter-template.json": "f0043d663efd014af31939f34e02c92b7af1cd1999d3964e32b49dd720185ba4",
+    "phase3/results/junction-views.json": "c16fbea4b7c154c7c9c6b8461f0a8e123c79f531db692e8eb401c4a41d6d3143",
+    "phase3/results/margins.json": "788c45789d57a8ddefb06d41d15d72859093f5fec2ab5234964d18daf5c98c32",
+    "phase3/results/mi-class.json": "9d16ee8a99d1361b6da142667a17be374c46898b4ad8ba5533925b979048ec2c",
+    "phase3/results/native-census-index.json": "1eac5bc2093ad72f707a6b0948fa2cc40127bf37202f0e5e63eb23e3dce5fe8a",
+    "phase3/results/native-flow.json": "eda77dac0723b26cc34e7e37d2e00a2f2ff78fa42dc712662ceeba3cf001180f",
+    "phase3/results/native-smoke-index.json": "c182fa9f9592d5341b3a35c630634ff372d4d21f24f4fabebd195b1ade20d1f2",
+    "phase3/results/native-totals.json": "2916fcd83d9aa562d4b4ad3da9a8660eec6dfd52964c396e11e51af454e4147f",
+    "phase3/results/perturbation-stability.json": "d90718046872f04f5df9dd983afa1ebaf1c01a8deaf1cfb549a0e23c0e55c755",
+    "phase3/results/perturbation-summary.json": "d5fdc9a261c6dee104d0accea7f412a353b3a3056bcec1c0e6459e7fc5e2d6fb",
+    "phase3/results/position-pairs.json": "3b9d475ce0e629b76d4c84ad0f16a9e9e289cce310e46a4c34cd78f055770c0e"
+  }
+}

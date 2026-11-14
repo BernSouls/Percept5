@@ -516,7 +516,8 @@ class V1RetinotopicLattice:
                     c_m = float(np.sum(p_th * np.cos(2 * bank_theta)))
                     s_m = float(np.sum(p_th * np.sin(2 * bank_theta)))
                     r_len = math.hypot(c_m, s_m)
-                    r["elongation"] = clamp(1.0 - r_len, 0.0, 1.0)
+                    # Directional isotropy is distinct from spatial inertia.
+                    r["isotropy"] = clamp(1.0 - r_len, 0.0, 1.0)
                     r["major_axis_angle"] = float(0.5 * math.atan2(s_m, c_m)) % math.pi
                     r["complexity"] = clamp(r_len, 0.0, 1.0)
                 else:
@@ -531,6 +532,15 @@ class V1RetinotopicLattice:
                     w_n = win_spatial / tot_sp
                     my = float((w_n * yy).sum())
                     mx = float((w_n * xx).sum())
+                    # Boundary/energy spatial inertia: sqrt(minor/major variance).
+                    dx, dy = xx - mx, yy - my
+                    sxx = float((w_n * dx * dx).sum())
+                    syy = float((w_n * dy * dy).sum())
+                    sxy = float((w_n * dx * dy).sum())
+                    disc = math.hypot(sxx - syy, 2.0 * sxy)
+                    major = (sxx + syy + disc) / 2.0
+                    minor = max(0.0, (sxx + syy - disc) / 2.0)
+                    r["elongation"] = math.sqrt(minor / major) if major > 1e-9 else 1.0
                     dists = np.hypot(yy - my, xx - mx)
                     # [O1] A MEASURED ROUNDNESS.  The old value was the
                     # MEAN NORMALISED RADIAL DISTANCE of the energy -- a
@@ -567,7 +577,6 @@ class V1RetinotopicLattice:
                 r["roughness"] = clamp(float(np.std(lum_win)) * 2.0, 0.0, 1.0)
             else:
                 r["roughness"] = 0.0
-            r["isotropy"] = clamp(r["elongation"], 0.0, 1.0)
 
             # True Linear RGB for Color lens compatibility
             pix_rgb = clean_rgb[y0:y1, x0:x1]

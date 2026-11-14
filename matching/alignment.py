@@ -37,6 +37,7 @@ Pure, stateless, budgeted, no randomness.
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 from typing import (
     Callable,
     Dict,
@@ -93,7 +94,7 @@ def build_incidence(edges: Iterable[Edge]) -> Incidence:
     """node -> [(neighbour, et, outward)] from a typed edge iterable."""
     inc: Incidence = {}
     for e in sorted(edges, key=lambda t: (min(t[0], t[1]), max(t[0], t[1]),
-                                          getattr(t[2], "value", 0))):
+                                          getattr(t[2], "value", 0), t[0], t[1])):
         s, d, et = e
         inc.setdefault(s, []).append((d, et, True))
         inc.setdefault(d, []).append((s, et, False))
@@ -168,6 +169,7 @@ def _relational_agreement(
     a_dir: Set[Edge],
     a_und: Set[Edge],
     rev: Dict[int, int],
+    edge_similarity=None,
 ) -> float:
     """Conjunctive mapped-context preservation for pair (u, v).
 
@@ -178,7 +180,7 @@ def _relational_agreement(
     """
     edges_u = inc_a.get(u)
     if edges_u:
-        kept = 0.0
+        terms = []
         for w, et, outward in edges_u:
             mw = mapping.get(w)
             if mw is None:
@@ -186,18 +188,18 @@ def _relational_agreement(
             if et in UNDIRECTED_EDGE_TYPES:
                 lo, hi = (v, mw) if v < mw else (mw, v)
                 if (lo, hi, et) in b_und:
-                    kept += 1.0
+                    terms.append(1.0 if edge_similarity is None else edge_similarity(u, w, v, mw, et) if outward else edge_similarity(w, u, mw, v, et))
             else:
                 want = (v, mw, et) if outward else (mw, v, et)
                 if want in b_dir:
-                    kept += 1.0
-        agree_u = kept / len(edges_u)
+                    terms.append(1.0 if edge_similarity is None else edge_similarity(u, w, v, mw, et) if outward else edge_similarity(w, u, mw, v, et))
+        agree_u = math.fsum(terms) / len(edges_u)
     else:
         agree_u = 1.0
 
     edges_v = inc_b.get(v)
     if edges_v:
-        kept = 0.0
+        terms = []
         counted = 0
         for x, et, outward in edges_v:
             # [STAGE 10 / AUDIT B1] the denominator is ALL of v's relations,
@@ -213,7 +215,7 @@ def _relational_agreement(
             if et in UNDIRECTED_EDGE_TYPES:
                 lo, hi = (u, ux) if u < ux else (ux, u)
                 if (lo, hi, et) in a_und:
-                    kept += 1.0
+                    terms.append(1.0 if edge_similarity is None else edge_similarity(u, ux, v, x, et) if outward else edge_similarity(ux, u, x, v, et))
             else:
                 # [STAGE 10 / AUDIT B1, the direction] the image of the v-side
                 # edge v->x (outward=True means v is the source) is u->ux.
@@ -222,8 +224,8 @@ def _relational_agreement(
                 # matched the inverted convention.
                 want = (u, ux, et) if outward else (ux, u, et)
                 if want in a_dir:
-                    kept += 1.0
-        agree_v = kept / counted if counted else 1.0
+                    terms.append(1.0 if edge_similarity is None else edge_similarity(u, ux, v, x, et) if outward else edge_similarity(ux, u, x, v, et))
+        agree_v = math.fsum(terms) / counted if counted else 1.0
     else:
         agree_v = 1.0
     return min(agree_u, agree_v)
@@ -279,6 +281,7 @@ def global_consistency_alignment(
     sim: Optional[Sequence[Sequence[float]]] = None,
     budget_refinement_only: bool = False,
     seed_evals_charged: int = 0,
+    edge_similarity=None,
 ) -> Alignment:
     """Global-consistency alignment seeded from the approximate Hungarian.
 
@@ -361,7 +364,7 @@ def global_consistency_alignment(
                 pair_evals += 1
                 return _relational_agreement(
                     nodes_a[i], nodes_b[j], mapping,
-                    inc_a, inc_b, b_dir, b_und, a_dir, a_und, _rev,
+                    inc_a, inc_b, b_dir, b_und, a_dir, a_und, _rev, edge_similarity,
                 )
 
             new_mapping = _assign(
@@ -385,7 +388,7 @@ def global_consistency_alignment(
         if has_edges:
             rel = _relational_agreement(
                 u, v, mapping, inc_a, inc_b, b_dir, b_und, a_dir, a_und,
-                rev_final,
+                rev_final, edge_similarity,
             )
         else:
             rel = 1.0

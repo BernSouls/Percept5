@@ -28,6 +28,7 @@ from core.quantize import (  # noqa: F401
 )
 from core.quantize import _aang, carrier_to_tangent  # noqa: F401
 from core.registries import (  # noqa: F401
+    ABSENT,
     POPULATION_SLOTS,
     population_from_values,
     population_values_in_span,
@@ -1340,8 +1341,10 @@ class JunctionLens(HigherLens):
                 accepted_hubs.append((float(hub_pos[0]), float(hub_pos[1])))
 
                 is_symmetric = (topo in (4, 5)) or (topo == 0 and n_ang == 2)
+                from core.frontend_contract import frontend_contract_active
+                _live_absence = frontend_contract_active()
                 if is_symmetric or not ref_is_unambiguous:
-                    ref_theta_bin = 0.0
+                    ref_theta_bin = ABSENT if _live_absence else 0.0
                     emit_ref_arm = False
                 else:
                     ref_theta_bin = float(quantise(
@@ -1358,8 +1361,8 @@ class JunctionLens(HigherLens):
                     _JUNCTION_SPEC["degree"], float(n_ang)))
 
                 gap_bins = [
-                    float(quantise(_JUNCTION_SPEC[f"gap{i}"],
-                                   float(gaps[i] if i < n_ang else 0.0)))
+                    (float(quantise(_JUNCTION_SPEC[f"gap{i}"], float(gaps[i])))
+                     if i < n_ang else (ABSENT if _live_absence else float(quantise(_JUNCTION_SPEC[f"gap{i}"], 0.0))))
                     for i in range(4)
                 ]
 
@@ -1385,10 +1388,10 @@ class JunctionLens(HigherLens):
 
                 extra = (
                     float(quantise(_JUNCTION_SPEC["arm_support"], float(support))),
-                    float(quantise(_JUNCTION_SPEC["arm_sharp_mean"],
-                                   float(sharp_mean))),
-                    float(quantise(_JUNCTION_SPEC["arm_sharp_min"],
-                                   float(sharp_min))),
+                    (float(quantise(_JUNCTION_SPEC["arm_sharp_mean"], sharp_mean))
+                     if measured else ABSENT),
+                    (float(quantise(_JUNCTION_SPEC["arm_sharp_min"], sharp_min))
+                     if measured else ABSENT),
                 ) + tuple(pair_hist_f)
 
                 quantized = (
@@ -1414,14 +1417,15 @@ class JunctionLens(HigherLens):
                 _jn_pop = population_from_values(
                     "JUNCTION",
                     (float(n_ang),
-                     float(ref_theta) if emit_ref_arm else 0.0,
+                     float(ref_theta) if emit_ref_arm else (None if _live_absence else 0.0),
                      float(topo), float(spread_norm),
                      float(gaps[0] if n_ang > 0 else 0.0),
                      float(gaps[1] if n_ang > 1 else 0.0),
-                     float(gaps[2] if n_ang > 2 else 0.0),
-                     float(gaps[3] if n_ang > 3 else 0.0),
+                     float(gaps[2]) if n_ang > 2 else (None if _live_absence else 0.0),
+                     float(gaps[3]) if n_ang > 3 else (None if _live_absence else 0.0),
                      float(support),
-                     float(sharp_mean), float(sharp_min),
+                     float(sharp_mean) if measured else None,
+                     float(sharp_min) if measured else None,
                      ) + tuple(float(c) for c in pair_hist))
 
                 # [U20 LEAD 3] The FAMILY is the node kind.  The signature is
@@ -1431,6 +1435,14 @@ class JunctionLens(HigherLens):
                 node_kind = (junction_family(topo, n_ang)
                              if getattr(P, "JUNCTION_FAMILY_SPLIT", True)
                              else JUNCTION_RESIDUAL_KIND)
+                # Preserve the historical U20 classifier outside the product
+                # profile; its two missing physical families are explicit here.
+                from core.frontend_contract import frontend_contract_active
+                if frontend_contract_active() and getattr(P, "JUNCTION_FAMILY_SPLIT", True):
+                    if topo == 1 and n_ang == 2:
+                        node_kind = "L"
+                    elif topo == 6 and n_ang == 3:
+                        node_kind = "Arrow"
 
                 hub_anchor = orient_dets[hub_idx].alpha
                 rho = [("entity", hub_anchor, 0, "+")]
