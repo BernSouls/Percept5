@@ -1,0 +1,157 @@
+{
+  "centered_controls_pass": true,
+  "corpus": "RENDERER_TRUTH_V1",
+  "method": "4-connected silhouette boundary sides, classified by foreground pixel centre; largest-kernel valid interior",
+  "scenes": [
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 0,
+      "outside_fraction": 0.0,
+      "perimeter": 360,
+      "scene": "single_box",
+      "split": "CAL"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 0,
+      "outside_fraction": 0.0,
+      "perimeter": 416,
+      "scene": "single_disk",
+      "split": "CAL"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 0,
+      "outside_fraction": 0.0,
+      "perimeter": 324,
+      "scene": "single_cylinder",
+      "split": "CAL"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 276,
+      "outside_fraction": 0.575,
+      "perimeter": 480,
+      "scene": "box_occlusion",
+      "split": "CAL"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 244,
+      "outside_fraction": 0.4959349593495935,
+      "perimeter": 492,
+      "scene": "cylinder_occlusion",
+      "split": "CAL"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 260,
+      "outside_fraction": 0.5855855855855856,
+      "perimeter": 444,
+      "scene": "disk_occlusion",
+      "split": "CAL"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 0,
+      "outside_fraction": 0.0,
+      "perimeter": 360,
+      "scene": "texture_box",
+      "split": "CAL"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 276,
+      "outside_fraction": 0.575,
+      "perimeter": 480,
+      "scene": "box_occlusion_haze",
+      "split": "CAL"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 244,
+      "outside_fraction": 0.4959349593495935,
+      "perimeter": 492,
+      "scene": "cylinder_occlusion_haze",
+      "split": "CAL"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 260,
+      "outside_fraction": 0.5855855855855856,
+      "perimeter": 444,
+      "scene": "disk_occlusion_haze",
+      "split": "CAL"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 0,
+      "outside_fraction": 0.0,
+      "perimeter": 360,
+      "scene": "view_cylinder_000",
+      "split": "TEST"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 0,
+      "outside_fraction": 0.0,
+      "perimeter": 356,
+      "scene": "view_cylinder_015",
+      "split": "TEST"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 0,
+      "outside_fraction": 0.0,
+      "perimeter": 344,
+      "scene": "view_cylinder_030",
+      "split": "TEST"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 0,
+      "outside_fraction": 0.0,
+      "perimeter": 328,
+      "scene": "view_cylinder_045",
+      "split": "TEST"
+    },
+    {
+      "components_wholly_discarded": 0,
+      "foreground_components": 1,
+      "margin_px": 42,
+      "outside": 0,
+      "outside_fraction": 0.0,
+      "perimeter": 306,
+      "scene": "view_cylinder_060",
+      "split": "TEST"
+    }
+  ]
+}

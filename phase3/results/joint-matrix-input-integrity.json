@@ -1,0 +1,825 @@
+{
+  "frame_errors": 0,
+  "frames": 136,
+  "hashes_match": 136,
+  "prior_equal": 136,
+  "reverse_duplicates": 0,
+  "rows": [
+    {
+      "duplicate_undirected": 0,
+      "name": "apple1-000-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car1-000-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow1-000-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup1-000-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog1-000-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse1-000-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear1-000-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato1-000-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple2-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple2-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple2-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple2-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple2-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple2-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple2-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple2-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple3-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple3-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple3-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple3-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple3-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple3-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple3-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "apple3-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car2-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car2-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car2-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car2-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car2-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car2-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car2-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car2-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car3-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car3-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car3-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car3-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car3-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car3-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car3-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "car3-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow2-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow2-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow2-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow2-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow2-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow2-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow2-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow2-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow3-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow3-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow3-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow3-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow3-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow3-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow3-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cow3-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup2-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup2-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup2-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup2-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup2-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup2-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup2-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup2-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup3-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup3-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup3-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup3-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup3-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup3-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup3-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "cup3-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog2-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog2-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog2-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog2-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog2-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog2-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog2-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog2-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog3-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog3-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog3-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog3-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog3-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog3-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog3-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "dog3-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse2-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse2-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse2-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse2-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse2-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse2-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse2-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse2-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse3-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse3-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse3-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse3-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse3-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse3-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse3-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "horse3-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear2-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear2-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear2-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear2-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear2-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear2-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear2-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear2-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear3-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear3-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear3-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear3-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear3-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear3-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear3-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "pear3-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato2-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato2-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato2-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato2-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato2-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato2-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato2-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato2-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato3-022-000.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato3-022-090.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato3-022-180.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato3-022-270.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato3-035-045.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato3-035-135.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato3-035-225.png",
+      "prior_equal": true,
+      "same_hash": true
+    },
+    {
+      "duplicate_undirected": 0,
+      "name": "tomato3-035-315.png",
+      "prior_equal": true,
+      "same_hash": true
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "no_conflicts": true,
+  "patches": [
+    {
+      "check": "authoritative phase2_apply.log + target inventory",
+      "patch": "0000_harness_figground_pipeline.patch",
+      "status": "APPLIED",
+      "targets": [
+        "tests/figground/pipeline.py"
+      ]
+    },
+    {
+      "check": "reverse -p2",
+      "exit": 0,
+      "patch": "0001_matcher_flags.patch",
+      "status": "PRESENT",
+      "stderr": ""
+    },
+    {
+      "check": "reverse -p2",
+      "exit": 0,
+      "patch": "0002_edge_mass_containment_and_incomparable.patch",
+      "status": "PRESENT",
+      "stderr": ""
+    },
+    {
+      "check": "reverse -p2",
+      "exit": 0,
+      "patch": "0003_keep_hierarchy_members.patch",
+      "status": "PRESENT",
+      "stderr": ""
+    },
+    {
+      "check": "reverse -p2",
+      "exit": 0,
+      "patch": "0004_median_exemplar_template.patch",
+      "status": "PRESENT",
+      "stderr": ""
+    },
+    {
+      "check": "reverse -p2",
+      "exit": 0,
+      "patch": "0005_count_absent_consensus_voters.patch",
+      "status": "PRESENT",
+      "stderr": ""
+    },
+    {
+      "check": "reverse -p2",
+      "exit": 0,
+      "patch": "0006_frame_partition_registration.patch",
+      "status": "PRESENT",
+      "stderr": ""
+    },
+    {
+      "check": "authoritative phase2_apply.log + target inventory",
+      "patch": "0007_pins.patch",
+      "status": "APPLIED",
+      "targets": [
+        "tests/matcher/test_phase2_flagged_mechanisms.py",
+        "tests/matcher/test_relation_frame_emitted.py",
+        "tests/matcher/test_p4b_count_apart.py",
+        "tests/matcher/test_relation_frame_partition.py"
+      ]
+    }
+  ]
+}

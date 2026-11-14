@@ -1,0 +1,23 @@
+{
+  "degree_zero_nodes": 30765,
+  "degree_zero_share": 0.5388293400588483,
+  "frames": 79,
+  "junction_kinds": {
+    "Corner": 153,
+    "Junction": 99,
+    "T": 31,
+    "Y": 3
+  },
+  "junction_topologies": {
+    "0": 44,
+    "1": 153,
+    "2": 31,
+    "3": 3,
+    "4": 2,
+    "6": 53
+  },
+  "spatial_edges": 194,
+  "spatial_nodes": 3950,
+  "window_edges": 72354,
+  "window_nodes": 57096
+}

@@ -1,0 +1,28 @@
+{
+  "counts": {
+    "ETH80_ALL8": {
+      "CONTOUR": {
+        "closed": 50,
+        "open": 1157,
+        "total": 1207
+      },
+      "PEAK_CHAIN": {
+        "open": 3229,
+        "total": 3229
+      }
+    },
+    "RENDERER_TRUTH_V1": {
+      "CONTOUR": {
+        "closed": 18,
+        "open": 132,
+        "total": 150
+      },
+      "PEAK_CHAIN": {
+        "closed": 2,
+        "open": 170,
+        "total": 172
+      }
+    }
+  },
+  "scope": "selected graph pattern nodes; observation contours and pre-selection detections not retained"
+}

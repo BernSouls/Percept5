@@ -378,12 +378,44 @@ class TypedSignature:
         branches preserve the §2.21.5 contract (OPAQUE hash equality,
         CANONICAL class/relation/arity gate, unregistered class → 0.0).
         """
-        return _SIMILARITY_IMPL(self, other, context=context)
+        base = _SIMILARITY_IMPL(self, other, context=context)
+        from core.graded_features import feature_similarity
+        return feature_similarity(self, other, base)
 
 # --- from sensory_floor.py: detections ---
 _SIGMA_FALLBACK_RANGE0 = P.SIGMA_FALLBACK_FOR_RANGE0
 
 _SIM_MODE = P.SIMILARITY_MODE
+
+def _population_skipping_absent(self, other, axes):
+    """Compare population axes named by slots, excluding missing readings.
+
+    Returns None when there are no ABSENT markers, leaving the shipped path
+    untouched. A comparison with no common measured axis returns zero.
+    """
+    qa, qb = self.quantized, other.quantized
+    if not any(v == ABSENT for v in qa) and not any(v == ABSENT for v in qb):
+        return None
+    from core.slots import slot_names
+    from core.population import axis_similarity
+    names = slot_names(self.class_)
+    indices = {name: i for i, name in enumerate(names)}
+    total = weight = 0.0
+    for i, axis in enumerate(axes):
+        idx = indices.get(axis.name)
+        if idx is None or idx >= len(qa) or idx >= len(qb):
+            continue
+        if qa[idx] == ABSENT or qb[idx] == ABSENT:
+            continue
+        if i >= len(self.population) or i >= len(other.population):
+            continue
+        va, vb = self.population[i], other.population[i]
+        if len(va) != axis.n_bins or len(vb) != axis.n_bins:
+            continue
+        total += axis.weight * axis_similarity(va, vb)
+        weight += axis.weight
+    return total / weight if weight else 0.0
+
 
 def _similarity_gaussian(self, other, context: Any = None) -> float:
     other_kind = getattr(other, "kind", None)
@@ -398,6 +430,11 @@ def _similarity_gaussian(self, other, context: Any = None) -> float:
         _pop_axes = get_population_axes(self.class_)
         _pa = self.population
         _pb = getattr(other, "population", ())
+        if (_pa and _pb and _pop_axes is not None
+                and P.POPULATION_CODING_ENABLED):
+            _without_absent = _population_skipping_absent(self, other, _pop_axes)
+            if _without_absent is not None:
+                return _without_absent
         if (_pa and _pb and _pop_axes is not None
                 and P.POPULATION_CODING_ENABLED
                 and len(_pa) == len(_pop_axes) == len(_pb)):
@@ -484,6 +521,11 @@ def _similarity_linear(self, other, context: Any = None) -> float:
         _pop_axes = get_population_axes(self.class_)
         _pa = self.population
         _pb = getattr(other, "population", ())
+        if (_pa and _pb and _pop_axes is not None
+                and P.POPULATION_CODING_ENABLED):
+            _without_absent = _population_skipping_absent(self, other, _pop_axes)
+            if _without_absent is not None:
+                return _without_absent
         if (_pa and _pb and _pop_axes is not None
                 and P.POPULATION_CODING_ENABLED
                 and len(_pa) == len(_pop_axes) == len(_pb)):
@@ -601,6 +643,7 @@ class Detection:
         # perception/attachment.py.
         "_frag_mid",
         "_frag_tangent",
+        "_frag_host_arc",
     )
 
     def __init__(
@@ -627,6 +670,7 @@ class Detection:
         object.__setattr__(self, "_curv_profile", None)
         object.__setattr__(self, "_frag_mid", None)
         object.__setattr__(self, "_frag_tangent", None)
+        object.__setattr__(self, "_frag_host_arc", None)
         object.__setattr__(
             self, "_hash_cache", hash_64_signed(serialize_detection(self))
         )

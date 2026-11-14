@@ -1,0 +1,10 @@
+{
+  "classes": [],
+  "corpus": "ETH80_ALL8",
+  "error": "[CONTENT HASH FAULT] feature-aware content ID collision",
+  "failed_class": "apple",
+  "failed_frame": "apple2-022-180.png",
+  "processed_frames": 2,
+  "status": "FAILED during content pooling",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/user/Percept5/phase3/harness/build_filter_audit.py\", line 32, in main\n    cg=build_content_subgraph(sg,sigs.get,store,{})\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/Percept5/memory/content.py\", line 615, in build_content_subgraph\n    cnid = content_store.resolve(lens_type, csig)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/Percept5/memory/content.py\", line 573, in resolve\n    raise RuntimeError(\"[CONTENT HASH FAULT] feature-aware content ID collision\")\nRuntimeError: [CONTENT HASH FAULT] feature-aware content ID collision\n"
+}

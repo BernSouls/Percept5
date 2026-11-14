@@ -26,24 +26,50 @@ def signed_menger(p1, p2, p3, c) -> float:
     return 2.0 * abs(turn) / (a * b * d) * s
 
 def _arc_split(poly, target):
+    """Cut at exact host-arc distances, independent of vertex sampling.
+
+    Fragment boundaries interpolate within segments, retaining interior
+    vertices. The short terminal remainder follows the historical half-length
+    admission rule. Each accepted piece has at least three points.
+    """
+    if len(poly) < 2 or target <= 0:
+        return []
     frags, cur, acc = [], [poly[0]], 0.0
-    for i in range(1, len(poly)):
-        acc += math.hypot(poly[i][0]-poly[i-1][0], poly[i][1]-poly[i-1][1])
-        cur.append(poly[i])
-        if acc >= target:
-            if len(cur) >= 3:
-                frags.append(cur)
-            cur, acc = [poly[i]], 0.0
-    if len(cur) >= 3 and acc >= 0.5 * target:
+    for end in poly[1:]:
+        start = cur[-1]
+        remaining = math.hypot(end[0] - start[0], end[1] - start[1])
+        while remaining > 1e-12 and acc + remaining >= target:
+            fraction = (target - acc) / remaining
+            cut = (start[0] + fraction * (end[0] - start[0]),
+                   start[1] + fraction * (end[1] - start[1]))
+            cur.append(cut)
+            if len(cur) == 2:
+                cur.insert(1, ((cur[0][0] + cut[0]) / 2, (cur[0][1] + cut[1]) / 2))
+            frags.append(cur)
+            cur, acc, start = [cut], 0.0, cut
+            remaining = math.hypot(end[0] - start[0], end[1] - start[1])
+        if remaining > 1e-12:
+            cur.append(end)
+            acc += remaining
+    if acc >= 0.5 * target:
+        if len(cur) == 2:
+            cur.insert(1, ((cur[0][0] + cur[-1][0]) / 2,
+                           (cur[0][1] + cur[-1][1]) / 2))
         frags.append(cur)
     return frags
 
+
 def _arc_mid(fr):
-    cum = [0.0]
-    for i in range(1, len(fr)):
-        cum.append(cum[-1] + math.hypot(fr[i][0]-fr[i-1][0], fr[i][1]-fr[i-1][1]))
-    half = 0.5 * cum[-1]
-    return fr[min(range(len(fr)), key=lambda i: abs(cum[i] - half))], cum[-1]
+    lengths = [math.hypot(b[0]-a[0], b[1]-a[1]) for a, b in zip(fr, fr[1:])]
+    total = sum(lengths)
+    half, travelled = total / 2.0, 0.0
+    for a, b, length in zip(fr, fr[1:], lengths):
+        if travelled + length >= half and length > 0:
+            t = (half - travelled) / length
+            return (a[0] + t * (b[0] - a[0]), a[1] + t * (b[1] - a[1])), total
+        travelled += length
+    return fr[-1], total
+
 
 def polar_boundary_fragments(contours, frag_frac=0.35, kappa_cap=8.0, min_points=12,
                              center=None, inside_points=None):
@@ -56,7 +82,17 @@ def polar_boundary_fragments(contours, frag_frac=0.35, kappa_cap=8.0, min_points
     for ci, c in enumerate(contours):
         pl = c.get("polyline")
         if pl and len(pl) >= min_points:
-            polys.append((ci, [(float(x), float(y)) for x, y in pl]))
+            points = [(float(x), float(y)) for x, y in pl]
+            if c.get("is_closed"):
+                if points[0] == points[-1]:
+                    points.pop()
+                # A translation-equivariant, deterministic seam and direction.
+                seam = min(range(len(points)), key=lambda i: points[i])
+                points = points[seam:] + points[:seam]
+                if points[-1] < points[1]:
+                    points = [points[0]] + list(reversed(points[1:]))
+                points.append(points[0])
+            polys.append((ci, points))
     pts = [p for _, pl in polys for p in pl]
     if len(pts) < 2 * min_points:
         return [], {}
@@ -69,7 +105,15 @@ def polar_boundary_fragments(contours, frag_frac=0.35, kappa_cap=8.0, min_points
     target, S, out = max(4.0, frag_frac * R), math.asinh(kappa_cap), []
     for ci, pl in polys:
         ref = (inside_points or {}).get(ci, (cx, cy))
-        for k, fr in enumerate(_arc_split(pl, target)):
+        # Fragment scale belongs to its host, not all the other contours in
+        # the image. Adding a distant object must not repartition this host.
+        hx = sum(p[0] for p in pl) / len(pl)
+        hy = sum(p[1] for p in pl) / len(pl)
+        radii = sorted(math.hypot(p[0] - hx, p[1] - hy) for p in pl)
+        host_r = radii[int(0.9 * (len(radii) - 1))]
+        host_target = max(4.0, frag_frac * host_r)
+        arc_start = 0.0
+        for k, fr in enumerate(_arc_split(pl, host_target)):
             (mid, arc), p0, p1 = _arc_mid(fr), fr[0], fr[-1]
             kappa_n = signed_menger(p0, mid, p1, ref) * R
             kc = max(-kappa_cap, min(kappa_cap, kappa_n))
@@ -99,7 +143,9 @@ def polar_boundary_fragments(contours, frag_frac=0.35, kappa_cap=8.0, min_points
                         "kappa_c": (math.asinh(kc) / S) if S > 0 else 0.0,
                         "theta_c": th,
                         "r_c": rr,
-                        "tvr_c": tvr})
+                        "tvr_c": tvr, "host_arc_start": arc_start,
+                        "host_arc_end": arc_start + arc})
+            arc_start += arc
     return out, {"center": (cx, cy), "R": R, "target_len": target}
 
 

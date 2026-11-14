@@ -1,0 +1,51 @@
+.....................................................................F.. [ 13%]
+........................................................................ [ 27%]
+........................................................................ [ 41%]
+........................................................................ [ 55%]
+........................................................................ [ 69%]
+........................................................................ [ 82%]
+........................................................................ [ 96%]
+.................                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_an_ambiguous_attachment_is_written_absent_and_counted __________
+
+on = ImageGraph(name='phase6_pin_disk', subgraph=Subgraph(nodes=frozenset({0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14...78209, 0), ('Texture', 96, 0.7526580841825795, 0), ('Texture', 98, 0.7747120437572319, 0)], seconds=6.6058173179626465)
+
+    def test_an_ambiguous_attachment_is_written_absent_and_counted(on):
+        """RULE (Amendment 2.4 / 7.35).  When the evidence does not pick a host the
+        attachment is ABSENT and the binder COUNTS the refusal; it never guesses.
+    
+        The pin is written on the two things that are actually invariant, because
+        the obvious third one is NOT: a feature may be attached to several hosts
+        of one kind when the data NAMES it as a member of each -- that is a fact,
+        not a rival guess (Amendment 3.1), and on this scene it is exactly what the
+        CONTOUR_PEAK / PEAK_CHAIN memberships do.
+    
+        (i)  ambiguity happens on this scene and every refusal is counted, not
+             silently dropped;
+        (ii) every attachment that IS written carries a measured slot -- an
+             unmeasured attachment would enter the walker's relation set and be
+             compared as if it had been measured, which is the one way an
+             ambiguous attachment could still reach the matcher.
+        """
+        from matching.relation_frame import has_measured_axis
+    
+        diag = on.binder_diag["stage6_attachment"]
+        att = _edges(on, EdgeType.BOUNDARY_ATTACHMENT)
+        assert att, "the scene must write attachments"
+    
+        outcomes = defaultdict(int)
+        for k, v in diag.items():
+            if "|" in k:
+                outcomes[k.split("|")[-1]] += v
+>       assert outcomes.get("ambiguous", 0) > 0, (
+            "the binder reports no ambiguity on a scene where ties must exist: %r" % diag)
+E       AssertionError: the binder reports no ambiguity on a scene where ties must exist: {'CONTOUR_PEAK|Contour|unambiguous': 28, 'CONTOUR_PEAK|Contour|no_host': 24, 'CONTOUR_PEAK|PEAK_CHAIN|known': 44, 'CONTOUR_PEAK|PEAK_CHAIN|unambiguous': 4, 'CONTOUR_PEAK|PEAK_CHAIN|no_host': 4, 'ContourFragment|Contour|unambiguous': 40, 'ContourFragment|Contour|no_host': 4, 'ContourFragment|PEAK_CHAIN|unambiguous': 37, 'ContourFragment|PEAK_CHAIN|no_host': 7, 'EndStopped|Contour|unambiguous': 24, 'EndStopped|Contour|no_host': 12, 'EndStopped|PEAK_CHAIN|unambiguous': 20, 'EndStopped|PEAK_CHAIN|no_host': 16, 'Orientation|Contour|known': 34, 'Orientation|Contour|no_host': 8, 'Orientation|PEAK_CHAIN|unambiguous': 20, 'Orientation|PEAK_CHAIN|no_host': 22, 'RegionShape|PEAK_CHAIN|known': 1, 'pooled|node_pairs': 23, 'pooled|arc_end_dist_absent': 2, 'successor|same_node': 12}
+E       assert 0 > 0
+E        +  where 0 = <built-in method get of collections.defaultdict object at 0x7f851df24590>('ambiguous', 0)
+E        +    where <built-in method get of collections.defaultdict object at 0x7f851df24590> = defaultdict(<class 'int'>, {'unambiguous': 173, 'no_host': 97, 'known': 79, 'node_pairs': 23, 'arc_end_dist_absent': 2, 'same_node': 12}).get
+
+tests/matcher/test_frontend_relations.py:205: AssertionError
+=========================== short test summary info ============================
+FAILED tests/matcher/test_frontend_relations.py::test_an_ambiguous_attachment_is_written_absent_and_counted
+1 failed, 520 passed in 37.19s

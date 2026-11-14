@@ -582,7 +582,7 @@ EDGE_UNIT_TABLE: Dict[str, Tuple[SlotSpec, ...]] = {
     "EDGE_CONTACT": (
         _eslot("normal_angle", "radians", 0.0, math.pi, 24, circular=True,
                quantiser="round"),
-        _eslot("dist", "median_spacings", 0.0, 1.0, 8),
+        _eslot("dist", "median_spacings", 0.0, 3.0, 8),
         _eslot("depth_step", "depth_units", 0.0, 3.0, 8),
     ),
     # --- SURFACE GROUPING -------------------------------------------------
@@ -623,13 +623,13 @@ EDGE_UNIT_TABLE: Dict[str, Tuple[SlotSpec, ...]] = {
         _eslot("angle_delta", "radians", 0.0, 0.5 * math.pi, 8),
         _eslot("bisector_theta", "radians", 0.0, math.pi, 24, circular=True,
                quantiser="round"),
-        _eslot("spatial_dist", "wavelengths", 0.0, 1.0, 8),
+        _eslot("spatial_dist", "wavelengths", 0.0, 3.0, 8),
     ),
     "EDGE_ORIENTATION_JUNCTION": (
         _eslot("angle_delta", "radians", 0.0, 0.5 * math.pi, 8),
         _eslot("bisector_theta", "radians", 0.0, math.pi, 24, circular=True,
                quantiser="round"),
-        _eslot("spatial_dist", "wavelengths", 0.0, 1.0, 8),
+        _eslot("spatial_dist", "wavelengths", 0.0, 3.0, 8),
     ),
     # --- PARALLEL ---------------------------------------------------------
     # perp_dist    the perpendicular separation, in wavelengths (the
@@ -672,7 +672,7 @@ EDGE_UNIT_TABLE: Dict[str, Tuple[SlotSpec, ...]] = {
     # curv_agree  the AGREEMENT of the two contours' signed curvature
     #             (a fraction in [0, 1]; 1 = the same handedness)
     "EDGE_CONTOUR_CONTINUITY": (
-        _eslot("dist", "wavelengths", 0.0, 2.0, 8),
+        _eslot("dist", "wavelengths", 0.0, 6.0, 8),
         _eslot("turn", "radians", -0.5 * math.pi, 0.5 * math.pi, 8,
                circular=True),
         _eslot("curv_agree", "fraction", 0.0, 1.0, 8),
@@ -684,7 +684,7 @@ EDGE_UNIT_TABLE: Dict[str, Tuple[SlotSpec, ...]] = {
     # topology_class the junction's topology class: a categorical LOOKUP
     #               KEY (INTENTIONALLY INDEX-ONLY)
     "EDGE_JUNCTION_CONTOUR": (
-        _eslot("dist", "wavelengths", 0.0, 2.5, 8),
+        _eslot("dist", "wavelengths", 0.0, 7.5, 8),
         _eslot("incidence", "radians", 0.0, math.pi, 24, circular=True,
                quantiser="round"),
         _eslot("topology_class", "class", 0.0, 7.0, 7,
@@ -778,8 +778,8 @@ EDGE_UNIT_TABLE: Dict[str, Tuple[SlotSpec, ...]] = {
     ),
     # --- CONCENTRICITY ----------------------------------------------------
     "EDGE_CONCENTRICITY": (
-        _eslot("radial_ratio", "log2_ratio", 0.0, 4.0, 8),
-        _eslot("offset", "fraction", 0.0, 1.0, 8),
+        _eslot("radial_ratio", "log2_ratio", math.log2(1.15), math.log2(10.0), 8),
+        _eslot("offset", "outer_radius_fraction", 0.0, 1.5, 8),
         _eslot("extent", "fraction", 0.0, 1.0, 8),
         _eslot("ecc_difference", "fraction", 0.0, 1.0, 8),
     ),

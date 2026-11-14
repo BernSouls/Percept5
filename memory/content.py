@@ -63,6 +63,7 @@ import parameters as P
 # `tests/perception/test_junction_family_u20.py` asserts this tuple equals
 # `lenses.derived_common.JUNCTION_FAMILY_KINDS`.
 _JUNCTION_FAMILY_KINDS: Tuple[str, ...] = ("Corner", "T", "Y")
+from core.junction_families import JUNCTION_FAMILY_EXTENSIONS
 
 SignatureProvider = Callable[[int], Optional[Tuple[str, TypedSignature]]]
 
@@ -108,7 +109,7 @@ CONTENT_LENS_TYPES: FrozenSet[str] = frozenset({
     "TextureBoundary",
 })
 
-CONTENT_LENS_TYPES = frozenset(set(CONTENT_LENS_TYPES) | set(_JUNCTION_FAMILY_KINDS))
+CONTENT_LENS_TYPES = frozenset(set(CONTENT_LENS_TYPES) | set(_JUNCTION_FAMILY_KINDS) | set(JUNCTION_FAMILY_EXTENSIONS))
 
 CONTENT_ID_HIGH_BIT: int = 0x8000000000000000
 
@@ -158,7 +159,7 @@ def content_signature(
     # [U20 LEAD 3] A junction family IS a junction for content: the projection
     # reads the signature (class JUNCTION), never the node kind, so the family
     # name is normalised here and the content identity cannot move.
-    if lens_type in _JUNCTION_FAMILY_KINDS:
+    if lens_type in _JUNCTION_FAMILY_KINDS or lens_type in JUNCTION_FAMILY_EXTENSIONS:
         lens_type = "Junction"
     if sigma.kind != "CANONICAL":
         return None
@@ -498,9 +499,17 @@ class ContentSignatureStore:
         best_id: Optional[int] = None
         best_sim = theta
         sig_len = len(content_sig.quantized)
+        from core.frontend_contract import frontend_contract_active
+        live = frontend_contract_active()
+        feature_keys = tuple(f.key() for f in getattr(content_sig, "_named_features", ()))
 
         for cid in self._clusters_by_lens.get(lens_type, ()):
             centroid = self._sigs[cid][1]
+            # Never let another window or label rewrite this one's attached
+            # measurements. Only merge a cluster with the same full feature
+            # bundle; coarse physical centroiding otherwise remains unchanged.
+            if live and feature_keys != tuple(f.key() for f in getattr(centroid, "_named_features", ())):
+                continue
             # Fast bypass: mismatched arities cannot merge
             if len(centroid.quantized) != sig_len:
                 continue
@@ -539,11 +548,33 @@ class ContentSignatureStore:
                 quantized=new_quantized,
                 population=new_pop,
             )
+            features = (tuple(getattr(old_sig, "_named_features", ()))
+                        if live else
+                        tuple(getattr(old_sig, "_named_features", ()))
+                        + tuple(getattr(content_sig, "_named_features", ())))
+            if features:
+                from core.graded_features import with_features
+                new_centroid = with_features(new_centroid, features)
             self._sigs[best_id] = (lens_type, new_centroid)
             self._cluster_sizes[best_id] = n + 1
             return best_id
 
         new_id = content_node_id(lens_type, content_sig)
+        if live and feature_keys:
+            from core.graded_features import serialize_feature_payload
+            key = serialize_tuple([serialize_bytes(lens_type.encode("utf-8")),
+                                   serialize_bytes(content_sig.serialize()),
+                                   serialize_bytes(serialize_feature_payload(
+                                       getattr(content_sig, "_named_features", ())))])
+            new_id = (hash_64_signed(key) & 0x7FFFFFFFFFFFFFFF) | CONTENT_ID_HIGH_BIT
+        existing = self._sigs.get(new_id)
+        if live and feature_keys and existing is not None:
+            if (existing[0] != lens_type or existing[1].serialize() != content_sig.serialize()
+                    or tuple(f.key() for f in getattr(existing[1], "_named_features", ())) != feature_keys):
+                raise RuntimeError("[CONTENT HASH FAULT] feature-aware content ID collision")
+            # Same canonical identity, even when an uninformative population
+            # cannot exceed the clustering threshold. Do not add it twice.
+            return new_id
         self._sigs[new_id] = (lens_type, content_sig)
         self._clusters_by_lens.setdefault(lens_type, []).append(new_id)
         self._cluster_sizes[new_id] = 1
@@ -571,10 +602,17 @@ def build_content_subgraph(
         if lens_type not in CONTENT_LENS_TYPES:
             dropped_nodes += 1
             continue
+        overlay = instance_subgraph.signature_overrides.get(nid)
+        if overlay is not None:
+            lens_type, sigma = overlay
         csig = content_signature(lens_type, sigma)
         if csig is None:
             dropped_nodes += 1
             continue
+        features = getattr(sigma, "_named_features", ())
+        if features:
+            from core.graded_features import with_features
+            csig = with_features(csig, features)
         cnid = content_store.resolve(lens_type, csig)
         instance_to_content[nid] = cnid
         content_nodes.add(cnid)

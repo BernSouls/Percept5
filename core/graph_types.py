@@ -68,6 +68,11 @@ class Subgraph:
     )
     t_junctions: FrozenSet = field(default=frozenset(), compare=False)
 
+    # Per-window graded signature overlay, excluded from graph identity. This
+    # never mutates the graph registry's coarse pattern-node signature.
+    signature_overrides: Dict[int, Any] = field(default_factory=dict, compare=False)
+    perceptual_prepared: bool = field(default=False, compare=False)
+
     def is_empty(self) -> bool:
         return not self.nodes and not self.edges
 

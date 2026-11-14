@@ -174,6 +174,7 @@ EPSILON = 1e-9
 # for `current_detections["Junction"]` gets the union of the families plus the
 # residual, so no consumer silently loses junctions.
 JUNCTION_FAMILY_KINDS: Tuple[str, ...] = ("Corner", "T", "Y")
+from core.junction_families import JUNCTION_FAMILY_EXTENSIONS
 
 #: The residual, non-family junction kind (kept; never removed).
 JUNCTION_RESIDUAL_KIND = "Junction"
@@ -181,7 +182,7 @@ JUNCTION_RESIDUAL_KIND = "Junction"
 #: Every kind the JunctionLens can emit.
 JUNCTION_EMITTED_KINDS: Tuple[str, ...] = (
     JUNCTION_RESIDUAL_KIND,
-) + JUNCTION_FAMILY_KINDS
+) + JUNCTION_FAMILY_KINDS + JUNCTION_FAMILY_EXTENSIONS
 
 
 def is_junction_kind(kind: Any) -> bool:
@@ -320,7 +321,7 @@ LENS_INPUT_DECLARATIONS: Tuple[LensInputDeclaration, ...] = (
         # families are emitted under their own kinds and are listed so the
         # contract test can see that the alias is not a lie.
         produces="Junction",
-        also_produces=JUNCTION_FAMILY_KINDS,
+        also_produces=JUNCTION_FAMILY_KINDS + JUNCTION_FAMILY_EXTENSIONS,
         # [U21 LEAD 1] the polarised family too: its pattern edges
         # (ORIENTATION_BEND / ORIENTATION_JUNCTION) are laid over it.
         reads=("Orientation", "OrientationPol"),

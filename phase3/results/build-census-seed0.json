@@ -1,0 +1,717 @@
+{
+  "ETH80_ALL8": {
+    "class_mi": {
+      "classes": [
+        "apple",
+        "car",
+        "cow",
+        "cup",
+        "dog",
+        "horse",
+        "pear",
+        "tomato"
+      ],
+      "groups": [
+        {
+          "class": "JUNCTION",
+          "joint_MI": {
+            "distinct_values": 14,
+            "exceedances": 645,
+            "n": 16,
+            "node_level_null_median_bits": 2.202819531114783,
+            "node_level_null_p95_bits": 2.3278195311147836,
+            "node_level_p_one_sided": 0.271,
+            "null_median_bits": 2.4056390622295662,
+            "null_p95_bits": 2.6556390622295662,
+            "observed_bits": 2.327819531114783,
+            "p_one_sided": 0.646,
+            "permutations": 999
+          },
+          "lens": "Arrow"
+        },
+        {
+          "class": "CONTOUR_PEAK",
+          "joint_MI": {
+            "distinct_values": 4261,
+            "exceedances": 0,
+            "n": 16693,
+            "node_level_null_median_bits": 1.0414669235229264,
+            "node_level_null_p95_bits": 1.0496869153992157,
+            "node_level_p_one_sided": 0.001,
+            "null_median_bits": 1.028717081749663,
+            "null_p95_bits": 1.0413692691061895,
+            "observed_bits": 1.1522078432115506,
+            "p_one_sided": 0.001,
+            "permutations": 999
+          },
+          "lens": "CONTOUR_PEAK"
+        },
+        {
+          "class": "CONTOUR",
+          "joint_MI": {
+            "distinct_values": 484,
+            "exceedances": 998,
+            "n": 1152,
+            "node_level_null_median_bits": 1.4102541297695583,
+            "node_level_null_p95_bits": 1.4395676968304998,
+            "node_level_p_one_sided": 0.714,
+            "null_median_bits": 1.443196995737544,
+            "null_p95_bits": 1.46745532963379,
+            "observed_bits": 1.4003818257556748,
+            "p_one_sided": 0.999,
+            "permutations": 999
+          },
+          "lens": "Contour"
+        },
+        {
+          "class": "CONTOUR_FRAGMENT",
+          "joint_MI": {
+            "distinct_values": 2955,
+            "exceedances": 0,
+            "n": 8263,
+            "node_level_null_median_bits": 1.3953887287847255,
+            "node_level_null_p95_bits": 1.4070388539943177,
+            "node_level_p_one_sided": 0.001,
+            "null_median_bits": 1.392441158273252,
+            "null_p95_bits": 1.410594711359915,
+            "observed_bits": 1.577251234412247,
+            "p_one_sided": 0.001,
+            "permutations": 999
+          },
+          "lens": "ContourFragment"
+        },
+        {
+          "class": "CORNER",
+          "joint_MI": {
+            "distinct_values": 448,
+            "exceedances": 999,
+            "n": 2003,
+            "node_level_null_median_bits": 0.9346796494781126,
+            "node_level_null_p95_bits": 0.9571526118212417,
+            "node_level_p_one_sided": 1.0,
+            "null_median_bits": 0.9399961627540254,
+            "null_p95_bits": 0.9604126254479985,
+            "observed_bits": 0.8872585482790623,
+            "p_one_sided": 1.0,
+            "permutations": 999
+          },
+          "lens": "Corner"
+        },
+        {
+          "class": "CURVE_COMPLEX",
+          "joint_MI": {
+            "distinct_values": 330,
+            "exceedances": 162,
+            "n": 872,
+            "node_level_null_median_bits": 1.2773980037694797,
+            "node_level_null_p95_bits": 1.3053037255336455,
+            "node_level_p_one_sided": 0.029,
+            "null_median_bits": 1.295844830260267,
+            "null_p95_bits": 1.319210938730638,
+            "observed_bits": 1.310128156747457,
+            "p_one_sided": 0.163,
+            "permutations": 999
+          },
+          "lens": "CurveComplex"
+        },
+        {
+          "class": "ENDSTOPPED",
+          "joint_MI": {
+            "distinct_values": 249,
+            "exceedances": 13,
+            "n": 4997,
+            "node_level_null_median_bits": 0.23848578304354578,
+            "node_level_null_p95_bits": 0.24890202305363596,
+            "node_level_p_one_sided": 1.0,
+            "null_median_bits": 0.19946098763412248,
+            "null_p95_bits": 0.20803830024492143,
+            "observed_bits": 0.2105502581650061,
+            "p_one_sided": 0.014,
+            "permutations": 999
+          },
+          "lens": "EndStopped"
+        },
+        {
+          "class": "ILLUSORY_CONTOUR",
+          "joint_MI": {
+            "distinct_values": 139,
+            "exceedances": 999,
+            "n": 290,
+            "node_level_null_median_bits": 1.590615563290601,
+            "node_level_null_p95_bits": 1.6484254738049957,
+            "node_level_p_one_sided": 0.35,
+            "null_median_bits": 1.8386093855768149,
+            "null_p95_bits": 1.9002840666957976,
+            "observed_bits": 1.606099097758439,
+            "p_one_sided": 1.0,
+            "permutations": 999
+          },
+          "lens": "IllusoryContour"
+        },
+        {
+          "class": "JUNCTION",
+          "joint_MI": {
+            "distinct_values": 10,
+            "exceedances": 890,
+            "n": 10,
+            "node_level_null_median_bits": 2.170950594454669,
+            "node_level_null_p95_bits": 2.170950594454669,
+            "node_level_p_one_sided": 1.0,
+            "null_median_bits": 2.446439344671016,
+            "null_p95_bits": 2.7219280948873625,
+            "observed_bits": 2.170950594454669,
+            "p_one_sided": 0.891,
+            "permutations": 999
+          },
+          "lens": "Junction"
+        },
+        {
+          "class": "JUNCTION",
+          "joint_MI": {
+            "distinct_values": 63,
+            "exceedances": 886,
+            "n": 139,
+            "node_level_null_median_bits": 1.6642039223867038,
+            "node_level_null_p95_bits": 1.74700805910848,
+            "node_level_p_one_sided": 0.184,
+            "null_median_bits": 1.7696720996953526,
+            "null_p95_bits": 1.8582701068090592,
+            "observed_bits": 1.7092734368218865,
+            "p_one_sided": 0.887,
+            "permutations": 999
+          },
+          "lens": "L"
+        },
+        {
+          "class": "ORIENTATION",
+          "joint_MI": {
+            "distinct_values": 612,
+            "exceedances": 0,
+            "n": 4498,
+            "node_level_null_median_bits": 0.6801757744201091,
+            "node_level_null_p95_bits": 0.6982803236776983,
+            "node_level_p_one_sided": 0.001,
+            "null_median_bits": 0.6543798907034987,
+            "null_p95_bits": 0.6766230898278437,
+            "observed_bits": 0.9640774144614882,
+            "p_one_sided": 0.001,
+            "permutations": 999
+          },
+          "lens": "Orientation"
+        },
+        {
+          "class": "ORIENTATION_SEGMENT",
+          "joint_MI": {
+            "distinct_values": 159,
+            "exceedances": 400,
+            "n": 182,
+            "node_level_null_median_bits": 2.566939013887084,
+            "node_level_null_p95_bits": 2.599906046854117,
+            "node_level_p_one_sided": 0.029,
+            "null_median_bits": 2.5885952379120876,
+            "null_p95_bits": 2.7061367739647997,
+            "observed_bits": 2.610895057843128,
+            "p_one_sided": 0.401,
+            "permutations": 999
+          },
+          "lens": "Orientation"
+        },
+        {
+          "class": "PEAK_CHAIN",
+          "joint_MI": {
+            "distinct_values": 882,
+            "exceedances": 51,
+            "n": 3036,
+            "node_level_null_median_bits": 1.1236777874409556,
+            "node_level_null_p95_bits": 1.1406201166239793,
+            "node_level_p_one_sided": 0.127,
+            "null_median_bits": 1.1190066275771615,
+            "null_p95_bits": 1.1348573944220661,
+            "observed_bits": 1.1347035059870532,
+            "p_one_sided": 0.052,
+            "permutations": 999
+          },
+          "lens": "PEAK_CHAIN"
+        },
+        {
+          "class": "REGION_SHAPE",
+          "joint_MI": {
+            "distinct_values": 1944,
+            "exceedances": 999,
+            "n": 2124,
+            "node_level_null_median_bits": 2.76967375945107,
+            "node_level_null_p95_bits": 2.777336023600553,
+            "node_level_p_one_sided": 0.158,
+            "null_median_bits": 2.8283655660145444,
+            "null_p95_bits": 2.836613269585974,
+            "observed_bits": 2.774428875020802,
+            "p_one_sided": 1.0,
+            "permutations": 999
+          },
+          "lens": "RegionShape"
+        },
+        {
+          "class": "JUNCTION",
+          "joint_MI": {
+            "distinct_values": 20,
+            "exceedances": 818,
+            "n": 21,
+            "node_level_null_median_bits": 2.4342500190281053,
+            "node_level_null_p95_bits": 2.5294881142662007,
+            "node_level_p_one_sided": 0.77,
+            "null_median_bits": 2.58877918559175,
+            "null_p95_bits": 2.8152023999804867,
+            "observed_bits": 2.4342500190281053,
+            "p_one_sided": 0.819,
+            "permutations": 999
+          },
+          "lens": "T"
+        },
+        {
+          "class": "JUNCTION",
+          "joint_MI": {
+            "distinct_values": 7,
+            "exceedances": 640,
+            "n": 8,
+            "node_level_null_median_bits": 2.0,
+            "node_level_null_p95_bits": 2.25,
+            "node_level_p_one_sided": 1.0,
+            "null_median_bits": 2.0,
+            "null_p95_bits": 2.5,
+            "observed_bits": 2.0,
+            "p_one_sided": 0.641,
+            "permutations": 999
+          },
+          "lens": "Y"
+        }
+      ],
+      "n_frames": 128,
+      "permutations": 999,
+      "scope": "128 object-disjoint evaluation frames; image-level label permutation"
+    },
+    "edge_budget": {
+      "max": 458.0,
+      "median": 113.0,
+      "min": 28.0,
+      "n": 136,
+      "p95": 327.25
+    },
+    "edge_budget_pass": true,
+    "failures": [],
+    "family_survival": {
+      "AMODAL_LINK": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 195,
+        "window": 195
+      },
+      "BORDER_OWNERSHIP_EDGE": {
+        "fraction": 0.0,
+        "missing_reason_counts": {
+          "no_frame_endpoints": 127
+        },
+        "selected": 0,
+        "window": 838
+      },
+      "COCIRCULAR": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 449,
+        "window": 449
+      },
+      "COLOR_OPPONENT_BORDER": {
+        "fraction": 0.0,
+        "missing_reason_counts": {
+          "no_frame_endpoints": 136
+        },
+        "selected": 0,
+        "window": 7385
+      },
+      "CONCENTRICITY": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 130,
+        "window": 130
+      },
+      "CONTACT": {
+        "fraction": 0.0,
+        "missing_reason_counts": {},
+        "selected": 0,
+        "window": 849
+      },
+      "CONTOUR_CONTINUITY": {
+        "fraction": 0.9991974317817014,
+        "missing_reason_counts": {},
+        "selected": 1245,
+        "window": 1246
+      },
+      "CONTOUR_ORIENTATION": {
+        "fraction": 0.3036785649354585,
+        "missing_reason_counts": {},
+        "selected": 5011,
+        "window": 16501
+      },
+      "CO_LOCATED": {
+        "fraction": 0.0,
+        "missing_reason_counts": {},
+        "selected": 0,
+        "window": 26843
+      },
+      "CURVATURE": {
+        "fraction": 0.8207547169811321,
+        "missing_reason_counts": {},
+        "selected": 87,
+        "window": 106
+      },
+      "CURVATURE_SIGN_CONTINUITY": {
+        "fraction": 0.9990029910269193,
+        "missing_reason_counts": {},
+        "selected": 1002,
+        "window": 1003
+      },
+      "CURVE_CONTAINMENT": {
+        "fraction": 0.9934994582881906,
+        "missing_reason_counts": {},
+        "selected": 917,
+        "window": 923
+      },
+      "DEGREE": {
+        "fraction": 0.0,
+        "missing_reason_counts": {
+          "no_frame_endpoints": 58
+        },
+        "selected": 0,
+        "window": 114
+      },
+      "JUNCTION_CONTOUR": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 1022,
+        "window": 1022
+      },
+      "JUNCTION_ORIENTATION": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 475,
+        "window": 475
+      },
+      "LINE_TERMINATION": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 92,
+        "window": 92
+      },
+      "OCCLUSION": {
+        "fraction": 0.0,
+        "missing_reason_counts": {
+          "no_frame_endpoints": 2
+        },
+        "selected": 0,
+        "window": 2
+      },
+      "ORIENTATION_BEND": {
+        "fraction": 0.9898247597512719,
+        "missing_reason_counts": {},
+        "selected": 1751,
+        "window": 1769
+      },
+      "ORIENTATION_CONTINUITY": {
+        "fraction": 0.9870822802583544,
+        "missing_reason_counts": {},
+        "selected": 3515,
+        "window": 3561
+      },
+      "ORIENTATION_JUNCTION": {
+        "fraction": 0.9940627650551315,
+        "missing_reason_counts": {},
+        "selected": 1172,
+        "window": 1179
+      },
+      "PARALLEL": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 355,
+        "window": 355
+      },
+      "RADIALITY": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 674,
+        "window": 674
+      },
+      "REGION_CONTENT": {
+        "fraction": 0.010959246603883657,
+        "missing_reason_counts": {
+          "no_frame_endpoints": 47
+        },
+        "selected": 263,
+        "window": 23998
+      },
+      "SPIRALITY": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 341,
+        "window": 341
+      },
+      "SYMMETRY": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 532,
+        "window": 532
+      },
+      "TOPOLOGY": {
+        "fraction": 0.0,
+        "missing_reason_counts": {
+          "no_frame_endpoints": 129
+        },
+        "selected": 0,
+        "window": 2358
+      }
+    },
+    "frame_seconds": {
+      "max": 12.983283941000991,
+      "median": 9.266613230000075,
+      "min": 8.1564761059999,
+      "n": 136,
+      "p95": 9.9871326557477
+    },
+    "largest_component_structural_to_all": {
+      "max": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "n": 136,
+      "p95": 1.0
+    },
+    "largest_frame_component_all": {
+      "max": 130.0,
+      "median": 42.5,
+      "min": 12.0,
+      "n": 136,
+      "p95": 95.0
+    },
+    "largest_frame_component_structural": {
+      "max": 130.0,
+      "median": 42.5,
+      "min": 12.0,
+      "n": 136,
+      "p95": 95.0
+    },
+    "n_registered": 136,
+    "n_success": 136,
+    "runtime_pass": true,
+    "selected_edges": 19228,
+    "selected_nodes": 46984,
+    "window_edges": 92940,
+    "window_nodes": 108493
+  },
+  "RENDERER_TRUTH_V1": {
+    "edge_budget": {
+      "max": 302.0,
+      "median": 132.0,
+      "min": 68.0,
+      "n": 15,
+      "p95": 287.29999999999995
+    },
+    "edge_budget_pass": true,
+    "failures": [],
+    "family_survival": {
+      "AMODAL_LINK": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 39,
+        "window": 39
+      },
+      "BORDER_OWNERSHIP_EDGE": {
+        "fraction": 0.0,
+        "missing_reason_counts": {
+          "no_frame_endpoints": 10
+        },
+        "selected": 0,
+        "window": 35
+      },
+      "COCIRCULAR": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 59,
+        "window": 59
+      },
+      "COLOR_OPPONENT_BORDER": {
+        "fraction": 0.0,
+        "missing_reason_counts": {
+          "no_frame_endpoints": 15
+        },
+        "selected": 0,
+        "window": 214
+      },
+      "CONCENTRICITY": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 36,
+        "window": 36
+      },
+      "CONTACT": {
+        "fraction": 0.0,
+        "missing_reason_counts": {},
+        "selected": 0,
+        "window": 14
+      },
+      "CONTOUR_CONTINUITY": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 159,
+        "window": 159
+      },
+      "CONTOUR_ORIENTATION": {
+        "fraction": 0.4902687673772011,
+        "missing_reason_counts": {},
+        "selected": 529,
+        "window": 1079
+      },
+      "CO_LOCATED": {
+        "fraction": 0.0,
+        "missing_reason_counts": {},
+        "selected": 0,
+        "window": 2825
+      },
+      "CURVATURE_SIGN_CONTINUITY": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 155,
+        "window": 155
+      },
+      "CURVE_CONTAINMENT": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 120,
+        "window": 120
+      },
+      "DEGREE": {
+        "fraction": 0.0,
+        "missing_reason_counts": {
+          "no_frame_endpoints": 1
+        },
+        "selected": 0,
+        "window": 2
+      },
+      "JUNCTION_CONTOUR": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 149,
+        "window": 149
+      },
+      "JUNCTION_ORIENTATION": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 65,
+        "window": 65
+      },
+      "LINE_TERMINATION": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 19,
+        "window": 19
+      },
+      "OCCLUSION": {
+        "fraction": 0.0,
+        "missing_reason_counts": {
+          "no_frame_endpoints": 1
+        },
+        "selected": 0,
+        "window": 1
+      },
+      "ORIENTATION_BEND": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 91,
+        "window": 91
+      },
+      "ORIENTATION_CONTINUITY": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 386,
+        "window": 386
+      },
+      "ORIENTATION_JUNCTION": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 207,
+        "window": 207
+      },
+      "PARALLEL": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 82,
+        "window": 82
+      },
+      "RADIALITY": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 102,
+        "window": 102
+      },
+      "REGION_CONTENT": {
+        "fraction": 0.020719738276990186,
+        "missing_reason_counts": {
+          "no_frame_endpoints": 12
+        },
+        "selected": 19,
+        "window": 917
+      },
+      "SPIRALITY": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 45,
+        "window": 45
+      },
+      "SYMMETRY": {
+        "fraction": 1.0,
+        "missing_reason_counts": {},
+        "selected": 92,
+        "window": 92
+      },
+      "TOPOLOGY": {
+        "fraction": 0.0,
+        "missing_reason_counts": {
+          "no_frame_endpoints": 8
+        },
+        "selected": 0,
+        "window": 48
+      }
+    },
+    "frame_seconds": {
+      "max": 7.6161197109977365,
+      "median": 6.927348133001942,
+      "min": 6.161594713998056,
+      "n": 15,
+      "p95": 7.366566724099175
+    },
+    "largest_component_structural_to_all": {
+      "max": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "n": 15,
+      "p95": 1.0
+    },
+    "largest_frame_component_all": {
+      "max": 77.0,
+      "median": 47.0,
+      "min": 24.0,
+      "n": 15,
+      "p95": 71.39999999999999
+    },
+    "largest_frame_component_structural": {
+      "max": 77.0,
+      "median": 47.0,
+      "min": 24.0,
+      "n": 15,
+      "p95": 71.39999999999999
+    },
+    "n_registered": 15,
+    "n_success": 15,
+    "runtime_pass": true,
+    "selected_edges": 2354,
+    "selected_nodes": 2698,
+    "window_edges": 6941,
+    "window_nodes": 7431
+  }
+}

@@ -1,0 +1,42 @@
+apple1-000-000 2 {'Junction': 1, 'Corner': 1}
+apple1-022-000 0 {}
+apple1-022-090 2 {'T': 1, 'Junction': 1}
+apple1-022-180 2 {'Corner': 1, 'Junction': 1}
+apple1-022-270 2 {'Corner': 2}
+apple1-035-045 1 {'Corner': 1}
+apple1-035-135 2 {'Corner': 2}
+apple1-035-225 0 {}
+apple1-035-315 2 {'Corner': 2}
+apple1-045-000 0 {}
+apple1-045-090 2 {'Corner': 2}
+apple1-045-180 2 {'Corner': 2}
+apple1-045-270 1 {'Corner': 1}
+apple1-066-027 1 {'Corner': 1}
+apple1-066-063 0 {}
+apple1-066-117 2 {'T': 1, 'Corner': 1}
+apple1-066-153 2 {'Junction': 2}
+apple1-066-207 0 {}
+apple1-066-243 2 {'Corner': 2}
+apple1-066-297 4 {'Corner': 4}
+apple1-066-333 5 {'Corner': 4, 'T': 1}
+apple1-068-000 2 {'Corner': 2}
+apple1-068-090 2 {'Junction': 1, 'Corner': 1}
+apple1-068-180 1 {'Junction': 1}
+apple1-068-270 1 {'Junction': 1}
+apple1-090-000 0 {}
+apple1-090-022 2 {'Corner': 1, 'Junction': 1}
+apple1-090-045 1 {'Corner': 1}
+apple1-090-068 1 {'Junction': 1}
+apple1-090-090 1 {'Corner': 1}
+apple1-090-112 0 {}
+apple1-090-135 0 {}
+apple1-090-158 1 {'Junction': 1}
+apple1-090-180 1 {'Junction': 1}
+apple1-090-202 1 {'Junction': 1}
+apple1-090-225 1 {'Corner': 1}
+apple1-090-248 1 {'Corner': 1}
+apple1-090-270 1 {'Corner': 1}
+apple1-090-292 1 {'Corner': 1}
+apple1-090-315 1 {'Corner': 1}
+apple1-090-338 2 {'Corner': 2}
+DONE {'Corner': 39, 'Junction': 13, 'T': 3} {'0': 3, '1': 39, '2': 3, '6': 10}

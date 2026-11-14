@@ -1,0 +1,347 @@
+[
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/_graphs.py",
+    "workspace_path": "tests/matcher/_graphs.py",
+    "sha256": "540dd2fcdc2e86cbd32f772a327da80f344c27896edf3ad62b6842d865c4f026",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/_oracle.py",
+    "workspace_path": "tests/matcher/_oracle.py",
+    "sha256": "be975b174a09a2ddab4cfe3baac55e04e1942a19010efd68cc77678ddfbcfb80",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/conftest.py",
+    "workspace_path": "tests/matcher/conftest.py",
+    "sha256": "16089b89ef53229d5827ec8020d19c45d340c111b7705f1bf99d4fc6bccb2f7f",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_alignment_budget.py",
+    "workspace_path": "tests/matcher/test_alignment_budget.py",
+    "sha256": "17d8febfa02ae87de0e78df7ed117bea515a966598c72247972d25d80f87f7f4",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_d1_graded_node_credit.py",
+    "workspace_path": "tests/matcher/test_d1_graded_node_credit.py",
+    "sha256": "84f50750ae27bc018c7db7b43ffeb54c60639da5d20132a0097f2fdc553b8bba",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_d3_only_edges_branch.py",
+    "workspace_path": "tests/matcher/test_d3_only_edges_branch.py",
+    "sha256": "56d1d2b0fd0ce1acc4460e4c0b2d6a1067d29d8f0bb58a88a0b0be97f93a6b3f",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_d3_query_side_terms.py",
+    "workspace_path": "tests/matcher/test_d3_query_side_terms.py",
+    "sha256": "f1286012fc784695e05b65eb6c1dfce4349d5981e217fc6606e0c781b79048f1",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_declared_defaults.py",
+    "workspace_path": "tests/matcher/test_declared_defaults.py",
+    "sha256": "d0d6d311e4bc04faa34a56156cec2f8cb636238fe61777610b1a3ea7694c717f",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_exact_assignment.py",
+    "workspace_path": "tests/matcher/test_exact_assignment.py",
+    "sha256": "082c456692e3e41b98f2a424f0c0b71ffdfcddc86a52ca3b0983a3116fcfb711",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_f6_unparameterised_edge_match.py",
+    "workspace_path": "tests/matcher/test_f6_unparameterised_edge_match.py",
+    "sha256": "70e9b39e67912ba686832e7a8bb50a4a65360ec27209f99258898a0737abf034",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_frontend_relations.py",
+    "workspace_path": "tests/matcher/test_frontend_relations.py",
+    "sha256": "6979cc48c8663be1d279aae7e48a1c49c641c00e897e1927a2c0a20e45cedb07",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_mixture_reverse_traversal.py",
+    "workspace_path": "tests/matcher/test_mixture_reverse_traversal.py",
+    "sha256": "4aaf5514464221a2e5cffd55848ec7a7c5e3c0f055d60efa36518a9ca1dfa176",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_nullcal_node_coverage.py",
+    "workspace_path": "tests/matcher/test_nullcal_node_coverage.py",
+    "sha256": "b8dbe68e0c49fc2d76abc7946e13f92f132668f37c069e98736995de788792e5",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_p4_categorical_agreement.py",
+    "workspace_path": "tests/matcher/test_p4_categorical_agreement.py",
+    "sha256": "7fc6e3ce560bfb7809dbb9dfab003ed0991f9a56fd04f041c14026144ffecc87",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_p4_unmeasured_edge_is_not_evidence.py",
+    "workspace_path": "tests/matcher/test_p4_unmeasured_edge_is_not_evidence.py",
+    "sha256": "66bb673df85fe2d24b492da2efa654601bda801a7fe5e950b126f523c55decf1",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_p4b_count_apart.py",
+    "workspace_path": "tests/matcher/test_p4b_count_apart.py",
+    "sha256": "984311b5ec739c3e14bac6557f102bf13af7cfeff4eb63194cb8fff0cc8287b1",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_parameter_fallbacks.py",
+    "workspace_path": "tests/matcher/test_parameter_fallbacks.py",
+    "sha256": "823c0ac35b1e5b72288dcfa2f1df2825b360355df5a1e79bc15caedcc07c83a5",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_relation_frame_partition.py",
+    "workspace_path": "tests/matcher/test_relation_frame_partition.py",
+    "sha256": "26a5e53b670fbc682b86e516f4e4d5798ce4b51338d96b4fe0343e4ccaca88c7",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_relation_walker.py",
+    "workspace_path": "tests/matcher/test_relation_walker.py",
+    "sha256": "5846e6e7d94a21a57dc69798f96158d7f8bb0fe449fe428cbd5aee15d5892cc9",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_signature_matrix.py",
+    "workspace_path": "tests/matcher/test_signature_matrix.py",
+    "sha256": "5ebbf45e3051da1272780894b710c0b5003f5bbf8a5f4ecfc014f221daff0e6e",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_spacing_kernel.py",
+    "workspace_path": "tests/matcher/test_spacing_kernel.py",
+    "sha256": "96cd7e0cae4f3bff561b7cc1d705b27219c6a9f95e9af35ff0ee2cbc51740403",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_specificity_cap.py",
+    "workspace_path": "tests/matcher/test_specificity_cap.py",
+    "sha256": "c97a39e78f7e49c24bd5991eaecf2558bc342f77fb87bd977eca1e5b8fd88a34",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_stage5_writer_truth.py",
+    "workspace_path": "tests/matcher/test_stage5_writer_truth.py",
+    "sha256": "5a2e164cd3d5b888fab31667567281348c5ef9312c88ee4f9ea327e95f2f9bab",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_stage6_relations.py",
+    "workspace_path": "tests/matcher/test_stage6_relations.py",
+    "sha256": "2b70a9d8b959a7aa7092f8771a326fb4eee835cfcc8136f141e215418a6b2e28",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_switch_interactions.py",
+    "workspace_path": "tests/matcher/test_switch_interactions.py",
+    "sha256": "e650bc821db14b8301831d2dd7d862f2ec3674c7501c6b9923e8334c41686a94",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_matcher/test_trace_binary_twin.py",
+    "workspace_path": "tests/matcher/test_trace_binary_twin.py",
+    "sha256": "c92faec2bee369a3a3ab7d762d9a863b8f7e91444cd1c2992738c214f1390144",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_figground/pipeline.py",
+    "workspace_path": "tests/figground/pipeline.py",
+    "sha256": "50b5ca6f354a507c49685e5df190a5ac91c425d7fabbd657cc40e979d3743007",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "diagnostics/_export_shims/README.md",
+    "workspace_path": "phase3/runtime/shims/README.md",
+    "sha256": "81f066fc31169d257cb22c7c516d09f4fcef88fea923cf201f474038c7364160",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "diagnostics/_export_shims/action/__init__.py",
+    "workspace_path": "phase3/runtime/shims/action/__init__.py",
+    "sha256": "316c9c6ee21dba4297e6b6eb86a5dd51976ec74a652bdb8acc0a62d5265f6769",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "diagnostics/_export_shims/action/decode.py",
+    "workspace_path": "phase3/runtime/shims/action/decode.py",
+    "sha256": "cb91f0d04dce1f7259cbe3c1cc1618cd333c84b80456a377ae691f49c152fc8e",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "diagnostics/_export_shims/derived_lenses.py",
+    "workspace_path": "phase3/runtime/shims/derived_lenses.py",
+    "sha256": "e938fe25ca5b77b6e3f731c80fd597c25ecdd5c0d54edb854f8a619c326bffde",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "diagnostics/_export_shims/sensory_floor.py",
+    "workspace_path": "phase3/runtime/shims/sensory_floor.py",
+    "sha256": "41650ef8e59968d83281a213231434386881db62842af6d89afe16256b642a19",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "diagnostics/eth80_split.json",
+    "workspace_path": "phase3/inputs/eth80_split.json",
+    "sha256": "f8759185417a7faa48dc094f2f6dc4f707638c838c88d21c6fce7dbbece4150c",
+    "verbatim": true
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "diagnostics/_bootstrap.py",
+    "workspace_path": "diagnostics/_bootstrap.py",
+    "sha256": "092b3db4e971d4d06fb34c539cfde65abb7dd7ac99d8967778b4bae7e7e23e65",
+    "verbatim": true,
+    "purpose": "existing-test support only; independent measurements do not import eth80_frontend"
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "diagnostics/eth80_frontend.py",
+    "workspace_path": "diagnostics/eth80_frontend.py",
+    "sha256": "f96e92d07070d529981d38be6da230bad1508a55d2bd6ad5f6cf350108f9ba78",
+    "verbatim": true,
+    "purpose": "existing-test support only; independent measurements do not import eth80_frontend"
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "diagnostics/eth80_split.py",
+    "workspace_path": "diagnostics/eth80_split.py",
+    "sha256": "5b2c229797408ee4cbb9f214e328f2a875e11b77a932fed8746c041959668bf7",
+    "verbatim": true,
+    "purpose": "existing-test support only; independent measurements do not import eth80_frontend"
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "diagnostics/eth80_split.json",
+    "workspace_path": "diagnostics/eth80_split.json",
+    "sha256": "f8759185417a7faa48dc094f2f6dc4f707638c838c88d21c6fce7dbbece4150c",
+    "verbatim": true,
+    "purpose": "existing-test support only; independent measurements do not import eth80_frontend"
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "diagnostics/_stats.py",
+    "workspace_path": "diagnostics/_stats.py",
+    "sha256": "1969675d3af0959d5b51f2cc9d33290d10a720c71a645a8438a206e3bf28e136",
+    "verbatim": true,
+    "purpose": "existing-test support only; independent measurements do not import eth80_frontend"
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "diagnostics/_cache_carry.py",
+    "workspace_path": "diagnostics/_cache_carry.py",
+    "sha256": "8a0d265861a82c24f4f84226acfd42975c5d4330798e01ba7fdcb48ef2770fe9",
+    "verbatim": true,
+    "purpose": "existing-test support only; independent measurements do not import eth80_frontend"
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_figground/scenes.py",
+    "workspace_path": "tests/figground/scenes.py",
+    "sha256": "109d348688b464d589169f40a4dfefa31da1e68f5244cd0bfaf4677248fce4b4",
+    "verbatim": true,
+    "purpose": "nine registered synthetic pair support; independent harness imports builders only"
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_figground/fresh_scenes.py",
+    "workspace_path": "tests/figground/fresh_scenes.py",
+    "sha256": "bb167e019e7ab99afc8a09b906c07b3dc9af541722b8fcce1860321854ff68f0",
+    "verbatim": true,
+    "purpose": "nine registered synthetic pair support; independent harness imports builders only"
+  },
+  {
+    "source_repository": "BernSouls/Percept4",
+    "source_commit": "894666d86a6a669dc28498c927278e406f2ce0e2",
+    "source_path": "tests_figground/truth.py",
+    "workspace_path": "tests/figground/truth.py",
+    "sha256": "6a6612ab77af95657ad1fc371ffc8f85b37332178dae3646d64b9ad7a0e1e5da",
+    "verbatim": true,
+    "purpose": "nine registered synthetic pair support; independent harness imports builders only"
+  }
+]

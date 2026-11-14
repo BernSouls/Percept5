@@ -758,6 +758,25 @@ class SurfaceLens(HigherLens):
             # population (never a mis-shaped one) rather than dropping the
             # graded reading entirely.
             _pop = population_for_bins("SURFACE_PATCH", quantized)
+        from core.frontend_contract import frontend_contract_active
+        if frontend_contract_active():
+            from core.registries import ABSENT
+            missing = set()
+            if not curvs:
+                missing.add("shape")
+            if best is None:
+                missing.update(("grad_mag", "grad_side"))
+            if missing:
+                pairs = slot_axes("SURFACE_PATCH")
+                q = list(quantized)
+                pop = list(_pop)
+                for i, (spec, axis) in enumerate(pairs):
+                    if spec.name in missing:
+                        q[i] = ABSENT
+                        if i < len(pop):
+                            pop[i] = tuple([1.0 / axis.n_bins] * axis.n_bins)
+                quantized = tuple(q)
+                _pop = tuple(pop)
         return Detection(
             k="Surface",
             source_layer=1,
@@ -1320,12 +1339,10 @@ class CurveComplexLens(HigherLens):
         return emitted
 
 class CurveComplexLens_B13(HigherLens):
-    """B13 — V4 Curve Arrangements & Shape Fragments (arity 24).
+    """B13 direct-detection curve arrangements, with the registered 44 axes.
 
-    STATE (ROUND 11 / O4): RETIRED — never constructed by the pipeline. The
-    live CurveComplex path is ``CurveComplexLens`` (arity 3). This class is
-    retained for enum/arity history and backward import compatibility only;
-    see ``diagnostics/_O4_DEAD_MECHANISM_LEDGER.md``.
+    The standard pipeline uses CurveComplexLens; this alternate entry point
+    keeps the same quantized and graded layout for direct callers.
     """
 
     def _spatial_clustering(self, dets, anchor_positions, radius):
@@ -1397,7 +1414,7 @@ class CurveComplexLens_B13(HigherLens):
         else:
             span = 0.0
         span_norm = min(1.0, span / max(1.0, 6.0 * extraction_scale))
-        extent_bin = qi(span_norm, 8, 0.0, 1.0)
+        extent_bin = quantise(_CURVE_COMPLEX_SPEC["extent"], span_norm)
 
         closure_sum = 0.0
         valid_c = 0
@@ -1426,14 +1443,13 @@ class CurveComplexLens_B13(HigherLens):
                     template_hits[t_bin] += energy
 
         max_abs = max(1e-6, max(abs(h) for h in template_hits))
-        template_bins = [
-            min(7.0, max(0.0, (h / max_abs) * 3.5 + 3.5))
-            for h in template_hits
-        ]
+        template_energies = [h / max_abs for h in template_hits]
+        template_bins = [quantise(_CURVE_COMPLEX_SPEC[f"template{i}"], e)
+                         for i, e in enumerate(template_energies)]
 
-        n_c_bin = qi(n_contours, 8, 0.0, 7.0)
-        n_j_bin = qi(n_junctions, 8, 0.0, 7.0)
-        c_bin = qi(clamp(closure_score, 0.0, 1.0), 8, 0.0, 1.0)
+        n_c_bin = quantise(_CURVE_COMPLEX_SPEC["n_contours"], float(n_contours))
+        n_j_bin = quantise(_CURVE_COMPLEX_SPEC["n_junctions"], float(n_junctions))
+        c_bin = quantise(_CURVE_COMPLEX_SPEC["closure"], clamp(closure_score, 0.0, 1.0))
 
         shape_pop = [0.0] * len(CURVATURE_TEMPLATES)
         n_pops = 0
@@ -1447,13 +1463,39 @@ class CurveComplexLens_B13(HigherLens):
             n_pops += 1
         if n_pops > 0:
             shape_pop = [v / n_pops for v in shape_pop]
-        shape_bins = [qi(v, 8, 0.0, 1.0) for v in shape_pop]
+        shape_bins = [quantise(_CURVE_COMPLEX_SPEC[f"shape{i}"], v)
+                      for i, v in enumerate(shape_pop)]
 
+        # The direct-detection arm has the same registered 44-axis layout as
+        # the graph arm, including its ordered contour curvature envelope.
+        # Missing sequences are unmeasured, not fabricated straight arcs.
+        from core.registries import ABSENT
+        member_curv = []
+        for det in contour_dets:
+            q = det.sigma.quantized
+            if len(q) >= 27:
+                member_curv.append((float(q[0]), [float(v) for v in q[7:27]]))
+        arc_bins = []
+        arc_values = []
+        for k in range(20):
+            if member_curv:
+                value = max(member_curv,
+                            key=lambda m: (abs(m[1][k] - 4.0), m[0]))[1][k]
+                arc_bins.append(value)
+                arc_values.append(value / 4.0 - 1.0)
+            else:
+                arc_bins.append(ABSENT)
+                arc_values.append(None)
         quantized = (
             (float(n_c_bin), float(n_j_bin), float(extent_bin), float(c_bin))
             + tuple(float(b) for b in template_bins)
             + tuple(float(b) for b in shape_bins)
+            + tuple(arc_bins)
         )
+        population = population_from_values(
+            "CURVE_COMPLEX", (float(n_contours), float(n_junctions),
+                              float(span_norm), float(clamp(closure_score, 0.0, 1.0)))
+            + tuple(template_energies) + tuple(shape_pop) + tuple(arc_values))
 
         contour_dets_sorted = sorted(contour_dets, key=_detection_sort_key)
         first_anchor = contour_dets_sorted[0].alpha
@@ -1488,6 +1530,7 @@ class CurveComplexLens_B13(HigherLens):
                     class_="CURVE_COMPLEX",
                     relation="SHAPE_ARRANGEMENT",
                     quantized=quantized,
+                    population=population,
                 ),
                 alpha=first_anchor,
                 z=max(extent_bin / 7.0, closure_score),
@@ -1555,17 +1598,20 @@ class RegionShapeLens(HigherLens):
             else:
                 axis_bin_out = float(quantise(_REGION_SHAPE_SPEC["axis"],
                                               float(axis_angle)))
+            from core.frontend_contract import frontend_contract_active
+            from core.registries import ABSENT
+            missing_area = frontend_contract_active() and not closed
             _rs_pop = population_from_values(
                 "REGION_SHAPE",
                 tuple(float(v) for v in hist_values)
-                + (float(area_norm),
+                + ((None if missing_area else float(area_norm)),
                    float(elong_norm),
                    float(sym_score),
                    (float(axis_angle) if axis_angle is not None else None),
                    float(fold_bin)),
             )
 
-            quantized = hist_bins + (float(area_bin),
+            quantized = hist_bins + ((ABSENT if missing_area else float(area_bin)),
                                      float(max(0.0, elong_bin)))
             quantized = quantized + (sym_bin, axis_bin_out, fold_bin)
 

@@ -1,0 +1,455 @@
+{
+  "corpus": "ETH80_OBJECT1_96",
+  "kind_counts": {
+    "Corner": 39,
+    "Junction": 13,
+    "T": 3
+  },
+  "kind_entropy_bits": 1.0724271612769258,
+  "object": "apple1",
+  "rows": [
+    {
+      "junctions": 2,
+      "kinds": {
+        "Corner": 1,
+        "Junction": 1
+      },
+      "seconds": 7.802781051000238,
+      "topologies": {
+        "0": 1,
+        "1": 1
+      },
+      "view": "apple1-000-000"
+    },
+    {
+      "junctions": 0,
+      "kinds": {},
+      "seconds": 7.21596871499969,
+      "topologies": {},
+      "view": "apple1-022-000"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Junction": 1,
+        "T": 1
+      },
+      "seconds": 8.013183666999794,
+      "topologies": {
+        "2": 1,
+        "6": 1
+      },
+      "view": "apple1-022-090"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Corner": 1,
+        "Junction": 1
+      },
+      "seconds": 8.050615035999726,
+      "topologies": {
+        "0": 1,
+        "1": 1
+      },
+      "view": "apple1-022-180"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Corner": 2
+      },
+      "seconds": 8.203362183000536,
+      "topologies": {
+        "1": 2
+      },
+      "view": "apple1-022-270"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Corner": 1
+      },
+      "seconds": 8.343712267999763,
+      "topologies": {
+        "1": 1
+      },
+      "view": "apple1-035-045"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Corner": 2
+      },
+      "seconds": 7.580237436000061,
+      "topologies": {
+        "1": 2
+      },
+      "view": "apple1-035-135"
+    },
+    {
+      "junctions": 0,
+      "kinds": {},
+      "seconds": 7.649075041999822,
+      "topologies": {},
+      "view": "apple1-035-225"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Corner": 2
+      },
+      "seconds": 8.397253972000726,
+      "topologies": {
+        "1": 2
+      },
+      "view": "apple1-035-315"
+    },
+    {
+      "junctions": 0,
+      "kinds": {},
+      "seconds": 8.39645471699987,
+      "topologies": {},
+      "view": "apple1-045-000"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Corner": 2
+      },
+      "seconds": 7.4901010399998995,
+      "topologies": {
+        "1": 2
+      },
+      "view": "apple1-045-090"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Corner": 2
+      },
+      "seconds": 7.517912272000103,
+      "topologies": {
+        "1": 2
+      },
+      "view": "apple1-045-180"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Corner": 1
+      },
+      "seconds": 7.357997846000217,
+      "topologies": {
+        "1": 1
+      },
+      "view": "apple1-045-270"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Corner": 1
+      },
+      "seconds": 7.8705545339998935,
+      "topologies": {
+        "1": 1
+      },
+      "view": "apple1-066-027"
+    },
+    {
+      "junctions": 0,
+      "kinds": {},
+      "seconds": 7.9931723990002865,
+      "topologies": {},
+      "view": "apple1-066-063"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Corner": 1,
+        "T": 1
+      },
+      "seconds": 7.627562775000115,
+      "topologies": {
+        "1": 1,
+        "2": 1
+      },
+      "view": "apple1-066-117"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Junction": 2
+      },
+      "seconds": 7.085990907999985,
+      "topologies": {
+        "6": 2
+      },
+      "view": "apple1-066-153"
+    },
+    {
+      "junctions": 0,
+      "kinds": {},
+      "seconds": 7.672681752999779,
+      "topologies": {},
+      "view": "apple1-066-207"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Corner": 2
+      },
+      "seconds": 7.900104520000241,
+      "topologies": {
+        "1": 2
+      },
+      "view": "apple1-066-243"
+    },
+    {
+      "junctions": 4,
+      "kinds": {
+        "Corner": 4
+      },
+      "seconds": 7.270021412999995,
+      "topologies": {
+        "1": 4
+      },
+      "view": "apple1-066-297"
+    },
+    {
+      "junctions": 5,
+      "kinds": {
+        "Corner": 4,
+        "T": 1
+      },
+      "seconds": 7.73705642799996,
+      "topologies": {
+        "1": 4,
+        "2": 1
+      },
+      "view": "apple1-066-333"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Corner": 2
+      },
+      "seconds": 7.391321961999893,
+      "topologies": {
+        "1": 2
+      },
+      "view": "apple1-068-000"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Corner": 1,
+        "Junction": 1
+      },
+      "seconds": 8.001203202999932,
+      "topologies": {
+        "1": 1,
+        "6": 1
+      },
+      "view": "apple1-068-090"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Junction": 1
+      },
+      "seconds": 7.881156409000141,
+      "topologies": {
+        "6": 1
+      },
+      "view": "apple1-068-180"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Junction": 1
+      },
+      "seconds": 7.699815113000113,
+      "topologies": {
+        "6": 1
+      },
+      "view": "apple1-068-270"
+    },
+    {
+      "junctions": 0,
+      "kinds": {},
+      "seconds": 8.221061668000402,
+      "topologies": {},
+      "view": "apple1-090-000"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Corner": 1,
+        "Junction": 1
+      },
+      "seconds": 8.20106090400077,
+      "topologies": {
+        "1": 1,
+        "6": 1
+      },
+      "view": "apple1-090-022"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Corner": 1
+      },
+      "seconds": 7.825771241999973,
+      "topologies": {
+        "1": 1
+      },
+      "view": "apple1-090-045"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Junction": 1
+      },
+      "seconds": 7.024063100000603,
+      "topologies": {
+        "6": 1
+      },
+      "view": "apple1-090-068"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Corner": 1
+      },
+      "seconds": 6.639314243999252,
+      "topologies": {
+        "1": 1
+      },
+      "view": "apple1-090-090"
+    },
+    {
+      "junctions": 0,
+      "kinds": {},
+      "seconds": 7.989985530999547,
+      "topologies": {},
+      "view": "apple1-090-112"
+    },
+    {
+      "junctions": 0,
+      "kinds": {},
+      "seconds": 8.12624825400053,
+      "topologies": {},
+      "view": "apple1-090-135"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Junction": 1
+      },
+      "seconds": 7.6091162080001595,
+      "topologies": {
+        "0": 1
+      },
+      "view": "apple1-090-158"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Junction": 1
+      },
+      "seconds": 8.048809398999765,
+      "topologies": {
+        "6": 1
+      },
+      "view": "apple1-090-180"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Junction": 1
+      },
+      "seconds": 7.101943525000024,
+      "topologies": {
+        "6": 1
+      },
+      "view": "apple1-090-202"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Corner": 1
+      },
+      "seconds": 7.44871212399994,
+      "topologies": {
+        "1": 1
+      },
+      "view": "apple1-090-225"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Corner": 1
+      },
+      "seconds": 6.5528164870002,
+      "topologies": {
+        "1": 1
+      },
+      "view": "apple1-090-248"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Corner": 1
+      },
+      "seconds": 7.362375519000125,
+      "topologies": {
+        "1": 1
+      },
+      "view": "apple1-090-270"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Corner": 1
+      },
+      "seconds": 7.508603600999777,
+      "topologies": {
+        "1": 1
+      },
+      "view": "apple1-090-292"
+    },
+    {
+      "junctions": 1,
+      "kinds": {
+        "Corner": 1
+      },
+      "seconds": 7.706184478999603,
+      "topologies": {
+        "1": 1
+      },
+      "view": "apple1-090-315"
+    },
+    {
+      "junctions": 2,
+      "kinds": {
+        "Corner": 2
+      },
+      "seconds": 6.6398478040000555,
+      "topologies": {
+        "1": 2
+      },
+      "view": "apple1-090-338"
+    }
+  ],
+  "topology_counts": {
+    "0": 3,
+    "1": 39,
+    "2": 3,
+    "6": 10
+  },
+  "topology_entropy_bits": 1.2566371228186917,
+  "total_junctions": 55,
+  "views": 41,
+  "views_with_zero_junctions": 8
+}

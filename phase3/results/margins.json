@@ -1,0 +1,107 @@
+[
+  {
+    "channel_half_supports": [
+      56,
+      37,
+      24,
+      15,
+      10
+    ],
+    "channel_margins_capped": [
+      56,
+      37,
+      24,
+      16,
+      16
+    ],
+    "front_end_scale": 0.999999999999,
+    "kernel_full_size": 113,
+    "single_margin_capped_px": 56,
+    "single_margin_px": 56,
+    "size": 256,
+    "zones": [
+      [
+        56,
+        1073741824,
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      [
+        37,
+        56,
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      [
+        24,
+        37,
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      [
+        16,
+        24,
+        [
+          3,
+          4
+        ]
+      ]
+    ]
+  },
+  {
+    "channel_half_supports": [
+      21,
+      14,
+      9,
+      6,
+      4
+    ],
+    "channel_margins_capped": [
+      21,
+      16,
+      16,
+      16,
+      16
+    ],
+    "front_end_scale": 0.37499999999962497,
+    "kernel_full_size": 43,
+    "single_margin_capped_px": 21,
+    "single_margin_px": 21,
+    "size": 96,
+    "zones": [
+      [
+        21,
+        1073741824,
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      [
+        16,
+        21,
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ]
+    ]
+  }
+]

@@ -1,0 +1,13 @@
+# Local environments and generated caches
+.venv/
+.cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Downloaded ETH-80 source images; provenance is recorded in phase3.
+data/ETH-80/
+data/renderer-truth-v1/
+
+# Local downloadable bundles
+artifacts/

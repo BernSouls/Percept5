@@ -1,0 +1,410 @@
+[
+  {
+    "class": "BORDER_OWNERSHIP",
+    "joint_MI": {
+      "distinct_values": 501,
+      "exceedances": 0,
+      "n": 5863,
+      "node_level_null_median_bits": 0.20075704731376987,
+      "node_level_null_p95_bits": 0.21061764812737474,
+      "node_level_p_one_sided": 0.004995004995004995,
+      "null_median_bits": 0.17488345667750865,
+      "null_p95_bits": 0.1833204229565277,
+      "observed_bits": 0.21639074902977407,
+      "p_one_sided": 0.000999000999000999,
+      "permutations": 1000
+    },
+    "lens": "BorderOwnership"
+  },
+  {
+    "class": "BOUNDARY_ANCHORED",
+    "joint_MI": {
+      "distinct_values": 237,
+      "exceedances": 0,
+      "n": 5787,
+      "node_level_null_median_bits": 0.09537917421032871,
+      "node_level_null_p95_bits": 0.10257203381621217,
+      "node_level_p_one_sided": 0.000999000999000999,
+      "null_median_bits": 0.06661946620825393,
+      "null_p95_bits": 0.07551326528769522,
+      "observed_bits": 0.21132940546759887,
+      "p_one_sided": 0.000999000999000999,
+      "permutations": 1000
+    },
+    "lens": "Boundary"
+  },
+  {
+    "class": "CONTOUR_PEAK",
+    "joint_MI": {
+      "distinct_values": 2914,
+      "exceedances": 0,
+      "n": 8169,
+      "node_level_null_median_bits": 0.7681504361458638,
+      "node_level_null_p95_bits": 0.779409722440439,
+      "node_level_p_one_sided": 0.000999000999000999,
+      "null_median_bits": 0.7796940889336705,
+      "null_p95_bits": 0.7979125657773125,
+      "observed_bits": 0.8890269784161229,
+      "p_one_sided": 0.000999000999000999,
+      "permutations": 1000
+    },
+    "lens": "CONTOUR_PEAK"
+  },
+  {
+    "class": "COLOR_LEGACY",
+    "joint_MI": {
+      "distinct_values": 384,
+      "exceedances": 0,
+      "n": 2950,
+      "node_level_null_median_bits": 0.30974245507710957,
+      "node_level_null_p95_bits": 0.3267240056787392,
+      "node_level_p_one_sided": 0.000999000999000999,
+      "null_median_bits": 0.2829342806420786,
+      "null_p95_bits": 0.31342052840990786,
+      "observed_bits": 0.6007178706426505,
+      "p_one_sided": 0.000999000999000999,
+      "permutations": 1000
+    },
+    "lens": "Color"
+  },
+  {
+    "class": "CONTOUR",
+    "joint_MI": {
+      "distinct_values": 633,
+      "exceedances": 2,
+      "n": 1509,
+      "node_level_null_median_bits": 0.8910262193025862,
+      "node_level_null_p95_bits": 0.9120766156921538,
+      "node_level_p_one_sided": 0.053946053946053944,
+      "null_median_bits": 0.8754320167117349,
+      "null_p95_bits": 0.8975853086174964,
+      "observed_bits": 0.9119121132462324,
+      "p_one_sided": 0.002997002997002997,
+      "permutations": 1000
+    },
+    "lens": "Contour"
+  },
+  {
+    "class": "CONTOUR_FRAGMENT",
+    "joint_MI": {
+      "distinct_values": 1184,
+      "exceedances": 0,
+      "n": 2481,
+      "node_level_null_median_bits": 1.058487196790188,
+      "node_level_null_p95_bits": 1.0787668936322201,
+      "node_level_p_one_sided": 0.000999000999000999,
+      "null_median_bits": 1.0375414943875567,
+      "null_p95_bits": 1.065548880009701,
+      "observed_bits": 1.2224825999153683,
+      "p_one_sided": 0.000999000999000999,
+      "permutations": 1000
+    },
+    "lens": "ContourFragment"
+  },
+  {
+    "class": "CORNER",
+    "joint_MI": {
+      "distinct_values": 311,
+      "exceedances": 1000,
+      "n": 842,
+      "node_level_null_median_bits": 0.7489870279463365,
+      "node_level_null_p95_bits": 0.7821971058040783,
+      "node_level_p_one_sided": 0.8081918081918081,
+      "null_median_bits": 0.7932913284233277,
+      "null_p95_bits": 0.8250576962284847,
+      "observed_bits": 0.732314337939683,
+      "p_one_sided": 1.0,
+      "permutations": 1000
+    },
+    "lens": "Corner"
+  },
+  {
+    "class": "JUNCTION",
+    "joint_MI": {
+      "distinct_values": 58,
+      "exceedances": 128,
+      "n": 146,
+      "node_level_null_median_bits": 0.892043182827727,
+      "node_level_null_p95_bits": 0.9818473558637679,
+      "node_level_p_one_sided": 0.15384615384615385,
+      "null_median_bits": 0.8882691816269949,
+      "null_p95_bits": 0.9780502594217811,
+      "observed_bits": 0.9484186947594099,
+      "p_one_sided": 0.12887112887112886,
+      "permutations": 1000
+    },
+    "lens": "Corner"
+  },
+  {
+    "class": "CURVE_COMPLEX",
+    "joint_MI": {
+      "distinct_values": 454,
+      "exceedances": 38,
+      "n": 1090,
+      "node_level_null_median_bits": 0.8841462426565418,
+      "node_level_null_p95_bits": 0.9080365141957819,
+      "node_level_p_one_sided": 0.3696303696303696,
+      "null_median_bits": 0.865439298725024,
+      "null_p95_bits": 0.8861508030496846,
+      "observed_bits": 0.8887842518140816,
+      "p_one_sided": 0.03896103896103896,
+      "permutations": 1000
+    },
+    "lens": "CurveComplex"
+  },
+  {
+    "class": "ENDSTOPPED",
+    "joint_MI": {
+      "distinct_values": 230,
+      "exceedances": 6,
+      "n": 2718,
+      "node_level_null_median_bits": 0.19537364688967696,
+      "node_level_null_p95_bits": 0.2091147120260373,
+      "node_level_p_one_sided": 0.9400599400599401,
+      "null_median_bits": 0.16681226079769407,
+      "null_p95_bits": 0.17759199835842968,
+      "observed_bits": 0.18365646875804453,
+      "p_one_sided": 0.006993006993006993,
+      "permutations": 1000
+    },
+    "lens": "EndStopped"
+  },
+  {
+    "class": "ILLUSORY_CONTOUR",
+    "joint_MI": {
+      "distinct_values": 84,
+      "exceedances": 1000,
+      "n": 125,
+      "node_level_null_median_bits": 1.2000096128389268,
+      "node_level_null_p95_bits": 1.270048712856235,
+      "node_level_p_one_sided": 0.7112887112887113,
+      "null_median_bits": 1.420726638086793,
+      "null_p95_bits": 1.4981675251629314,
+      "observed_bits": 1.1740487128562345,
+      "p_one_sided": 1.0,
+      "permutations": 1000
+    },
+    "lens": "IllusoryContour"
+  },
+  {
+    "class": "JUNCTION",
+    "joint_MI": {
+      "distinct_values": 77,
+      "exceedances": 406,
+      "n": 98,
+      "node_level_null_median_bits": 1.5642549167801332,
+      "node_level_null_p95_bits": 1.6331823402715968,
+      "node_level_p_one_sided": 0.04995004995004995,
+      "null_median_bits": 1.6227192567496078,
+      "null_p95_bits": 1.7005092318250623,
+      "observed_bits": 1.633182340271597,
+      "p_one_sided": 0.4065934065934066,
+      "permutations": 1000
+    },
+    "lens": "Junction"
+  },
+  {
+    "class": "ONSET",
+    "joint_MI": {
+      "distinct_values": 1,
+      "exceedances": 1000,
+      "n": 79,
+      "node_level_null_median_bits": 0.0,
+      "node_level_null_p95_bits": 0.0,
+      "node_level_p_one_sided": 1.0,
+      "null_median_bits": 0.0,
+      "null_p95_bits": 0.0,
+      "observed_bits": 0.0,
+      "p_one_sided": 1.0,
+      "permutations": 1000
+    },
+    "lens": "Onset"
+  },
+  {
+    "class": "ORIENTATION",
+    "joint_MI": {
+      "distinct_values": 992,
+      "exceedances": 0,
+      "n": 4032,
+      "node_level_null_median_bits": 0.5934033724293621,
+      "node_level_null_p95_bits": 0.6111911665885618,
+      "node_level_p_one_sided": 0.000999000999000999,
+      "null_median_bits": 0.5702551394108782,
+      "null_p95_bits": 0.5982883384476214,
+      "observed_bits": 0.952482462264965,
+      "p_one_sided": 0.000999000999000999,
+      "permutations": 1000
+    },
+    "lens": "Orientation"
+  },
+  {
+    "class": "ORIENTATION_SEGMENT",
+    "joint_MI": {
+      "distinct_values": 103,
+      "exceedances": 938,
+      "n": 109,
+      "node_level_null_median_bits": 1.6171814757964933,
+      "node_level_null_p95_bits": 1.6538787235029155,
+      "node_level_p_one_sided": 0.9240759240759241,
+      "null_median_bits": 1.7996456106207597,
+      "null_p95_bits": 1.9203386049654847,
+      "observed_bits": 1.5804842280900715,
+      "p_one_sided": 0.938061938061938,
+      "permutations": 1000
+    },
+    "lens": "Orientation"
+  },
+  {
+    "class": "PEAK_CHAIN",
+    "joint_MI": {
+      "distinct_values": 519,
+      "exceedances": 76,
+      "n": 1442,
+      "node_level_null_median_bits": 0.7653738640031829,
+      "node_level_null_p95_bits": 0.7924842501512981,
+      "node_level_p_one_sided": 0.04795204795204795,
+      "null_median_bits": 0.772419794390112,
+      "null_p95_bits": 0.7960304554354367,
+      "observed_bits": 0.7928525680050237,
+      "p_one_sided": 0.07692307692307693,
+      "permutations": 1000
+    },
+    "lens": "PEAK_CHAIN"
+  },
+  {
+    "class": "POLARITY",
+    "joint_MI": {
+      "distinct_values": 3,
+      "exceedances": 1000,
+      "n": 237,
+      "node_level_null_median_bits": 0.017122880334961815,
+      "node_level_null_p95_bits": 0.039048126668957364,
+      "node_level_p_one_sided": 1.0,
+      "null_median_bits": 0.0,
+      "null_p95_bits": 0.0,
+      "observed_bits": 0.0,
+      "p_one_sided": 1.0,
+      "permutations": 1000
+    },
+    "lens": "Polarity"
+  },
+  {
+    "class": "POSITION",
+    "joint_MI": {
+      "distinct_values": 212,
+      "exceedances": 0,
+      "n": 7433,
+      "node_level_null_median_bits": 0.06632038967070594,
+      "node_level_null_p95_bits": 0.07167358396550869,
+      "node_level_p_one_sided": 0.985014985014985,
+      "null_median_bits": 0.03919081886597174,
+      "null_p95_bits": 0.04487005015596154,
+      "observed_bits": 0.05913623298248314,
+      "p_one_sided": 0.000999000999000999,
+      "permutations": 1000
+    },
+    "lens": "Position"
+  },
+  {
+    "class": "REGION_SHAPE",
+    "joint_MI": {
+      "distinct_values": 952,
+      "exceedances": 1000,
+      "n": 1045,
+      "node_level_null_median_bits": 1.7423075423275398,
+      "node_level_null_p95_bits": 1.7566125138908084,
+      "node_level_p_one_sided": 0.12787212787212787,
+      "null_median_bits": 1.8288640432132706,
+      "null_p95_bits": 1.8482179752602494,
+      "observed_bits": 1.7525314971381862,
+      "p_one_sided": 1.0,
+      "permutations": 1000
+    },
+    "lens": "RegionShape"
+  },
+  {
+    "class": "SURFACE_PATCH",
+    "joint_MI": {
+      "distinct_values": 394,
+      "exceedances": 0,
+      "n": 1072,
+      "node_level_null_median_bits": 0.8052030272375392,
+      "node_level_null_p95_bits": 0.8386941122898289,
+      "node_level_p_one_sided": 0.000999000999000999,
+      "null_median_bits": 0.8232570688980592,
+      "null_p95_bits": 0.8660565895409299,
+      "observed_bits": 1.2543756897734617,
+      "p_one_sided": 0.000999000999000999,
+      "permutations": 1000
+    },
+    "lens": "Surface"
+  },
+  {
+    "class": "JUNCTION",
+    "joint_MI": {
+      "distinct_values": 24,
+      "exceedances": 481,
+      "n": 31,
+      "node_level_null_median_bits": 1.5497546568264142,
+      "node_level_null_p95_bits": 1.6787869148909305,
+      "node_level_p_one_sided": 0.3986013986013986,
+      "null_median_bits": 1.546867073065161,
+      "null_p95_bits": 1.7027773581458683,
+      "observed_bits": 1.5497546568264144,
+      "p_one_sided": 0.48151848151848153,
+      "permutations": 1000
+    },
+    "lens": "T"
+  },
+  {
+    "class": "TEXTURE",
+    "joint_MI": {
+      "distinct_values": 67,
+      "exceedances": 0,
+      "n": 2473,
+      "node_level_null_median_bits": 0.062118182140262324,
+      "node_level_null_p95_bits": 0.07211923358990614,
+      "node_level_p_one_sided": 0.000999000999000999,
+      "null_median_bits": 0.03449841034507267,
+      "null_p95_bits": 0.042789007578324274,
+      "observed_bits": 0.14357165760547747,
+      "p_one_sided": 0.000999000999000999,
+      "permutations": 1000
+    },
+    "lens": "Texture"
+  },
+  {
+    "class": "TEXTURE_BOUNDARY",
+    "joint_MI": {
+      "distinct_values": 4445,
+      "exceedances": 0,
+      "n": 7362,
+      "node_level_null_median_bits": 1.18831159758285,
+      "node_level_null_p95_bits": 1.1985612540338226,
+      "node_level_p_one_sided": 0.000999000999000999,
+      "null_median_bits": 1.264800349921884,
+      "null_p95_bits": 1.2862831294340469,
+      "observed_bits": 1.3227940181529236,
+      "p_one_sided": 0.000999000999000999,
+      "permutations": 1000
+    },
+    "lens": "TextureBoundary"
+  },
+  {
+    "class": "JUNCTION",
+    "joint_MI": {
+      "distinct_values": 3,
+      "exceedances": 1000,
+      "n": 3,
+      "node_level_null_median_bits": 0.0,
+      "node_level_null_p95_bits": 0.0,
+      "node_level_p_one_sided": 1.0,
+      "null_median_bits": 0.9182958340544893,
+      "null_p95_bits": 1.5849625007211559,
+      "observed_bits": 0.0,
+      "p_one_sided": 1.0,
+      "permutations": 1000
+    },
+    "lens": "Y"
+  }
+]

@@ -1,9 +1,0 @@
-E:\Take25\work\tests\orchestration\test_pipeline_step_synthetic.py:160: RuntimeWarning: InnateReflex: no role_to_actions provided. Motor approach proposals will be unavailable until the environment supplies a role\u2192action map.
-  reflex = InnateReflex(env=env, agent_anchor=0,
-E:\Take25\work\tests\orchestration\test_pipeline_step_synthetic.py:160: RuntimeWarning: InnateReflex: no role_to_actions provided. Motor approach proposals will be unavailable until the environment supplies a role\u2192action map.
-  reflex = InnateReflex(env=env, agent_anchor=0,
-E:\Take25\work\tests\orchestration\test_pipeline_step_synthetic.py:160: RuntimeWarning: InnateReflex: no role_to_actions provided. Motor approach proposals will be unavailable until the environment supplies a role\u2192action map.
-  reflex = InnateReflex(env=env, agent_anchor=0,
-E:\Take25\work\tests\orchestration\test_pipeline_step_synthetic.py:160: RuntimeWarning: InnateReflex: no role_to_actions provided. Motor approach proposals will be unavailable until the environment supplies a role\u2192action map.
-  reflex = InnateReflex(env=env, agent_anchor=0,
-P0 overlay nodes=140 edges=153 (before 140/153)

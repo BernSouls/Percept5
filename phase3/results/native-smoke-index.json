@@ -1,0 +1,13 @@
+{
+  "frames": [
+    {
+      "arm": "reference",
+      "edges": 1467,
+      "label": "apple",
+      "name": "apple1-000-000.png",
+      "nodes": 900
+    }
+  ],
+  "n_frames": 1,
+  "seconds": 9.25522101799993
+}

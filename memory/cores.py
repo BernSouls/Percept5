@@ -141,7 +141,8 @@ def lens_tier(lens_type: str) -> int:
     """[K.1] Tier of a lens type (a detection's `k`); -1 == unclassified."""
     if lens_type in _V1_LENSES:
         return 0
-    if lens_type in _V2_LENSES:
+    from core.junction_families import JUNCTION_FAMILY_EXTENSIONS
+    if lens_type in _V2_LENSES or lens_type in JUNCTION_FAMILY_EXTENSIONS:
         return 1
     if lens_type in _V4_LENSES:
         return 2
@@ -732,10 +733,12 @@ def _global_correspondence(
     participate; a missing signature is incomparable (0.0), never an error.
     """
     from matching.alignment import global_consistency_alignment
+    from core.frontend_contract import frontend_contract_active
+    live = frontend_contract_active()
 
     def _sim(u: int, v: int) -> float:
         iq, ic = q_sigs.get(u), c_sigs.get(v)
-        if iq is None or ic is None:
+        if iq is None or ic is None or (live and iq[0] != ic[0]):
             return 0.0
         return _sig_similarity(iq[1], ic[1])
 
@@ -759,10 +762,21 @@ def _global_correspondence(
             [c_sigs[v][1] for v in nodes_c], _sig_similarity)
     elif anchor_prior:
         sim_matrix = [[_sim(u, v) for v in nodes_c] for u in nodes_q]
+    if live and sim_matrix is not None:
+        # Cross-lens signatures are not physical node counterparts.
+        sim_matrix = [[value if q_sigs[u][0] == c_sigs[v][0] else 0.0
+                       for v, value in zip(nodes_c, row)]
+                      for u, row in zip(nodes_q, sim_matrix)]
     if anchor_prior:
         sim_matrix = _anchor_weights(
             sim_matrix, nodes_q, nodes_c,
             _normalised_anchors(Q), _normalised_anchors(C))
+    if live:
+        from matching.joint_mcs import edge_pair_credit
+        def edge_similarity(x, y, u, v, et):
+            return edge_pair_credit(Q, C, x, y, u, v, et)
+    else:
+        edge_similarity = None
     al = global_consistency_alignment(
         nodes_q,
         nodes_c,
@@ -774,6 +788,7 @@ def _global_correspondence(
         rounds=int(getattr(P, "MATCH_ALIGN_ROUNDS", 4)),
         max_pair_evals=getattr(P, "MATCH_ALIGN_MAX_PAIR_EVALS", 200000),
         sim=sim_matrix,
+        edge_similarity=edge_similarity,
         budget_refinement_only=bool(
             getattr(P, "MATCH_ALIGN_BUDGET_REFINEMENT_ONLY", True)),
         seed_evals_charged=(
@@ -1391,14 +1406,14 @@ def _mcs_accumulate(
         # restructured into a loop, so its float accumulation order is
         # identical whether or not tracing is on.
         if trace is not None:
-            for e in Q.edges:
+            for e in sorted(Q.edges, key=lambda e: (min(e[0], e[1]), max(e[0], e[1]), e[2].value, e[0], e[1])):
                 q_tier_edge_total[edge_tier(e[2])] += float(
                     q_edge_weights.get(e, q_edge_weights.get(_canon(e), 0.0))
                 )
     else:
         q_edge_total = float(len(Q.edges))
         if trace is not None:
-            for e in Q.edges:
+            for e in sorted(Q.edges, key=lambda e: (min(e[0], e[1]), max(e[0], e[1]), e[2].value, e[0], e[1])):
                 q_tier_edge_total[edge_tier(e[2])] += 1.0
     q_mass = q_node_total + q_edge_total
 
@@ -1429,14 +1444,14 @@ def _mcs_accumulate(
             for e in C.edges
         )
         if trace is not None:
-            for e in C.edges:
+            for e in sorted(C.edges, key=lambda e: (min(e[0], e[1]), max(e[0], e[1]), e[2].value, e[0], e[1])):
                 c_tier_edge_total[edge_tier(e[2])] += float(
                     c_edge_weights.get(e, c_edge_weights.get(_canon(e), 0.0))
                 )
     else:
         c_edge_total = float(len(C.edges))
         if trace is not None:
-            for e in C.edges:
+            for e in sorted(C.edges, key=lambda e: (min(e[0], e[1]), max(e[0], e[1]), e[2].value, e[0], e[1])):
                 c_tier_edge_total[edge_tier(e[2])] += 1.0
     c_mass = c_node_total + c_edge_total
 
@@ -1541,7 +1556,7 @@ def _mcs_accumulate(
 
     # 1. Fast O(1) query-edge indexing with reversed-traversal parameter handling
     q_edge_index: Dict[Tuple[int, int], List[Tuple[Any, Any, Any]]] = defaultdict(list)
-    for q_e in Q.edges:
+    for q_e in sorted(Q.edges, key=lambda e: (min(e[0], e[1]), max(e[0], e[1]), e[2].value, e[0], e[1])):
         qs, qd, qet = q_e
         q_key = _canon(q_e)
         qp = q_edge_params.get(q_key) or q_edge_params.get(q_e)
@@ -1561,13 +1576,13 @@ def _mcs_accumulate(
     # 2. Verifiable core edges: both endpoints mapped under M
     inv_corr = {c_id: q_id for q_id, c_id in node_correspondence.items()}
     verifiable_core_edges = [
-        (cs, cd, cet) for cs, cd, cet in C.edges
+        (cs, cd, cet) for cs, cd, cet in sorted(C.edges, key=lambda e: (min(e[0], e[1]), max(e[0], e[1]), e[2].value, e[0], e[1]))
         if cs in inv_corr and cd in inv_corr
     ]
 
     q_matched_em_terms: List[float] = []
     c_matched_em_terms: List[float] = []
-    matched_rel_sim_sum = 0.0
+    matched_rel_sim_terms = []
     # [PHASE2 B7] the incomparable relations: skipped from the
     # numerator AND from the denominator (their mass is removed from
     # the side's edge total, so a relation with no counterpart does
@@ -1583,7 +1598,7 @@ def _mcs_accumulate(
     # measured on both sides, and the similarity sum over the latter.
     _rel_present = 0
     _rel_physical = 0
-    _rel_physical_sum = 0.0
+    _rel_physical_terms = []
 
     for cs, cd, cet in verifiable_core_edges:
         qs = inv_corr[cs]
@@ -1628,13 +1643,13 @@ def _mcs_accumulate(
                     _skipped_q_keys.add(_qk)
             else:
                 _comparable_edges += 1
-        matched_rel_sim_sum += best_sim
+        matched_rel_sim_terms.append(best_sim)
 
         if trace is not None and best_sim > 0.0:
             _rel_present += 1
             if edge_graded_axes(best_qp, cp) > 0:
                 _rel_physical += 1
-                _rel_physical_sum += best_sim
+                _rel_physical_terms.append(best_sim)
 
         if best_sim > 0.0:
             _matched_q_keys.add(best_q_key)
@@ -1660,6 +1675,8 @@ def _mcs_accumulate(
                 q_tier_edge_matched[_et] += q_w * best_sim * _cov_f
                 c_tier_edge_matched[_et] += c_w * best_sim * _cov_f
 
+    _rel_physical_sum = math.fsum(_rel_physical_terms)
+    matched_rel_sim_sum = math.fsum(matched_rel_sim_terms)
     q_matched_em = math.fsum(q_matched_em_terms)
     c_matched_em = math.fsum(c_matched_em_terms)
     # [PHASE2 B3] THE CONTAINMENT (behind MATCH_EDGE_MASS_CONTAINMENT,
@@ -1874,7 +1891,7 @@ def _edge_side_evidence(
     # the searched side, indexed by endpoint pair; an undirected edge is also
     # reachable in reverse, with its asymmetric parameters reversed
     b_index: Dict[Tuple[int, int], List[Tuple[Any, Any, Any]]] = defaultdict(list)
-    for b_e in B.edges:
+    for b_e in sorted(B.edges, key=lambda e: (min(e[0], e[1]), max(e[0], e[1]), e[2].value, e[0], e[1])):
         bs, bd, bet = b_e
         b_key = _canon(b_e)
         bp = b_edge_params.get(b_key) or b_edge_params.get(b_e)
@@ -1886,11 +1903,13 @@ def _edge_side_evidence(
             b_index[(bd, bs)].append((bet, bp_rev, b_key))
 
     n_verifiable = 0
-    sim_sum = 0.0
+    skipped = 0
+    skip_incomparable = bool(getattr(P, "MATCH_SKIP_INCOMPARABLE_RELATIONS", False))
+    sim_terms = []
     n_present = 0
     n_physical = 0
-    physical_sum = 0.0
-    for a_s, a_d, aet in A.edges:
+    physical_terms = []
+    for a_s, a_d, aet in sorted(A.edges, key=lambda e: (min(e[0], e[1]), max(e[0], e[1]), e[2].value, e[0], e[1])):
         if a_s not in a_to_b or a_d not in a_to_b:
             continue
         n_verifiable += 1
@@ -1908,24 +1927,33 @@ def _edge_side_evidence(
 
         best_sim = 0.0
         best_bp = None
+        comparable = False
         for bet, bp, _bk in cand_list:
             sim = polymorphic_edge_similarity(
-                bp, ap, use_confidence=False, edge_types=(bet, aet))
+                bp, ap, use_confidence=False, edge_types=(bet, aet),
+                return_none=skip_incomparable)
+            if sim is None:
+                continue
+            comparable = True
             if sim > best_sim:
                 best_sim = sim
                 best_bp = bp
-        sim_sum += best_sim
+        if skip_incomparable and cand_list and not comparable:
+            n_verifiable -= 1
+            skipped += 1
+            continue
+        sim_terms.append(best_sim)
         if detail is not None and best_sim > 0.0:
             n_present += 1
             if edge_graded_axes(best_bp, ap) > 0:
                 n_physical += 1
-                physical_sum += best_sim
+                physical_terms.append(best_sim)
     if detail is not None:
         # [P4b] the same three figures `_mcs_accumulate` traces for its side
         detail["present"] = n_present
         detail["physical"] = n_physical
-        detail["physical_sim_sum"] = physical_sum
-    return len(A.edges), n_verifiable, sim_sum
+        detail["physical_sim_sum"] = math.fsum(physical_terms)
+    return len(A.edges) - skipped, n_verifiable, math.fsum(sim_terms)
 
 
 #: [D3] The terms of `evidence_score` that can read BOTH sides.
@@ -2050,10 +2078,9 @@ def evidence_score(
         absence   (uncovered core edges + uncovered query edges)
                   / (core edges + query edges)
 
-    An edgeless core keeps the vacuous relational reading (multiplier 1.0, no
-    absence) in every setting; so with all three terms the score is symmetric
-    in its two arguments when both sides have edges or neither has, and not
-    when exactly one side is edgeless. Under P.EVIDENCE_ONLY_EDGES only "node"
+    The historical profile treats an edgeless core as vacuously satisfied.
+    The live front-end profile instead awards neutral relational evidence only
+    when both sides are edgeless; one-sided structure cannot be explained. Under P.EVIDENCE_ONLY_EDGES only "node"
     acts: that branch keeps its own relational rule, the other names are
     accepted and dropped, and the trace's `query_side_terms` lists the terms
     the score used. An unknown name is an error before any matching is done.
@@ -2077,6 +2104,8 @@ def evidence_score(
     early exits (an empty side, no lens type in common) none of them is
     written.
     """
+    from core.frontend_contract import frontend_contract_active
+    live_contract = frontend_contract_active()
     internal_trace = trace if trace is not None else {}
     null_calibrated = bool(getattr(P, "EVIDENCE_NODE_NULL_CALIBRATED", False))
     # [D3] Which terms read BOTH sides. Empty (the historical score): every
@@ -2147,6 +2176,12 @@ def evidence_score(
     # read when a term asks for it AND the core has edges -- an edgeless core
     # asserts no relation and keeps its vacuous reading in every setting.
     n_query_edges = len(Q.edges)
+    # B7 removed incomparable edges from matching mass above. The evidence
+    # denominator must use the same effective counts, otherwise the caller
+    # silently converts the skipped relation back into a zero-valued penalty.
+    if live_contract and getattr(P, "MATCH_SKIP_INCOMPARABLE_RELATIONS", False):
+        n_core_edges = max(0, n_core_edges - int(internal_trace.get("incomparable_core_edges", 0)))
+        n_query_edges = max(0, n_query_edges - int(internal_trace.get("incomparable_query_edges", 0)))
     q_verifiable = 0
     q_rel_sim_sum = 0.0
     _q_detail: Dict[str, Any] = {}
@@ -2156,7 +2191,7 @@ def evidence_score(
             Q, C, corr, detail=_q_detail)
 
     if n_core_edges == 0:
-        relational_consistency = 1.0  # Edgeless core: relations vacuously satisfied
+        relational_consistency = 1.0 if not live_contract or n_query_edges == 0 else 0.0
     elif "relation" in qs_terms:
         _nv = n_verifiable + q_verifiable
         relational_consistency = (
@@ -2225,7 +2260,7 @@ def evidence_score(
         # AspectGraph.category_scores (memory/aspects.py); this path is the
         # mapper's core-memory scoring only.
         if n_core_edges == 0:
-            relational_multiplier = 1.0
+            relational_multiplier = 1.0 if not live_contract or n_query_edges == 0 else 0.0
         else:
             relational_multiplier = clamp(
                 matched_rel_sim_sum / float(n_core_edges), 0.0, 1.0)
@@ -2252,6 +2287,8 @@ def evidence_score(
         else:
             alpha = getattr(P, "EVIDENCE_ALPHA_CONJUNCTION", 0.85)
         relational_multiplier = alpha + (1.0 - alpha) * relational_consistency
+        if live_contract and bool(n_core_edges) != bool(n_query_edges):
+            relational_multiplier = 0.0
         core_coverage = node_coverage * relational_multiplier
 
         # 4. Structural absence: core edges the correspondence failed to cover.

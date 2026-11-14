@@ -8,6 +8,7 @@ re-exported so existing imports keep working.
 Original preserved in consolidator.py.pre_move5a.
 """
 from __future__ import annotations
+from core.frontend_contract import frontend_contract
 
 from itertools import chain
 import math
@@ -300,6 +301,7 @@ def _remove_nodes_and_incident_edges(
     )
 
 
+@frontend_contract()
 def _content_discriminative_filter(
     core: Subgraph,
     positives: List[Subgraph],
@@ -314,7 +316,9 @@ def _content_discriminative_filter(
     sig_index: Optional[_SigIndex] = None,
     dual_enabled: Optional[bool] = None,
 ) -> Tuple[Subgraph, Dict[str, Any], Dict[str, Any]]:
-    """[v32.2 GRADED] final_mass = prior * max(0, disc)**DISC_EXPONENT.
+    """DEPRECATED: supervised feature selection, not live graph matching.
+
+    [v32.2 GRADED] final_mass = prior * max(0, disc)**DISC_EXPONENT.
     Prior contract:
       - empty dict → 1.0 per element
       - non-empty dict, missing key → 0.0 (fail-safe)
@@ -543,30 +547,45 @@ def _content_discriminative_filter(
     node_entries.sort(key=lambda x: (-x[0], x[1]))
     edge_entries.sort(key=lambda x: (-x[0], x[1][0], x[1][1], x[1][2].value))
 
-    if len(node_entries) > top_k_nodes:
-        diag["nodes_dropped_topk"] = len(node_entries) - top_k_nodes
-        node_entries = node_entries[:top_k_nodes]
-
-    # [J.2] The node set is fixed once node top-K has run; edge top-K never
-    # touches node_entries, so hoisting this above the edge block cannot
-    # change any value -- it only lets the endpoint stage be measured
-    # BEFORE edge top-K, which is the stage the historical order hid.
-    kept_nodes = {nid for _, nid, _, _ in node_entries}
+    # A relational unit consists of an edge AND both of its endpoints.
+    # Ranking nodes first erased discriminatory relations whenever the
+    # individual endpoint signatures were common to positive and negative
+    # examples. Reserve the endpoints of the highest-mass edge units first;
+    # then fill any remaining seats by node mass. The edge's actual measured
+    # discriminative mass supplies support for a promoted endpoint, not an
+    # invented constant. Both node and edge caps remain hard limits.
+    by_node = {entry[1]: entry for entry in node_entries}
+    reserved = set()
+    admitted_edges = []
+    for entry in edge_entries:
+        mass, (u, v, _), disc, _prior = entry
+        missing = {u, v} - reserved
+        if len(reserved) + len(missing) > top_k_nodes:
+            continue
+        if len(admitted_edges) >= top_k_edges:
+            break
+        admitted_edges.append(entry)
+        reserved.update((u, v))
+        for nid in (u, v):
+            old = by_node.get(nid)
+            if old is None or old[0] < mass:
+                by_node[nid] = (mass, nid, disc, mass)
+                diag["node_mass"][nid] = mass
+    diag["nodes_promoted_by_edge"] = sum(1 for n in reserved
+                                         if all(entry[1] != n for entry in node_entries))
+    extras = [entry for entry in node_entries if entry[1] not in reserved]
+    room = max(0, top_k_nodes - len(reserved))
+    diag["nodes_dropped_topk"] = max(0, len(extras) - room)
+    kept_nodes = reserved | {entry[1] for entry in extras[:room]}
+    node_entries = [by_node[n] for n in sorted(kept_nodes)]
     diag["nodes_post_topk"] = len(kept_nodes)
-    # An edge is "viable" iff both endpoints survived node top-K -- the
-    # constraint that makes it an edge OF this subgraph. Measured over all
-    # mass-positive edges (post zero-mass, pre edge top-K).
     diag["edges_viable_pre_topk"] = sum(
-        1 for _, e, _, _ in edge_entries
-        if e[0] in kept_nodes and e[1] in kept_nodes
-    )
-    diag["edges_dropped_by_endpoint"] = (
-        len(edge_entries) - diag["edges_viable_pre_topk"]
-    )
-
-    if len(edge_entries) > top_k_edges:
-        diag["edges_dropped_topk"] = len(edge_entries) - top_k_edges
-        edge_entries = edge_entries[:top_k_edges]
+        1 for _, e, _, _ in edge_entries if e[0] in kept_nodes and e[1] in kept_nodes)
+    diag["edges_dropped_by_endpoint"] = len(edge_entries) - diag["edges_viable_pre_topk"]
+    viable = [entry for entry in edge_entries
+              if entry[1][0] in kept_nodes and entry[1][1] in kept_nodes]
+    diag["edges_dropped_topk"] = max(0, len(viable) - top_k_edges)
+    edge_entries = viable[:top_k_edges]
 
     kept_edges_pre = {e for _, e, _, _ in edge_entries}
 
@@ -1451,6 +1470,37 @@ class Consolidator:
         snapshot and cleared in finally so a raised extraction cannot leak a
         stale memo.
         """
+        # Live matching stores one unfiltered reference organization. The
+        # legacy arguments are retained for callers, but negatives, learned
+        # distributions, supervised filtering and extension are not consulted.
+        from core.frontend_contract import frontend_contract_active
+        if frontend_contract_active():
+            if not positives:
+                return None
+            from matching.perceptual_selection import prepare_perceptual_graph
+            reference, _ = prepare_perceptual_graph(positives[0], self._sig_lookup)
+            if not reference.nodes:
+                return None
+            signatures = {n: reference.signature_overrides.get(n) or self._sig_lookup(n)
+                          for n in sorted(reference.nodes)}
+            signatures = {n: v for n, v in signatures.items() if v is not None}
+            if not signatures:
+                return None
+            graph_hash = _subgraph_wl_hash(reference, signatures.get)
+            key = hash_128(serialize_tuple([serialize_bytes(b'perceptual-reference-v1'),
+                                            serialize_bytes(graph_hash), serialize_value(label)]))
+            existing = self.core_library.lookup_by_hash(key, CoreKind.CATEGORY)
+            if existing is not None:
+                return existing
+            entry = CoreEntry(canonical_hash=key, kind=CoreKind.CATEGORY, family='',
+                              core_subgraph=reference, core_node_signatures=signatures,
+                              reliability=KAPPA_INIT, t_created=t, t_last_validated=t,
+                              payload=CorePayload_Category(label=label),
+                              source_concept_id=source_concept_id, core_tier='perceptual')
+            self.core_library.add(entry)
+            self.diagnostics['unfiltered_reference_cores'] = self.diagnostics.get('unfiltered_reference_cores', 0) + 1
+            return entry
+
         # [DEADLOCK FIX — Phase 1] The discriminative criterion (§5.8.2)
         # requires negatives to discriminate against. Without them, the
         # operation degenerates to pure intersection, which is not its
@@ -1477,6 +1527,17 @@ class Consolidator:
         if not positives:
             self.diagnostics["category_skipped_no_positives"] += 1
             return None
+
+        # Apply the same perceptual selection and feature overlay to training
+        # windows as the live mapper uses for queries. Cognitive/action graphs
+        # are not passed through this CATEGORY-only path.
+        from core.frontend_contract import frontend_contract_active
+        if frontend_contract_active():
+            from matching.perceptual_selection import prepare_perceptual_graph
+            positives = [prepare_perceptual_graph(p, self._sig_lookup)[0]
+                         for p in positives]
+            negatives = [prepare_perceptual_graph(n, self._sig_lookup)[0]
+                         for n in negatives]
 
         # [v32 CONTENT TIER] Pool positives to content tier.
         content_store = ContentSignatureStore()

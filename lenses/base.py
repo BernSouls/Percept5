@@ -57,7 +57,7 @@ from __future__ import annotations
 
 import math
 from collections import defaultdict
-from typing import Any, Callable, Dict, List, Optional, Set, Tuple
+from typing import Any, Callable, Dict, List, Optional, Sequence, Set, Tuple
 
 from core.hashing import (  # noqa: F401
     clamp,
@@ -1070,8 +1070,11 @@ class LensExecutor:
             if not prev_present:
                 self._onset_step[u] = t
                 absence = self._absence_duration.get(u, 0)
-                self._onset_signature_bin[u] = _q_unsigned(
-                    float(absence), P.Q_T, max_bins=_MAX_BINS - 1
+                # On first observation there is no observed preceding
+                # absence interval; zero would fabricate one.
+                self._onset_signature_bin[u] = (
+                    _q_unsigned(float(absence), P.Q_T, max_bins=_MAX_BINS - 1)
+                    if u in self._presence_prev else ABSENT
                 )
                 self._absence_duration[u] = 0
             else:
@@ -1277,6 +1280,8 @@ class LensExecutor:
             # the node is the same node) for the attachment relation to read.
             object.__setattr__(_fd, "_frag_mid",
                                (float(f["mid"][0]), float(f["mid"][1])))
+            object.__setattr__(_fd, "_frag_host_arc",
+                               (float(f["host_arc_start"]), float(f["host_arc_end"])))
             if f.get("tangent") is not None:
                 object.__setattr__(_fd, "_frag_tangent", float(f["tangent"]))
             out.append(_fd)
@@ -1849,28 +1854,27 @@ class LensExecutor:
         scene_pts: List[List[float]] = []
 
         def _depth_is_measured(zs: Sequence[float]) -> bool:
-    """[PHASE 2 / P1] IS THERE A REAL DEPTH IN THE INPUT?
+            """[PHASE 2 / P1] IS THERE A REAL DEPTH IN THE INPUT?
 
-    The ruling: **depth on 2D input is ABSENT, never 0**.  A 2D
-    observation forces z = 0.0, so the emitted z-bin is a CONSTANT
-    (8.0, the middle bin) and the slot carries 0.0000 bits of entropy
-    -- a FABRICATED measurement, emitted as if it had been measured.
+            The ruling: **depth on 2D input is ABSENT, never 0**.  A 2D
+            observation forces z = 0.0, so the emitted z-bin is a CONSTANT
+            (8.0, the middle bin) and the slot carries 0.0000 bits of entropy
+            -- a FABRICATED measurement, emitted as if it had been measured.
 
-    MEASURED (diagnostics/phase2_position_confirmation.py): 1653
-    POSITION nodes over the 17 scenes; the distinct emitted z-bin
-    values: [8.0]; the entropy of that slot: 0.0000 bits.
+            MEASURED (diagnostics/phase2_position_confirmation.py): 1653
+            POSITION nodes over the 17 scenes; the distinct emitted z-bin
+            values: [8.0]; the entropy of that slot: 0.0000 bits.
 
-    The confirmation for the ruling's other half: the Position
-    SIGNATURE is a pure DOUBLE COUNT of the anchor -- the Pearson
-    correlation with the anchor factor is 0.8403 over 85075 candidate
-    pairs, and removing the Position signature from the
-    correspondence changes 0 of 4089 mapped pairs (the anchor's
-    removal changes 828).
-    """
-    return any(abs(float(z)) > 1e-12 for z in zs)
+            The confirmation for the ruling's other half: the Position
+            SIGNATURE is a pure DOUBLE COUNT of the anchor -- the Pearson
+            correlation with the anchor factor is 0.8403 over 85075 candidate
+            pairs, and removing the Position signature from the
+            correspondence changes 0 of 4089 mapped pairs (the anchor's
+            removal changes 828).
+            """
+            return any(abs(float(z)) > 1e-12 for z in zs)
 
-
-def _parse_pos(pos: Any) -> Optional[List[float]]:
+        def _parse_pos(pos: Any) -> Optional[List[float]]:
             if pos is None or not isinstance(pos, (list, tuple)) or len(pos) < 2:
                 return None
             try:
@@ -1968,7 +1972,7 @@ def _parse_pos(pos: Any) -> Optional[List[float]]:
             elif depth_measured:
                 z_bin = _q_signed(clamp(dz, -1.0, 1.0), max_bins=16)
             else:
-                z_bin = UNKNOWN
+                z_bin = ABSENT
 
             pos_bins.append((x_bin, y_bin, z_bin))
             responses.append(max(self._presence_ema.get(u, 1.0), EPSILON))

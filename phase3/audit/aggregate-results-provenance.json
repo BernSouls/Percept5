@@ -1,0 +1,28 @@
+{
+  "all_imported_product_paths": {
+    "core": "/home/user/Percept5/core",
+    "core.hashing": "/home/user/Percept5/core/hashing.py",
+    "core.population": "/home/user/Percept5/core/population.py",
+    "core.registries": "/home/user/Percept5/core/registries.py",
+    "core.schema": "/home/user/Percept5/core/schema.py",
+    "matching": "/home/user/Percept5/matching",
+    "matching.relation_frame": "/home/user/Percept5/matching/relation_frame.py",
+    "parameters": "/home/user/Percept5/parameters/__init__.py",
+    "parameters._text": "/home/user/Percept5/parameters/_text.py",
+    "phase3": "/home/user/Percept5/phase3/__init__.py",
+    "phase3.runtime": "/home/user/Percept5/phase3/runtime/__init__.py",
+    "phase3.runtime.bootstrap": "/home/user/Percept5/phase3/runtime/bootstrap.py"
+  },
+  "entry_script": "/home/user/Percept5/phase3/harness/aggregate_results.py",
+  "hash_seed": "0",
+  "modules": {
+    "core.schema": "/home/user/Percept5/core/schema.py",
+    "matching.relation_frame": "/home/user/Percept5/matching/relation_frame.py"
+  },
+  "python": "3.11.2 (main, Apr  8 2026, 01:58:00) [GCC 12.2.0]",
+  "root": "/home/user/Percept5",
+  "sha256": {
+    "core.schema": "a6066e9c305d4b70a7060626a503ea78ec0e4ec9264b83cdf25ff2f1159559f9",
+    "matching.relation_frame": "ff7972e618aa930d8e88cbb67a95c09440c59a8f33349997eedb6e5a96b42dd1"
+  }
+}

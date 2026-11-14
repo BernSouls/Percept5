@@ -1,0 +1,164 @@
+{
+  "amendment_2026_11_13_measurement_gate": {
+    "eth_split_clarification": "The object-disjoint requirement takes precedence over the ambiguous first-two-objects wording: reference object 1; evaluation objects 2 and 3, eight non-reference views each. Corrected prior to measurement.",
+    "reason": "The gate prevented tuning on partial mechanisms, not measurement of a coherent build. The bounded ABSENT and pooling audit is a named post-measurement follow-up and does not block the registered measurement.",
+    "status": "Steps 1 and 2 closed by user; measurement gate satisfied"
+  },
+  "attributes": {
+    "Position": "remove matchable node; retain dx/dy coordinates and ABSENT depth",
+    "excluded_context": [
+      "Onset",
+      "Motion",
+      "Size",
+      "EffectPresent",
+      "OrientationPol"
+    ],
+    "registration": "features reference the existing attribute class unit, population, circular and identity tables; attachment registry records owner kinds and tier; no new unregistered numeric axis",
+    "representation": "named, lossless graded features copied onto the owning FRAME signature; frame quantized identity unchanged; full attribute quantized tuple and population retained",
+    "similarity_decision": "with features, final node similarity=0.5*physical-frame similarity+0.5*mean named-feature similarity; missing named feature on one side scores zero; no features leaves shipped similarity unchanged"
+  },
+  "corpora": {
+    "ETH80_ALL8": {
+      "extraction": "all 3280 non-map view PNGs from the pinned archive",
+      "measurement_sample": "per class: first two object instances, first eight non-reference views per instance in canonical filename order (128 evaluation frames), plus object-1 000-000 reference (8 frames); 136 total",
+      "null_permutations": 999,
+      "preprocessing": "RGB conversion only; no crop, enhancement, label input or contrast normalization beyond the shipped observation",
+      "resolution": "original 256x256 RGB",
+      "split": "reference/template fitting versus held-out evaluation; object instances disjoint"
+    },
+    "RENDERER_TRUTH_V1": {
+      "contents": "boxes, Lambertian cylinders, disks, occlusion pairs, matched clear/haze pairs, rigid viewpoint series",
+      "generator_seed": 1729,
+      "pairs": "nine registered pairs in corpus.json",
+      "preprocessing": "renderer RGB divided by 255 only when reading PNG; shipped observation adaptation",
+      "resolution": "192x192 RGB uint8",
+      "split": "fixed CAL scenes and TEST viewpoint/haze variants; never pool with ETH80",
+      "truth": "nearest-object mask oracle; roles=(object_id,lens_type,signature_class); no detector output used to construct truth"
+    }
+  },
+  "criteria_1i": {
+    "budget": "global selected edge count / sum of per-lens retained edge counts, with duplicate induced edges counted once globally; target selected edges <=512",
+    "closed_rings": "count closure flags in PEAK_CHAIN, Contour and observation contours separately; a genuine zero is reported, never filled",
+    "filter": "template real-edge count >0 whenever recurrent positive template edges exist; negative core score must be below positive score on the fixed eight-class audit; no threshold tuned after seeing results",
+    "largest_component": "largest connected component of FRAME nodes using all edges, then structural edges only; report both counts and structural/total ratio",
+    "leak_channels": "for EndStopped, Corner and ContourFragment: fraction of detections whose signature survives when its nominal diagnostic channel is zeroed/removed; report denominator and unavailable interventions explicitly",
+    "margin": "foreground silhouette perimeter outside the union of valid largest-kernel support zones / whole silhouette perimeter; also count connected foreground objects wholly discarded. Pass: disclosed fraction and count, no hidden crop; target <=0.10 on centered renderer controls",
+    "zero_family": "a structural family present in the complete window but absent at matcher input requires an explicit budget/recency/registration reason"
+  },
+  "date": "2026-11-13",
+  "determinism": {
+    "keys": "canonical typed keys; no repr/id; no wall-clock solver termination",
+    "pythonhashseeds": [
+      0,
+      1729
+    ],
+    "repeat": "every final corpus measurement in a fresh process; compare canonical result SHA-256, excluding runtime and provenance timestamps"
+  },
+  "distance_span_decisions": {
+    "EDGE_CONCENTRICITY.offset": {
+      "diagnosis": "WRONG_SPAN",
+      "rule": "existing admission gate dist <= 1.5*r_outer",
+      "span": [
+        0.0,
+        1.5
+      ],
+      "unit": "outer_radius_fraction"
+    },
+    "EDGE_CONCENTRICITY.radial_ratio": {
+      "diagnosis": "WRONG_SPAN",
+      "rule": "existing ratio admission interval [1.15,10]",
+      "span": [
+        0.20163386116965043,
+        3.321928094887362
+      ],
+      "unit": "log2_ratio"
+    },
+    "EDGE_CONTACT.dist": {
+      "diagnosis": "WRONG_SPAN",
+      "rule": "3 * effective contact radius; reject longer links",
+      "span": [
+        0.0,
+        3.0
+      ],
+      "unit": "median_spacings"
+    },
+    "EDGE_CONTOUR_CONTINUITY.dist": {
+      "diagnosis": "WRONG_SPAN",
+      "rule": "3 * KAPPA_CONTOUR_CONTINUITY; reject longer links",
+      "span": [
+        0.0,
+        6.0
+      ],
+      "unit": "wavelengths"
+    },
+    "EDGE_JUNCTION_CONTOUR.dist": {
+      "diagnosis": "WRONG_SPAN",
+      "rule": "3 * KAPPA_JUNCTION_CONTOUR; reject longer links",
+      "span": [
+        0.0,
+        7.5
+      ],
+      "unit": "wavelengths"
+    },
+    "EDGE_ORIENTATION_BEND.spatial_dist": {
+      "diagnosis": "WRONG_SPAN: writer already divides pixels by extraction wavelength; exponential had no finite support",
+      "rule": "3 * ORIENTATION_ANGLE_RELATION_KAPPA; reject longer links",
+      "span": [
+        0.0,
+        3.0
+      ],
+      "unit": "wavelengths"
+    },
+    "EDGE_ORIENTATION_JUNCTION.spatial_dist": {
+      "diagnosis": "WRONG_SPAN",
+      "rule": "3 * ORIENTATION_ANGLE_RELATION_KAPPA; reject longer links",
+      "span": [
+        0.0,
+        3.0
+      ],
+      "unit": "wavelengths"
+    },
+    "principle": "A finite exponential kernel needs an explicit support. Choose three e-folding lengths (5% residual at the boundary), then derive the longest link from the writer's existing radius. This is a mechanism decision, not a fitted measured quantile.",
+    "unchanged": "angular periods, fractions, eccentricity difference and concentric extent already agree with their mechanisms; no pixel-valued writer found among these six distance defects"
+  },
+  "flags_reconciliation": {
+    "B7b": "EVIDENCE_RELATION_COUNT_APART remains False; measured as an arm only",
+    "assertion": "every measured frame asserts the five live flags and local module provenance; B7 live-path test requires None/skip, not conversion to 0.0",
+    "historical_parameter_declarations": "remain False so the delivered 0007 default pin is unchanged",
+    "live_build_profile": "core.frontend_contract.frontend_contract enables B3, B7, D3 keep-members, D5 and D7 at every product Pipeline.step and audit frame/query/filter entry, then restores callers' values"
+  },
+  "fragment_drift": {
+    "correspondence": "same host contour and renderer arc coordinate; report unmatched separately; occlusion is a separate stratum, not a translation pass",
+    "pass_median_px": 2.0,
+    "pass_p95_px": 2.0,
+    "translation_px": 3
+  },
+  "fuzzy_null_registration": {
+    "composition": "Retain the shipped weighted relation blend; both edgeless sides have neutral relation factor.",
+    "no_alternative_evidence": "When there are no alternative candidate pairs, halve calibrated node evidence to represent lack of a sample for the null. This pre-registered finite-sample rule prevents identical edgeless singletons from scoring either zero or vacuous certainty; it does not alter candidates or optimize against a corpus.",
+    "registered_before_fuzzy_implementation_and_final_measurement": true,
+    "rule": "After alignment, average all candidate-matrix similarities except the selected correspondence for each mapped query node; include all candidates for unmatched query nodes. If no alternative pairs exist use null 0."
+  },
+  "measurement_once": "no corpus cap/MI/runtime measurement until Steps 1 and 2 implementation and contract tests are complete; subsequent runs are determinism repeats, not tuning",
+  "objective": "keep shipped multiplicative fuzzy objective and multiplicative evidence objective; report truth-map objective versus returned solver map, do not tune",
+  "phase0_results": "immutable historical evidence; never reuse its cache or pool its corpora",
+  "protocol_id": "percept5-frontend-build-v1",
+  "registered_before_rebinning_or_build_measurement": true,
+  "runtime_budget_seconds": {
+    "frame_max": 60.0,
+    "frame_p95": 30.0,
+    "match_max": 3.0,
+    "match_p95": 1.0,
+    "over_budget_action": "existing Mapper._similarity_edges/lookup_similar retrieval with N_SIMILARITY_ACTIVATE chunking; report full-versus-chunk recall on a bounded audit",
+    "solver": "fixed evaluation/step budgets only"
+  },
+  "seed": 1729,
+  "selection": {
+    "K_edges_per_family": 2,
+    "cognitive_tail": "existing MAX_SITUATION_SIZE node cap unchanged; never use the 512-edge perceptual budget there",
+    "edge_budget_per_frame": 512,
+    "rule": "family coverage by highest writer weight, canonical endpoint tie; BFS along structural adjacency, highest weight first; isolated FRAME nodes retained; unanchored non-FRAME nodes dropped; induced attribute edges are not grown",
+    "structural_families": "REPRODUCIBLE_EDGE_TYPES excluding CONTACT, CO_LOCATED, PROXIMITY and SURFACE_GROUPING"
+  },
+  "supersedes_measurement_protocol_only": "percept5-phase0-independent-v1"
+}

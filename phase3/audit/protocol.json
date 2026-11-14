@@ -1,0 +1,118 @@
+{
+  "protocol_id": "percept5-phase0-independent-v1",
+  "registered_before_measurements": true,
+  "purpose": "Confirm or refute inherited claims; no front-end redesign or default change",
+  "corpora": {
+    "ETH80_EVAL75": "Pinned ETH80-split-v1: 75 eval images, four classes, original 256-square RGB, no labels passed to the front end; explicitly a reconstructed split, not proof of identity with the historical corpus",
+    "ETH80_REF4": "Four pinned 000-000 reference images, original 256-square RGB; explicitly NOT asserted identical to the undocumented historical four-frame sample",
+    "ETH80_REF4_96": "Same four images, whole-image Lanczos resize to 96-square RGB; separate operating point, never pooled with original-resolution counts",
+    "ETH80_OBJECT1": "The four object-1 instances in the pinned split: all 41 views each; descriptive junction stability, not a classifier accuracy claim",
+    "SYNTHETIC_CONTROLS": "Procedural flat/oriented/noise images and one labelled polygon occlusion fixture, used only for falsification and perturbation controls",
+    "ETH80_OBJECT1_96": "Apple object-1, all 41 ETH-80 views, whole-image Lanczos resize to 96-square RGB; descriptive junction stability only",
+    "SYNTHETIC_NINE": "The nine registered synthetic scene pairs recovered from the pinned Percept4 export (tests_figground scenes/fresh_scenes); independent front-end probe, renderer truth used only for pair identity/role labels where stated"
+  },
+  "sampling": {
+    "primary_native_frames": "All 79 images in the eval and reference arms",
+    "filter_training_positives": "Four class-level templates: positives are all reference+eval images of the class; negatives are all images of the other three classes. Leave-one-out was pre-registered initially but amended before filter measurement to four class-level templates to bound compute; no query-level accuracy is claimed",
+    "filter_training_negatives": "For each class, every image of the other three classes",
+    "filter_training_graph_scope": "Mapper._spatial_situation: capped 50-node live graph, with its induced edges and actual edge parameters; not the full uncapped window",
+    "filter_target_scopes": [
+      "spatial_situation",
+      "hierarchy_exclusions_off",
+      "complete_window"
+    ],
+    "population_and_presence": "All detections and complete induced windows of primary native frames; graph nodes are deduplicated by product identity, detections are counted separately",
+    "perturbation_frames": "First two eval images of each class, 96-square; eight images total",
+    "translation_offsets": [
+      [
+        -3,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        -3
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        -2,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        0,
+        -2
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "junction_frames": "Apple object-1: all 41 views at 96-square (amended before junction measurement from four object-1 instances at native resolution to bound compute; minimum one-object requirement retained)",
+    "mi_frames": "All 79 native frames; class label used only by the audit estimator, never by the front end",
+    "pair_frames": "Nine registered synthetic pairs for Position correlation/ablation; ETH80_REF4 has six unordered pairs and is reported separately, never called nine"
+  },
+  "fixed_rules": {
+    "tree_defaults": "Read and record the actual shipped parameters, not the historical pin baseline",
+    "new_switch_defaults": "OFF; no switch selected by this Phase-0 audit",
+    "fragment_correspondence": "Same parent contour index and fragment index; report unmatched and changed-parent counts, do not nearest-match signatures",
+    "perturbation_correspondence": "For translations, exact anchor-key equality; unmatched counts reported; for junction views, same-object nearest position with explicit distance, no class-label matching",
+    "fragment_coordinate_drift": "Euclidean distance of _frag_mid after removing the known translation; report median, p95, maximum, and signature-change counts; UNKNOWN if no matches",
+    "occlusion_fixture": "One fixed nonconvex polygon; remove the central 20 percent of its width over full height; same renderer, same front-end defaults; report contour fragmentation and coordinate drift separately",
+    "isotropic_orientation": "Flat grey control has zero image gradient; constant nonzero image also checked; noise is a negative control, not assumed perfectly isotropic",
+    "joint_MI": "Per lens kind, joint discrete emitted signature quantized tuple; per signature class, joint quantized tuple plus population presence pattern. Product graph-node observations, not independent-pixel p-values. Missing class means ABSENT, not a zero measurement",
+    "MI_units": "bits, log base 2",
+    "MI_permutations": 1000,
+    "MI_seed": 20261113,
+    "MI_permutation_unit": "Entire image: permute image class labels while keeping all its node signatures together; also report class-stratified node-label shuffle as a conditional diagnostic",
+    "MI_p_value": "(1 + count(null_MI >= observed_MI)) / (1000 + 1); descriptive, no causal or independence guarantee",
+    "entropy": "Shannon entropy of the complete emitted slot tuple per lens/class; report per-slot marginals and constant slots, and population-presence entropy separately",
+    "distance_distribution": "Continuous writer arguments intercepted without changing return values, grouped by edge family and slot; report min, median, p95, max and fraction outside declared schema span",
+    "margin_rule": "Read each Gabor channel's actual nonzero kernel support, compute its half-support, then apply the shipped interior cap. Report 256-square and 96-square separately. Pre-register only the rule, not a desired margin",
+    "topological_bin_stability": "Existing relation-class and categorical identity tuple agreement for corresponding anchors under the registered +/-2px translations; geometric stability is quantized graded-slot agreement",
+    "template_attribute_share": "Node-count share and mass share in structural_intersection output under both median-exemplar OFF and ON",
+    "degree_zero_share": "Unique graph nodes with zero incident edges divided by all nodes in the same named graph scope",
+    "position_ablation": "On each of the nine reference pairs, compare default correspondence with (a) Position lens nodes removed, (b) anchor coordinates removed, (c) both removed; report pair-set Jaccard and score deltas. No demotion decision in Phase 0",
+    "constants": "All production constants remain unchanged. Audit seeds, image sizes, perturbation sizes and sampling rules are fixed here before result production; no result-dependent thresholds",
+    "determinism": "PYTHONHASHSEED=0; canonical integer/enum-value/string sorts; no wall-clock-limited solver; fixed-count permutation test"
+  },
+  "not_available": [
+    "Original 60-graph corpus artifact",
+    "Identity manifest for the inherited four-frame 96-square sample",
+    "Historical per-image labels beyond the public reconstructed split"
+  ],
+  "amendments": [
+    {
+      "id": "A0",
+      "reason": "compute bound and arithmetic correction",
+      "changes": [
+        "junction sample reduced to one object, 41 views, 96-square",
+        "filter sample reduced to four class-level templates",
+        "four ETH references yield six unordered pairs; nine-pair measurements use recovered synthetic nine"
+      ]
+    },
+    {
+      "id": "A1",
+      "reason": "User steering: repair harness defects before the final Phase-0 numbers; no production constant, product mechanism, or default changed",
+      "status": "recorded after the repairs and before the final report; final analyze_census/position_pairs runs used the repaired harness",
+      "changes": [
+        "junction_views.py excludes 1/1/maps/* and de-duplicates basenames, yielding exactly 41 object-1 view PNGs",
+        "metrics.py ordering/seed keys use canonical typed tuples, never repr() or id()",
+        "mi-class.json joint symbol is (quantized tuple, per-axis population-presence pattern); primary null remains whole-image label permutation; secondary node-level null uses the registered seed plus one and is labeled anti-conservative",
+        "filter-template.json contains both MATCH_TEMPLATE_MEDIAN_EXEMPLAR=False and True arms",
+        "analyze_census.py normalizes detection records' slots field to bins, reconstructs EdgeParamsMixture records, and calls the actual front_end_scale API",
+        "position-pairs.json additionally separates Position-pair deletion from non-Position correspondence changes; its graph scope is the keep-members=False hierarchy arm, not the capped Mapper spatial_situation",
+        "aggregate_results.py writes native-flow.json and perturbation-stability.json from cached measurements only"
+      ]
+    }
+  ]
+}

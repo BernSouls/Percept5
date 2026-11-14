@@ -1,0 +1,3812 @@
+[
+  {
+    "class": "BORDER_OWNERSHIP",
+    "detections": 8205,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 8.22726541927384,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 5863,
+    "joint_tuple_entropy_bits": 7.90196382036181,
+    "lens": "BorderOwnership",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 8205,
+    "population_present_share": 1.0,
+    "relation": "FIGURE_SIDE_FIELD",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.9573894601346997,
+        "index": 0,
+        "n": 8205,
+        "name": "arc",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 747,
+          "1.0": 1011,
+          "2.0": 1312,
+          "3.0": 728,
+          "4.0": 1126,
+          "5.0": 838,
+          "6.0": 1485,
+          "7.0": 958
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.8840365640625865,
+        "index": 1,
+        "n": 8205,
+        "name": "signed_dir",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1380,
+          "1.0": 543,
+          "2.0": 871,
+          "3.0": 1134,
+          "4.0": 1491,
+          "5.0": 752,
+          "6.0": 465,
+          "7.0": 1569
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 1.8788200333668779,
+        "index": 2,
+        "n": 8205,
+        "name": "curvature",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 465,
+          "1.0": 92,
+          "2.0": 362,
+          "3.0": 1317,
+          "4.0": 5030,
+          "5.0": 358,
+          "6.0": 107,
+          "7.0": 474
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.7288987721020925,
+        "index": 3,
+        "n": 8205,
+        "name": "strength",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1600,
+          "1.0": 1025,
+          "2.0": 799,
+          "3.0": 824,
+          "4.0": 588,
+          "5.0": 420,
+          "6.0": 417,
+          "7.0": 2532
+        }
+      }
+    ]
+  },
+  {
+    "class": "BOUNDARY_ANCHORED",
+    "detections": 10147,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 7.356650060258003,
+    "graph_node_population_present_share": 0.0,
+    "graph_nodes": 5787,
+    "joint_tuple_entropy_bits": 7.019356017332375,
+    "lens": "Boundary",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 0,
+    "population_present_share": 0.0,
+    "relation": "CONTOUR_PROFILE",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.4604528263792359,
+        "index": 0,
+        "n": 10147,
+        "name": "circularity",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 983,
+          "5.0": 9163,
+          "9.0": 1
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 10,
+        "entropy_known_bits": 2.688952730671297,
+        "index": 1,
+        "n": 10147,
+        "name": "complexity",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 3281,
+          "1.0": 2249,
+          "2.0": 1461,
+          "3.0": 872,
+          "4.0": 688,
+          "5.0": 567,
+          "6.0": 514,
+          "7.0": 412,
+          "8.0": 92,
+          "9.0": 11
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 16,
+        "entropy_known_bits": 3.997060916358482,
+        "index": 2,
+        "n": 10147,
+        "name": "anchor_class",
+        "unknown_or_missing": 0,
+        "values": null
+      }
+    ]
+  },
+  {
+    "class": "CONTOUR_PEAK",
+    "detections": 10306,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 10.85074519134433,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 8169,
+    "joint_tuple_entropy_bits": 10.651470206179404,
+    "lens": "CONTOUR_PEAK",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 10306,
+    "population_present_share": 1.0,
+    "relation": "CONTOUR_PROFILE",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 12,
+        "entropy_known_bits": 3.3245014700264437,
+        "index": 0,
+        "n": 10306,
+        "name": "theta",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 2715,
+          "1.0": 953,
+          "2.0": 664,
+          "3.0": 523,
+          "4.0": 405,
+          "5.0": 601,
+          "6.0": 1266,
+          "7.0": 770,
+          "8.0": 479,
+          "9.0": 673,
+          "10.0": 532,
+          "11.0": 725
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 0.3119226618342442,
+        "index": 1,
+        "n": 10306,
+        "name": "sf",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 9860,
+          "1.0": 326,
+          "2.0": 40,
+          "3.0": 39,
+          "4.0": 41
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 4,
+        "entropy_known_bits": 1.2177292096635903,
+        "index": 2,
+        "n": 10306,
+        "name": "curvature",
+        "unknown_or_missing": 0,
+        "values": {
+          "2.0": 180,
+          "3.0": 4723,
+          "4.0": 5221,
+          "5.0": 182
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.023984141720581,
+        "index": 3,
+        "n": 10306,
+        "name": "bend",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 5413,
+          "1.0": 2347,
+          "2.0": 981,
+          "3.0": 446,
+          "4.0": 249,
+          "5.0": 163,
+          "6.0": 104,
+          "7.0": 603
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 4,
+        "entropy_known_bits": 1.9982003529767494,
+        "index": 4,
+        "n": 10306,
+        "name": "phase",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 2623,
+          "1.0": 2374,
+          "2.0": 2583,
+          "3.0": 2726
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.2381662623353349,
+        "index": 5,
+        "n": 10306,
+        "name": "strength",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 9903,
+          "1.0": 403
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.894194537120383,
+        "index": 6,
+        "n": 10306,
+        "name": "coherence",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 7102,
+          "1.0": 3204
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 7,
+        "entropy_known_bits": 1.8618352172502362,
+        "index": 7,
+        "n": 10306,
+        "name": "endstop",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 912,
+          "2.0": 5715,
+          "3.0": 2333,
+          "4.0": 752,
+          "5.0": 328,
+          "6.0": 154,
+          "7.0": 112
+        }
+      }
+    ]
+  },
+  {
+    "class": "COLOR_LEGACY",
+    "detections": 9769,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 7.7813836311802165,
+    "graph_node_population_present_share": 0.0,
+    "graph_nodes": 2950,
+    "joint_tuple_entropy_bits": 6.914670565453366,
+    "lens": "Color",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 0,
+    "population_present_share": 0.0,
+    "relation": "COLOR_RAW_RGB",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 12,
+        "entropy_known_bits": 3.2711659644909865,
+        "index": 0,
+        "n": 9769,
+        "name": "r",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 41,
+          "1.0": 476,
+          "2.0": 1828,
+          "3.0": 1445,
+          "4.0": 1112,
+          "5.0": 1131,
+          "6.0": 1130,
+          "7.0": 744,
+          "8.0": 683,
+          "9.0": 600,
+          "10.0": 433,
+          "11.0": 146
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 12,
+        "entropy_known_bits": 3.2414499223052293,
+        "index": 1,
+        "n": 9769,
+        "name": "g",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 40,
+          "1.0": 218,
+          "2.0": 1164,
+          "3.0": 1520,
+          "4.0": 1365,
+          "5.0": 1345,
+          "6.0": 1374,
+          "7.0": 877,
+          "8.0": 682,
+          "9.0": 637,
+          "10.0": 415,
+          "11.0": 132
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 12,
+        "entropy_known_bits": 3.0523192116344426,
+        "index": 2,
+        "n": 9769,
+        "name": "b",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 19,
+          "1.0": 36,
+          "2.0": 53,
+          "3.0": 169,
+          "4.0": 420,
+          "5.0": 883,
+          "6.0": 1218,
+          "7.0": 1370,
+          "8.0": 1500,
+          "9.0": 1891,
+          "10.0": 1244,
+          "11.0": 966
+        }
+      }
+    ]
+  },
+  {
+    "class": "CONTOUR",
+    "detections": 1965,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 8.226446415805455,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 1509,
+    "joint_tuple_entropy_bits": 7.611360240972797,
+    "lens": "Contour",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 1965,
+    "population_present_share": 1.0,
+    "relation": "ARC_FRAGMENT",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 4,
+        "entropy_known_bits": 0.717123822498826,
+        "index": 0,
+        "n": 1965,
+        "name": "length",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1621,
+          "1.0": 329,
+          "2.0": 14,
+          "3.0": 1
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 24,
+        "entropy_known_bits": 4.2413743226965925,
+        "index": 1,
+        "n": 1965,
+        "name": "mean_theta",
+        "unknown_or_missing": 0,
+        "values": null
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.11729486491524632,
+        "index": 2,
+        "n": 1965,
+        "name": "circ_var",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1938,
+          "1.0": 18,
+          "2.0": 9
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.30501965279793225,
+        "index": 3,
+        "n": 1965,
+        "name": "closure",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1858,
+          "1.0": 107
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.4438613604747649,
+        "index": 4,
+        "n": 1965,
+        "name": "total_turn",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1792,
+          "1.0": 169,
+          "2.0": 4
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 5,
+        "n": 1965,
+        "name": "corner_count",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1965
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.07859215765514382,
+        "index": 6,
+        "n": 1965,
+        "name": "chirality",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 19,
+          "4.0": 1946
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.2524662228167571,
+        "index": 7,
+        "n": 1965,
+        "name": "curv0",
+        "unknown_or_missing": 0,
+        "values": {
+          "4.0": 1882,
+          "5.0": 83
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.1377096909919175,
+        "index": 8,
+        "n": 1965,
+        "name": "curv1",
+        "unknown_or_missing": 0,
+        "values": {
+          "4.0": 1927,
+          "5.0": 38
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.3020478967335963,
+        "index": 9,
+        "n": 1965,
+        "name": "curv2",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 11,
+          "4.0": 1871,
+          "5.0": 83
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.3512631551836616,
+        "index": 10,
+        "n": 1965,
+        "name": "curv3",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 7,
+          "4.0": 1845,
+          "5.0": 113
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.6877602749912686,
+        "index": 11,
+        "n": 1965,
+        "name": "curv4",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 36,
+          "4.0": 1672,
+          "5.0": 257
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.7415821373153044,
+        "index": 12,
+        "n": 1965,
+        "name": "curv5",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 65,
+          "4.0": 1658,
+          "5.0": 242
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.16983809336369984,
+        "index": 13,
+        "n": 1965,
+        "name": "curv6",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 11,
+          "4.0": 1922,
+          "5.0": 32
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.20593663425066427,
+        "index": 14,
+        "n": 1965,
+        "name": "curv7",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 26,
+          "4.0": 1912,
+          "5.0": 27
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.1845193810854586,
+        "index": 15,
+        "n": 1965,
+        "name": "curv8",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 15,
+          "4.0": 1918,
+          "5.0": 32
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.0230693961657562,
+        "index": 16,
+        "n": 1965,
+        "name": "curv9",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 23,
+          "4.0": 1244,
+          "5.0": 698
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.02928816639606,
+        "index": 17,
+        "n": 1965,
+        "name": "curv10",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 25,
+          "4.0": 1241,
+          "5.0": 699
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.2404704484668477,
+        "index": 18,
+        "n": 1965,
+        "name": "curv11",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 18,
+          "4.0": 1899,
+          "5.0": 48
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.21203123307687677,
+        "index": 19,
+        "n": 1965,
+        "name": "curv12",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 30,
+          "4.0": 1910,
+          "5.0": 25
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.16681949360315668,
+        "index": 20,
+        "n": 1965,
+        "name": "curv13",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 11,
+          "4.0": 1923,
+          "5.0": 31
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.7388741069947745,
+        "index": 21,
+        "n": 1965,
+        "name": "curv14",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 75,
+          "4.0": 1666,
+          "5.0": 224
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.6933103846598285,
+        "index": 22,
+        "n": 1965,
+        "name": "curv15",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 37,
+          "4.0": 1669,
+          "5.0": 259
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.317877789204492,
+        "index": 23,
+        "n": 1965,
+        "name": "curv16",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 16,
+          "4.0": 1867,
+          "5.0": 82
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.3266714877240143,
+        "index": 24,
+        "n": 1965,
+        "name": "curv17",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 11,
+          "4.0": 1860,
+          "5.0": 94
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.11397020802905504,
+        "index": 25,
+        "n": 1965,
+        "name": "curv18",
+        "unknown_or_missing": 0,
+        "values": {
+          "4.0": 1935,
+          "5.0": 30
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.25644027290485477,
+        "index": 26,
+        "n": 1965,
+        "name": "curv19",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 1,
+          "4.0": 1882,
+          "5.0": 82
+        }
+      }
+    ]
+  },
+  {
+    "class": "CONTOUR_FRAGMENT",
+    "detections": 2730,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 9.751921028470289,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 2481,
+    "joint_tuple_entropy_bits": 9.67617073474202,
+    "lens": "ContourFragment",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 2730,
+    "population_present_share": 1.0,
+    "relation": "OBJECT_CENTERED_V4",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 9,
+        "entropy_known_bits": 1.3853605103691318,
+        "index": 0,
+        "n": 2730,
+        "name": "kappa",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 3,
+          "1.0": 27,
+          "2.0": 28,
+          "3.0": 116,
+          "4.0": 2070,
+          "5.0": 176,
+          "6.0": 146,
+          "7.0": 154,
+          "8.0": 10
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 24,
+        "entropy_known_bits": 4.57626537838245,
+        "index": 1,
+        "n": 2730,
+        "name": "theta",
+        "unknown_or_missing": 0,
+        "values": null
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.675231742208267,
+        "index": 2,
+        "n": 2730,
+        "name": "r",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 40,
+          "1.0": 115,
+          "2.0": 192,
+          "3.0": 278,
+          "4.0": 318,
+          "5.0": 473,
+          "6.0": 651,
+          "7.0": 663
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.8388217485948317,
+        "index": 3,
+        "n": 2730,
+        "name": "tangent_vs_radial",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 185,
+          "1.0": 218,
+          "2.0": 221,
+          "3.0": 241,
+          "4.0": 264,
+          "5.0": 374,
+          "6.0": 537,
+          "7.0": 690
+        }
+      }
+    ]
+  },
+  {
+    "class": "CORNER",
+    "detections": 932,
+    "frames_present": 78,
+    "graph_node_joint_entropy_bits": 7.504324518577485,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 842,
+    "joint_tuple_entropy_bits": 7.396310042513408,
+    "lens": "Corner",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 932,
+    "population_present_share": 1.0,
+    "relation": "CORNER_PROFILE",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 7,
+        "entropy_known_bits": 2.44260743633343,
+        "index": 0,
+        "n": 932,
+        "name": "turn",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 91,
+          "2.0": 113,
+          "3.0": 35,
+          "4.0": 56,
+          "5.0": 72,
+          "6.0": 252,
+          "7.0": 313
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 12,
+        "entropy_known_bits": 3.5708516449569427,
+        "index": 1,
+        "n": 932,
+        "name": "orient",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 94,
+          "1.0": 62,
+          "2.0": 71,
+          "3.0": 69,
+          "4.0": 78,
+          "5.0": 82,
+          "6.0": 77,
+          "7.0": 82,
+          "8.0": 67,
+          "9.0": 75,
+          "10.0": 72,
+          "11.0": 103
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.2860088890955,
+        "index": 2,
+        "n": 932,
+        "name": "prominence",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 140,
+          "1.0": 99,
+          "2.0": 94,
+          "3.0": 58,
+          "4.0": 41,
+          "5.0": 20,
+          "6.0": 22,
+          "7.0": 458
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.031286247603155765,
+        "index": 3,
+        "n": 932,
+        "name": "arm",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 929,
+          "1.0": 3
+        }
+      }
+    ]
+  },
+  {
+    "class": "JUNCTION",
+    "detections": 153,
+    "frames_present": 62,
+    "graph_node_joint_entropy_bits": 5.5006695766713,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 146,
+    "joint_tuple_entropy_bits": 5.482809539476615,
+    "lens": "Corner",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 153,
+    "population_present_share": 1.0,
+    "relation": "ANGLE_RELATION",
+    "slots": [
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 0,
+        "n": 153,
+        "name": "degree",
+        "unknown_or_missing": 0,
+        "values": {
+          "2.0": 153
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.940953145363833,
+        "index": 1,
+        "n": 153,
+        "name": "ref_theta",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 14,
+          "3.0": 26,
+          "6.0": 15,
+          "9.0": 24,
+          "12.0": 22,
+          "15.0": 16,
+          "18.0": 11,
+          "21.0": 25
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 2,
+        "n": 153,
+        "name": "topo",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 153
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.4176035681823187,
+        "index": 3,
+        "n": 153,
+        "name": "spread",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 26,
+          "2.0": 42,
+          "4.0": 85
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.4176035681823187,
+        "index": 4,
+        "n": 153,
+        "name": "gap0",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 85,
+          "2.0": 42,
+          "3.0": 26
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.4176035681823187,
+        "index": 5,
+        "n": 153,
+        "name": "gap1",
+        "unknown_or_missing": 0,
+        "values": {
+          "5.0": 26,
+          "6.0": 42,
+          "7.0": 85
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 6,
+        "n": 153,
+        "name": "gap2",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 153
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 7,
+        "n": 153,
+        "name": "gap3",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 153
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 4,
+        "entropy_known_bits": 1.751234098804064,
+        "index": 8,
+        "n": 153,
+        "name": "arm_support",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 20,
+          "2.0": 77,
+          "3.0": 37,
+          "4.0": 19
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.13923299905509887,
+        "index": 9,
+        "n": 153,
+        "name": "arm_sharp_mean",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 3,
+          "7.0": 150
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.27790019762551116,
+        "index": 10,
+        "n": 153,
+        "name": "arm_sharp_min",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 3,
+          "6.0": 3,
+          "7.0": 147
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 11,
+        "n": 153,
+        "name": "arm_angle0",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 153
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 12,
+        "n": 153,
+        "name": "arm_angle1",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 153
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.9910760598382222,
+        "index": 13,
+        "n": 153,
+        "name": "arm_angle2",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 68,
+          "1.0": 85
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 14,
+        "n": 153,
+        "name": "arm_angle3",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 153
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.8478617451660525,
+        "index": 15,
+        "n": 153,
+        "name": "arm_angle4",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 111,
+          "1.0": 42
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 16,
+        "n": 153,
+        "name": "arm_angle5",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 153
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.6575552420930866,
+        "index": 17,
+        "n": 153,
+        "name": "arm_angle6",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 127,
+          "1.0": 26
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 18,
+        "n": 153,
+        "name": "arm_angle7",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 153
+        }
+      }
+    ]
+  },
+  {
+    "class": "CURVE_COMPLEX",
+    "detections": 1509,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 7.524694387571844,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 1090,
+    "joint_tuple_entropy_bits": 6.445801525765126,
+    "lens": "CurveComplex",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 1509,
+    "population_present_share": 1.0,
+    "relation": "SHAPE_ARRANGEMENT",
+    "slots": [
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 0,
+        "n": 1509,
+        "name": "n_contours",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 1509
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 1,
+        "n": 1509,
+        "name": "n_junctions",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1509
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 7,
+        "entropy_known_bits": 2.2661588814388347,
+        "index": 2,
+        "n": 1509,
+        "name": "extent",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 394,
+          "2.0": 544,
+          "3.0": 322,
+          "4.0": 80,
+          "5.0": 66,
+          "6.0": 57,
+          "7.0": 46
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.36930260647909124,
+        "index": 3,
+        "n": 1509,
+        "name": "closure",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1402,
+          "7.0": 107
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 4,
+        "entropy_known_bits": 0.6881651352156493,
+        "index": 4,
+        "n": 1509,
+        "name": "template0",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 11,
+          "4.0": 1307,
+          "6.0": 30,
+          "7.0": 161
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 1.0012323739297277,
+        "index": 5,
+        "n": 1509,
+        "name": "template1",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 40,
+          "2.0": 2,
+          "4.0": 1136,
+          "6.0": 16,
+          "7.0": 315
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 1.0692107208511845,
+        "index": 6,
+        "n": 1509,
+        "name": "template2",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 91,
+          "2.0": 5,
+          "4.0": 1143,
+          "6.0": 13,
+          "7.0": 257
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 1.1635510572256331,
+        "index": 7,
+        "n": 1509,
+        "name": "template3",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 33,
+          "2.0": 3,
+          "4.0": 955,
+          "6.0": 19,
+          "7.0": 499
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 1.3050694252312738,
+        "index": 8,
+        "n": 1509,
+        "name": "template4",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 67,
+          "2.0": 3,
+          "4.0": 886,
+          "6.0": 28,
+          "7.0": 525
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 0.9928227646152608,
+        "index": 9,
+        "n": 1509,
+        "name": "template5",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 75,
+          "2.0": 7,
+          "4.0": 1194,
+          "6.0": 17,
+          "7.0": 216
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 1.1784974212626527,
+        "index": 10,
+        "n": 1509,
+        "name": "template6",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 56,
+          "2.0": 5,
+          "4.0": 1055,
+          "6.0": 33,
+          "7.0": 360
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 4,
+        "entropy_known_bits": 0.4396060861239881,
+        "index": 11,
+        "n": 1509,
+        "name": "template7",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1,
+          "4.0": 1396,
+          "6.0": 20,
+          "7.0": 92
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.6075969517003941,
+        "index": 12,
+        "n": 1509,
+        "name": "shape0",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1284,
+          "1.0": 225
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.5215386761439056,
+        "index": 13,
+        "n": 1509,
+        "name": "shape1",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1332,
+          "1.0": 177
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.17656332940496716,
+        "index": 14,
+        "n": 1509,
+        "name": "shape2",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1469,
+          "1.0": 40
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.17999627451397435,
+        "index": 15,
+        "n": 1509,
+        "name": "shape3",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1468,
+          "1.0": 41
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.8901808763890768,
+        "index": 16,
+        "n": 1509,
+        "name": "shape4",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1150,
+          "1.0": 329,
+          "2.0": 30
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.9171307843996109,
+        "index": 17,
+        "n": 1509,
+        "name": "shape5",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1147,
+          "1.0": 321,
+          "2.0": 41
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.692076168059757,
+        "index": 18,
+        "n": 1509,
+        "name": "shape6",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1229,
+          "1.0": 280
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.08039748713288077,
+        "index": 19,
+        "n": 1509,
+        "name": "shape7",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1494,
+          "1.0": 15
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.7018733130088504,
+        "index": 20,
+        "n": 1509,
+        "name": "shape8",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1222,
+          "1.0": 287
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.2288841384619092,
+        "index": 21,
+        "n": 1509,
+        "name": "shape9",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1453,
+          "1.0": 56
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.7613998381991188,
+        "index": 22,
+        "n": 1509,
+        "name": "shape10",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1176,
+          "1.0": 333
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.8289887709221504,
+        "index": 23,
+        "n": 1509,
+        "name": "shape11",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1161,
+          "1.0": 336,
+          "2.0": 12
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.30728195417759174,
+        "index": 24,
+        "n": 1509,
+        "name": "arc_curv0",
+        "unknown_or_missing": 0,
+        "values": {
+          "4.0": 1426,
+          "5.0": 83
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.16962316210606607,
+        "index": 25,
+        "n": 1509,
+        "name": "arc_curv1",
+        "unknown_or_missing": 0,
+        "values": {
+          "4.0": 1471,
+          "5.0": 38
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.36891871512606284,
+        "index": 26,
+        "n": 1509,
+        "name": "arc_curv2",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 11,
+          "4.0": 1415,
+          "5.0": 83
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.4260061130200738,
+        "index": 27,
+        "n": 1509,
+        "name": "arc_curv3",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 7,
+          "4.0": 1389,
+          "5.0": 113
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.8009268741297076,
+        "index": 28,
+        "n": 1509,
+        "name": "arc_curv4",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 36,
+          "4.0": 1225,
+          "5.0": 248
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.8663016274179165,
+        "index": 29,
+        "n": 1509,
+        "name": "arc_curv5",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 65,
+          "4.0": 1211,
+          "5.0": 233
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.2101676333966777,
+        "index": 30,
+        "n": 1509,
+        "name": "arc_curv6",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 11,
+          "4.0": 1466,
+          "5.0": 32
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.2545776264051566,
+        "index": 31,
+        "n": 1509,
+        "name": "arc_curv7",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 26,
+          "4.0": 1456,
+          "5.0": 27
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.2282484595017719,
+        "index": 32,
+        "n": 1509,
+        "name": "arc_curv8",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 15,
+          "4.0": 1462,
+          "5.0": 32
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.0178963517196773,
+        "index": 33,
+        "n": 1509,
+        "name": "arc_curv9",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 23,
+          "4.0": 991,
+          "5.0": 495
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.0256696024538405,
+        "index": 34,
+        "n": 1509,
+        "name": "arc_curv10",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 25,
+          "4.0": 988,
+          "5.0": 496
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.29614749577428034,
+        "index": 35,
+        "n": 1509,
+        "name": "arc_curv11",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 18,
+          "4.0": 1443,
+          "5.0": 48
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.26199264916703197,
+        "index": 36,
+        "n": 1509,
+        "name": "arc_curv12",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 30,
+          "4.0": 1454,
+          "5.0": 25
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.2064957036480442,
+        "index": 37,
+        "n": 1509,
+        "name": "arc_curv13",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 11,
+          "4.0": 1467,
+          "5.0": 31
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.8591342577701593,
+        "index": 38,
+        "n": 1509,
+        "name": "arc_curv14",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 73,
+          "4.0": 1221,
+          "5.0": 215
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.7990664356604184,
+        "index": 39,
+        "n": 1509,
+        "name": "arc_curv15",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 35,
+          "4.0": 1225,
+          "5.0": 249
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.38846259681334827,
+        "index": 40,
+        "n": 1509,
+        "name": "arc_curv16",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 16,
+          "4.0": 1411,
+          "5.0": 82
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.39803546218320324,
+        "index": 41,
+        "n": 1509,
+        "name": "arc_curv17",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 11,
+          "4.0": 1404,
+          "5.0": 94
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.14077027115108579,
+        "index": 42,
+        "n": 1509,
+        "name": "arc_curv18",
+        "unknown_or_missing": 0,
+        "values": {
+          "4.0": 1479,
+          "5.0": 30
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.312456910057719,
+        "index": 43,
+        "n": 1509,
+        "name": "arc_curv19",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 1,
+          "4.0": 1426,
+          "5.0": 82
+        }
+      }
+    ]
+  },
+  {
+    "class": "ENDSTOPPED",
+    "detections": 4106,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 6.911825893466272,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 2718,
+    "joint_tuple_entropy_bits": 6.720783267627403,
+    "lens": "EndStopped",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 4106,
+    "population_present_share": 1.0,
+    "relation": "LINE_TERMINATION",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 12,
+        "entropy_known_bits": 3.580517235528915,
+        "index": 0,
+        "n": 4106,
+        "name": "theta",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 356,
+          "2.0": 333,
+          "4.0": 362,
+          "6.0": 318,
+          "8.0": 280,
+          "10.0": 373,
+          "12.0": 356,
+          "14.0": 343,
+          "16.0": 353,
+          "18.0": 308,
+          "20.0": 368,
+          "22.0": 356
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 1.8424625811313387,
+        "index": 1,
+        "n": 4106,
+        "name": "sf",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1938,
+          "2.0": 1206,
+          "4.0": 528,
+          "6.0": 317,
+          "7.0": 117
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.0167206305804082,
+        "index": 2,
+        "n": 4106,
+        "name": "ends",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 8,
+          "1.0": 1950,
+          "2.0": 2148
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 0.37342158111784707,
+        "index": 3,
+        "n": 4106,
+        "name": "strength",
+        "unknown_or_missing": 0,
+        "values": {
+          "5.0": 7,
+          "6.0": 276,
+          "7.0": 3823
+        }
+      }
+    ]
+  },
+  {
+    "class": "ILLUSORY_CONTOUR",
+    "detections": 126,
+    "frames_present": 50,
+    "graph_node_joint_entropy_bits": 6.239432384506317,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 125,
+    "joint_tuple_entropy_bits": 6.240819705091415,
+    "lens": "IllusoryContour",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 126,
+    "population_present_share": 1.0,
+    "relation": "MODAL_COMPLETION",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 12,
+        "entropy_known_bits": 3.481844623189431,
+        "index": 0,
+        "n": 126,
+        "name": "theta",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 14,
+          "2.0": 17,
+          "4.0": 8,
+          "6.0": 13,
+          "8.0": 11,
+          "10.0": 6,
+          "12.0": 9,
+          "14.0": 9,
+          "16.0": 9,
+          "18.0": 3,
+          "20.0": 12,
+          "22.0": 15
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.9676492297890693,
+        "index": 1,
+        "n": 126,
+        "name": "length",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 13,
+          "1.0": 13,
+          "2.0": 12,
+          "3.0": 22,
+          "4.0": 16,
+          "5.0": 19,
+          "6.0": 13,
+          "7.0": 18
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 2.2678705418909306,
+        "index": 2,
+        "n": 126,
+        "name": "strength",
+        "unknown_or_missing": 0,
+        "values": {
+          "2.0": 21,
+          "3.0": 31,
+          "4.0": 35,
+          "5.0": 23,
+          "6.0": 16
+        }
+      }
+    ]
+  },
+  {
+    "class": "JUNCTION",
+    "detections": 99,
+    "frames_present": 54,
+    "graph_node_joint_entropy_bits": 6.158027318582928,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 98,
+    "joint_tuple_entropy_bits": 6.157085029148666,
+    "lens": "Junction",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 99,
+    "population_present_share": 1.0,
+    "relation": "ANGLE_RELATION",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.306113896819955,
+        "index": 0,
+        "n": 99,
+        "name": "degree",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 53,
+          "4.0": 38,
+          "5.0": 8
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.8703274183567293,
+        "index": 1,
+        "n": 99,
+        "name": "ref_theta",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 10,
+          "3.0": 23,
+          "6.0": 14,
+          "9.0": 6,
+          "12.0": 12,
+          "15.0": 17,
+          "18.0": 6,
+          "21.0": 11
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.1162780815756639,
+        "index": 2,
+        "n": 99,
+        "name": "topo",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 44,
+          "4.0": 2,
+          "6.0": 53
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 4,
+        "entropy_known_bits": 1.8370100052987821,
+        "index": 3,
+        "n": 99,
+        "name": "spread",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 23,
+          "1.0": 41,
+          "2.0": 9,
+          "3.0": 26
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.08146202691506,
+        "index": 4,
+        "n": 99,
+        "name": "gap0",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 98,
+          "2.0": 1
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 4,
+        "entropy_known_bits": 1.5465250439700229,
+        "index": 5,
+        "n": 99,
+        "name": "gap1",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 57,
+          "2.0": 25,
+          "3.0": 5,
+          "5.0": 12
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 2.3550718380476874,
+        "index": 6,
+        "n": 99,
+        "name": "gap2",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 15,
+          "2.0": 30,
+          "3.0": 9,
+          "4.0": 4,
+          "5.0": 15,
+          "6.0": 26
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 2.041063696474082,
+        "index": 7,
+        "n": 99,
+        "name": "gap3",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 53,
+          "1.0": 5,
+          "2.0": 14,
+          "3.0": 8,
+          "4.0": 10,
+          "5.0": 9
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 4,
+        "entropy_known_bits": 1.635965935678915,
+        "index": 8,
+        "n": 99,
+        "name": "arm_support",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 8,
+          "2.0": 39,
+          "3.0": 44,
+          "4.0": 8
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 9,
+        "n": 99,
+        "name": "arm_sharp_mean",
+        "unknown_or_missing": 0,
+        "values": {
+          "7.0": 99
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.2441416423882961,
+        "index": 10,
+        "n": 99,
+        "name": "arm_sharp_min",
+        "unknown_or_missing": 0,
+        "values": {
+          "6.0": 4,
+          "7.0": 95
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 11,
+        "n": 99,
+        "name": "arm_angle0",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 99
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 12,
+        "n": 99,
+        "name": "arm_angle1",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 99
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 4,
+        "entropy_known_bits": 1.539627692169443,
+        "index": 13,
+        "n": 99,
+        "name": "arm_angle2",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1,
+          "1.0": 37,
+          "2.0": 45,
+          "3.0": 16
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 14,
+        "n": 99,
+        "name": "arm_angle3",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 99
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 1.2697521200248374,
+        "index": 15,
+        "n": 99,
+        "name": "arm_angle4",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1,
+          "1.0": 59,
+          "2.0": 35,
+          "3.0": 2,
+          "4.0": 2
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 16,
+        "n": 99,
+        "name": "arm_angle5",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 99
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 4,
+        "entropy_known_bits": 1.7727469705737577,
+        "index": 17,
+        "n": 99,
+        "name": "arm_angle6",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 27,
+          "1.0": 47,
+          "2.0": 14,
+          "3.0": 11
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.1846453410692455,
+        "index": 18,
+        "n": 99,
+        "name": "arm_angle7",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 66,
+          "1.0": 25,
+          "2.0": 8
+        }
+      }
+    ]
+  },
+  {
+    "class": "ONSET",
+    "detections": 2210,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": -0.0,
+    "graph_node_population_present_share": 0.0,
+    "graph_nodes": 79,
+    "joint_tuple_entropy_bits": -0.0,
+    "lens": "Onset",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 0,
+    "population_present_share": 0.0,
+    "relation": "APPEARANCE_TRANSITION",
+    "slots": [
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 0,
+        "n": 2210,
+        "name": "recency",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 2210
+        }
+      }
+    ]
+  },
+  {
+    "class": "ORIENTATION",
+    "detections": 4446,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 9.502047654247953,
+    "graph_node_population_present_share": 0.0,
+    "graph_nodes": 4032,
+    "joint_tuple_entropy_bits": 9.440760427618034,
+    "lens": "Orientation",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 0,
+    "population_present_share": 0.0,
+    "relation": "MAJOR_AXIS",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 24,
+        "entropy_known_bits": 4.293882387487463,
+        "index": 0,
+        "n": 4446,
+        "name": "theta",
+        "unknown_or_missing": 0,
+        "values": null
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 2.0876383417506887,
+        "index": 1,
+        "n": 4446,
+        "name": "elongation",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1082,
+          "1.0": 1425,
+          "2.0": 988,
+          "3.0": 846,
+          "4.0": 105
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 16,
+        "entropy_known_bits": 3.89307402478006,
+        "index": 2,
+        "n": 4446,
+        "name": "anchor_class",
+        "unknown_or_missing": 0,
+        "values": null
+      }
+    ]
+  },
+  {
+    "class": "ORIENTATION_SEGMENT",
+    "detections": 109,
+    "frames_present": 18,
+    "graph_node_joint_entropy_bits": 6.658092581657661,
+    "graph_node_population_present_share": 0.0,
+    "graph_nodes": 109,
+    "joint_tuple_entropy_bits": 6.658092581657661,
+    "lens": "Orientation",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 0,
+    "population_present_share": 0.0,
+    "relation": "BOUNDARY_SEGMENT",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 20,
+        "entropy_known_bits": 3.5458120527485866,
+        "index": 0,
+        "n": 109,
+        "name": "theta",
+        "unknown_or_missing": 0,
+        "values": null
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.3074565329952894,
+        "index": 1,
+        "n": 109,
+        "name": "arc_len",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 103,
+          "2.0": 6
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 13,
+        "entropy_known_bits": 3.508936206368698,
+        "index": 2,
+        "n": 109,
+        "name": "chain_id",
+        "unknown_or_missing": 0,
+        "values": null
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.9688405829195506,
+        "index": 3,
+        "n": 109,
+        "name": "chain_pos",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 12,
+          "1.0": 11,
+          "2.0": 12,
+          "3.0": 16,
+          "4.0": 16,
+          "5.0": 10,
+          "6.0": 13,
+          "7.0": 19
+        }
+      }
+    ]
+  },
+  {
+    "class": "PEAK_CHAIN",
+    "detections": 1569,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 8.172722083565876,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 1442,
+    "joint_tuple_entropy_bits": 8.021045049173924,
+    "lens": "PEAK_CHAIN",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 1569,
+    "population_present_share": 1.0,
+    "relation": "CHAIN_PROFILE",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 14,
+        "entropy_known_bits": 3.036241658084423,
+        "index": 0,
+        "n": 1569,
+        "name": "n_peaks",
+        "unknown_or_missing": 0,
+        "values": null
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 12,
+        "entropy_known_bits": 3.4645754596606024,
+        "index": 1,
+        "n": 1569,
+        "name": "mean_theta",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 249,
+          "1.0": 108,
+          "2.0": 118,
+          "3.0": 91,
+          "4.0": 62,
+          "5.0": 158,
+          "6.0": 159,
+          "7.0": 89,
+          "8.0": 104,
+          "9.0": 98,
+          "10.0": 100,
+          "11.0": 233
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 1.2787633273559598,
+        "index": 2,
+        "n": 1569,
+        "name": "theta_var",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1195,
+          "1.0": 185,
+          "2.0": 91,
+          "3.0": 41,
+          "4.0": 21,
+          "5.0": 21,
+          "6.0": 8,
+          "7.0": 7
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 3,
+        "n": 1569,
+        "name": "closure",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1569
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.08210012540437625,
+        "index": 4,
+        "n": 1569,
+        "name": "curvature",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1553,
+          "1.0": 16
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.7660038035807455,
+        "index": 5,
+        "n": 1569,
+        "name": "length",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 154,
+          "1.0": 418,
+          "2.0": 224,
+          "3.0": 147,
+          "4.0": 129,
+          "5.0": 91,
+          "6.0": 68,
+          "7.0": 338
+        }
+      }
+    ]
+  },
+  {
+    "class": "POLARITY",
+    "detections": 38529,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 1.584962500721156,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 237,
+    "joint_tuple_entropy_bits": 1.5411010566585697,
+    "lens": "Polarity",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 38529,
+    "population_present_share": 1.0,
+    "relation": "LUMINANCE_POLARITY",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.5411010566585697,
+        "index": 0,
+        "n": 38529,
+        "name": "signed",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 14743,
+          "1.0": 8528,
+          "2.0": 15258
+        }
+      }
+    ]
+  },
+  {
+    "class": "POSITION",
+    "detections": 7436,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 6.943591394283771,
+    "graph_node_population_present_share": 0.0,
+    "graph_nodes": 7433,
+    "joint_tuple_entropy_bits": 6.943620079953864,
+    "lens": "Position",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 0,
+    "population_present_share": 0.0,
+    "relation": "OBJECT_CENTRIC_REL",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 16,
+        "entropy_known_bits": 3.980040939289373,
+        "index": 0,
+        "n": 7436,
+        "name": "dx",
+        "unknown_or_missing": 0,
+        "values": null
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 16,
+        "entropy_known_bits": 3.969553099819684,
+        "index": 1,
+        "n": 7436,
+        "name": "dy",
+        "unknown_or_missing": 0,
+        "values": null
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 0,
+        "entropy_known_bits": null,
+        "index": 2,
+        "n": 7436,
+        "name": "dz",
+        "unknown_or_missing": 7436,
+        "values": {}
+      }
+    ]
+  },
+  {
+    "class": "REGION_SHAPE",
+    "detections": 1050,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 9.806251898265561,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 1045,
+    "joint_tuple_entropy_bits": 9.794680284595673,
+    "lens": "RegionShape",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 1050,
+    "population_present_share": 1.0,
+    "relation": "BOUNDARY_CONFORMATION",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 0.9236397050384315,
+        "index": 0,
+        "n": 1050,
+        "name": "curv0",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 894,
+          "1.0": 5,
+          "2.0": 35,
+          "3.0": 42,
+          "4.0": 39,
+          "5.0": 35
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 0.8980659897418659,
+        "index": 1,
+        "n": 1050,
+        "name": "curv1",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 903,
+          "1.0": 16,
+          "2.0": 42,
+          "3.0": 36,
+          "4.0": 32,
+          "5.0": 21
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 0.34738643493385307,
+        "index": 2,
+        "n": 1050,
+        "name": "curv2",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1004,
+          "1.0": 5,
+          "2.0": 20,
+          "3.0": 10,
+          "4.0": 9,
+          "5.0": 2
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 0.26411351169504216,
+        "index": 3,
+        "n": 1050,
+        "name": "curv3",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1016,
+          "1.0": 8,
+          "2.0": 13,
+          "3.0": 11,
+          "5.0": 2
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 0.3490524268046183,
+        "index": 4,
+        "n": 1050,
+        "name": "curv4",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1003,
+          "1.0": 17,
+          "2.0": 16,
+          "3.0": 10,
+          "4.0": 3,
+          "5.0": 1
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 0.5666416658417277,
+        "index": 5,
+        "n": 1050,
+        "name": "curv5",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 964,
+          "1.0": 21,
+          "2.0": 38,
+          "3.0": 18,
+          "4.0": 6,
+          "5.0": 3
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 1.3395860339271193,
+        "index": 6,
+        "n": 1050,
+        "name": "curv6",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 785,
+          "1.0": 17,
+          "2.0": 86,
+          "3.0": 86,
+          "4.0": 53,
+          "5.0": 23
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.1655861878690685,
+        "index": 7,
+        "n": 1050,
+        "name": "curv7",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 477,
+          "1.0": 5,
+          "2.0": 50,
+          "3.0": 156,
+          "4.0": 191,
+          "5.0": 142,
+          "6.0": 26,
+          "7.0": 3
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.412832140204603,
+        "index": 8,
+        "n": 1050,
+        "name": "curv8",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 2,
+          "1.0": 6,
+          "2.0": 34,
+          "3.0": 125,
+          "4.0": 204,
+          "5.0": 345,
+          "6.0": 187,
+          "7.0": 147
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 7,
+        "entropy_known_bits": 1.312323261105068,
+        "index": 9,
+        "n": 1050,
+        "name": "curv9",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 790,
+          "1.0": 16,
+          "2.0": 96,
+          "3.0": 88,
+          "4.0": 41,
+          "5.0": 17,
+          "6.0": 2
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 0.6310694582063977,
+        "index": 10,
+        "n": 1050,
+        "name": "curv10",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 955,
+          "1.0": 18,
+          "2.0": 37,
+          "3.0": 19,
+          "4.0": 14,
+          "5.0": 7
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 0.3435027950062372,
+        "index": 11,
+        "n": 1050,
+        "name": "curv11",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1003,
+          "1.0": 10,
+          "2.0": 19,
+          "3.0": 15,
+          "4.0": 3
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 0.2810431999548088,
+        "index": 12,
+        "n": 1050,
+        "name": "curv12",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1013,
+          "1.0": 16,
+          "2.0": 12,
+          "3.0": 7,
+          "4.0": 2
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 0.40061699357226344,
+        "index": 13,
+        "n": 1050,
+        "name": "curv13",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 997,
+          "1.0": 5,
+          "2.0": 11,
+          "3.0": 16,
+          "4.0": 13,
+          "5.0": 8
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 0.881397584299362,
+        "index": 14,
+        "n": 1050,
+        "name": "curv14",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 905,
+          "1.0": 11,
+          "2.0": 38,
+          "3.0": 46,
+          "4.0": 24,
+          "5.0": 26
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 1.4875458553304912,
+        "index": 15,
+        "n": 1050,
+        "name": "curv15",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 768,
+          "1.0": 38,
+          "2.0": 83,
+          "3.0": 74,
+          "4.0": 45,
+          "5.0": 28,
+          "6.0": 12,
+          "7.0": 2
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 16,
+        "n": 1050,
+        "name": "area",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1050
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 1.847534312306413,
+        "index": 17,
+        "n": 1050,
+        "name": "elong",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 58,
+          "1.0": 51,
+          "2.0": 54,
+          "3.0": 45,
+          "4.0": 45,
+          "5.0": 54,
+          "6.0": 42,
+          "7.0": 701
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.869205803175798,
+        "index": 18,
+        "n": 1050,
+        "name": "sym",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 97,
+          "1.0": 144,
+          "2.0": 212,
+          "3.0": 199,
+          "4.0": 160,
+          "5.0": 115,
+          "6.0": 76,
+          "7.0": 47
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 13,
+        "entropy_known_bits": 3.5019278717699605,
+        "index": 19,
+        "n": 1050,
+        "name": "axis",
+        "unknown_or_missing": 0,
+        "values": null
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.7738376224319542,
+        "index": 20,
+        "n": 1050,
+        "name": "fold",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 811,
+          "1.0": 239
+        }
+      }
+    ]
+  },
+  {
+    "class": "SURFACE_PATCH",
+    "detections": 1569,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 8.097491180283127,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 1072,
+    "joint_tuple_entropy_bits": 7.629292845759507,
+    "lens": "Surface",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 1569,
+    "population_present_share": 1.0,
+    "relation": "SURFACE_MATERIAL",
+    "slots": [
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 0,
+        "n": 1569,
+        "name": "shape",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1569
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 5,
+        "entropy_known_bits": 1.4245540572766797,
+        "index": 1,
+        "n": 1569,
+        "name": "lum",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 14,
+          "2.0": 127,
+          "3.0": 765,
+          "4.0": 655,
+          "5.0": 8
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 16,
+        "entropy_known_bits": 3.2202501457861383,
+        "index": 2,
+        "n": 1569,
+        "name": "hue",
+        "unknown_or_missing": 0,
+        "values": null
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 4,
+        "entropy_known_bits": 1.7038096984796687,
+        "index": 3,
+        "n": 1569,
+        "name": "sat",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 308,
+          "1.0": 593,
+          "2.0": 607,
+          "3.0": 61
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.7879914612085632,
+        "index": 4,
+        "n": 1569,
+        "name": "tex",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 236,
+          "1.0": 334,
+          "2.0": 199,
+          "3.0": 200,
+          "4.0": 247,
+          "5.0": 231,
+          "6.0": 112,
+          "7.0": 10
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 5,
+        "n": 1569,
+        "name": "grad_mag",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1569
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 6,
+        "n": 1569,
+        "name": "grad_side",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1569
+        }
+      }
+    ]
+  },
+  {
+    "class": "JUNCTION",
+    "detections": 31,
+    "frames_present": 24,
+    "graph_node_joint_entropy_bits": 4.47823219741386,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 31,
+    "joint_tuple_entropy_bits": 4.47823219741386,
+    "lens": "T",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 31,
+    "population_present_share": 1.0,
+    "relation": "ANGLE_RELATION",
+    "slots": [
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 0,
+        "n": 31,
+        "name": "degree",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 31
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.864812441575037,
+        "index": 1,
+        "n": 31,
+        "name": "ref_theta",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 1,
+          "3.0": 5,
+          "6.0": 3,
+          "9.0": 4,
+          "12.0": 3,
+          "15.0": 4,
+          "18.0": 4,
+          "21.0": 7
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 2,
+        "n": 31,
+        "name": "topo",
+        "unknown_or_missing": 0,
+        "values": {
+          "2.0": 31
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 3,
+        "n": 31,
+        "name": "spread",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 31
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.9383153522334069,
+        "index": 4,
+        "n": 31,
+        "name": "gap0",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 20,
+          "2.0": 11
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.5647350905912578,
+        "index": 5,
+        "n": 31,
+        "name": "gap1",
+        "unknown_or_missing": 0,
+        "values": {
+          "2.0": 11,
+          "3.0": 8,
+          "4.0": 12
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.9629004147713269,
+        "index": 6,
+        "n": 31,
+        "name": "gap2",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 12,
+          "4.0": 19
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 7,
+        "n": 31,
+        "name": "gap3",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 31
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 3,
+        "entropy_known_bits": 1.461720593819944,
+        "index": 8,
+        "n": 31,
+        "name": "arm_support",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 5,
+          "2.0": 15,
+          "3.0": 11
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 9,
+        "n": 31,
+        "name": "arm_sharp_mean",
+        "unknown_or_missing": 0,
+        "values": {
+          "7.0": 31
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 10,
+        "n": 31,
+        "name": "arm_sharp_min",
+        "unknown_or_missing": 0,
+        "values": {
+          "7.0": 31
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 11,
+        "n": 31,
+        "name": "arm_angle0",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 31
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 12,
+        "n": 31,
+        "name": "arm_angle1",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 31
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.9383153522334069,
+        "index": 13,
+        "n": 31,
+        "name": "arm_angle2",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 11,
+          "1.0": 20
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 14,
+        "n": 31,
+        "name": "arm_angle3",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 31
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.9383153522334069,
+        "index": 15,
+        "n": 31,
+        "name": "arm_angle4",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 20,
+          "2.0": 11
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 16,
+        "n": 31,
+        "name": "arm_angle5",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 31
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.9383153522334069,
+        "index": 17,
+        "n": 31,
+        "name": "arm_angle6",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 11,
+          "1.0": 20
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 18,
+        "n": 31,
+        "name": "arm_angle7",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 31
+        }
+      }
+    ]
+  },
+  {
+    "class": "TEXTURE",
+    "detections": 10394,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 5.651346062939039,
+    "graph_node_population_present_share": 0.0,
+    "graph_nodes": 2473,
+    "joint_tuple_entropy_bits": 4.946830544874486,
+    "lens": "Texture",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 0,
+    "population_present_share": 0.0,
+    "relation": "SURFACE_ROUGHNESS_ISOTROPY",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 9,
+        "entropy_known_bits": 2.4540073250502124,
+        "index": 0,
+        "n": 10394,
+        "name": "roughness",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 383,
+          "2.0": 16,
+          "3.0": 170,
+          "4.0": 1044,
+          "5.0": 3211,
+          "6.0": 2823,
+          "7.0": 1408,
+          "8.0": 1292,
+          "9.0": 47
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 10,
+        "entropy_known_bits": 2.912990997116783,
+        "index": 1,
+        "n": 10394,
+        "name": "isotropy",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 756,
+          "1.0": 147,
+          "2.0": 517,
+          "3.0": 492,
+          "4.0": 511,
+          "5.0": 703,
+          "6.0": 829,
+          "7.0": 1242,
+          "8.0": 2255,
+          "9.0": 2942
+        }
+      }
+    ]
+  },
+  {
+    "class": "TEXTURE_BOUNDARY",
+    "detections": 8205,
+    "frames_present": 79,
+    "graph_node_joint_entropy_bits": 11.630403447170428,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 7362,
+    "joint_tuple_entropy_bits": 11.480358484532942,
+    "lens": "TextureBoundary",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 8205,
+    "population_present_share": 1.0,
+    "relation": "MATERIAL_DISCONTINUITY",
+    "slots": [
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.9573894601346997,
+        "index": 0,
+        "n": 8205,
+        "name": "arc_pos",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 747,
+          "1.0": 1011,
+          "2.0": 1312,
+          "3.0": 728,
+          "4.0": 1126,
+          "5.0": 838,
+          "6.0": 1485,
+          "7.0": 958
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 24,
+        "entropy_known_bits": 4.054384017046865,
+        "index": 1,
+        "n": 8205,
+        "name": "dtheta",
+        "unknown_or_missing": 0,
+        "values": null
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 4,
+        "entropy_known_bits": 1.2378371212136547,
+        "index": 2,
+        "n": 8205,
+        "name": "dlogsf",
+        "unknown_or_missing": 0,
+        "values": {
+          "4.0": 5840,
+          "5.0": 1531,
+          "6.0": 398,
+          "7.0": 436
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 1.4152722927602606,
+        "index": 3,
+        "n": 8205,
+        "name": "d_contrast",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 5116,
+          "1.0": 1618,
+          "2.0": 1350,
+          "3.0": 103,
+          "4.0": 15,
+          "5.0": 3
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 1.573313068131269,
+        "index": 4,
+        "n": 8205,
+        "name": "d_ori",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 4646,
+          "1.0": 2171,
+          "2.0": 992,
+          "3.0": 361,
+          "4.0": 34,
+          "5.0": 1
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 8,
+        "entropy_known_bits": 2.335138624457729,
+        "index": 5,
+        "n": 8205,
+        "name": "lum_dist",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 3942,
+          "1.0": 1145,
+          "2.0": 924,
+          "3.0": 726,
+          "4.0": 667,
+          "5.0": 407,
+          "6.0": 157,
+          "7.0": 237
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 1.8789141273349812,
+        "index": 6,
+        "n": 8205,
+        "name": "conc_a",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 2549,
+          "1.0": 1581,
+          "2.0": 3255,
+          "3.0": 770,
+          "4.0": 45,
+          "5.0": 5
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 6,
+        "entropy_known_bits": 1.7088362531304502,
+        "index": 7,
+        "n": 8205,
+        "name": "conc_b",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 2287,
+          "1.0": 1342,
+          "2.0": 4049,
+          "3.0": 515,
+          "4.0": 11,
+          "5.0": 1
+        }
+      }
+    ]
+  },
+  {
+    "class": "JUNCTION",
+    "detections": 3,
+    "frames_present": 3,
+    "graph_node_joint_entropy_bits": 1.584962500721156,
+    "graph_node_population_present_share": 1.0,
+    "graph_nodes": 3,
+    "joint_tuple_entropy_bits": 1.584962500721156,
+    "lens": "Y",
+    "population_presence_entropy_bits": -0.0,
+    "population_present": 3,
+    "population_present_share": 1.0,
+    "relation": "ANGLE_RELATION",
+    "slots": [
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 0,
+        "n": 3,
+        "name": "degree",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 3
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.9182958340544896,
+        "index": 1,
+        "n": 3,
+        "name": "ref_theta",
+        "unknown_or_missing": 0,
+        "values": {
+          "15.0": 1,
+          "21.0": 2
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 2,
+        "n": 3,
+        "name": "topo",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 3,
+        "n": 3,
+        "name": "spread",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 4,
+        "n": 3,
+        "name": "gap0",
+        "unknown_or_missing": 0,
+        "values": {
+          "2.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 5,
+        "n": 3,
+        "name": "gap1",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 6,
+        "n": 3,
+        "name": "gap2",
+        "unknown_or_missing": 0,
+        "values": {
+          "3.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 7,
+        "n": 3,
+        "name": "gap3",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 3
+        }
+      },
+      {
+        "constant_known": false,
+        "distinct_known": 2,
+        "entropy_known_bits": 0.9182958340544896,
+        "index": 8,
+        "n": 3,
+        "name": "arm_support",
+        "unknown_or_missing": 0,
+        "values": {
+          "2.0": 2,
+          "3.0": 1
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 9,
+        "n": 3,
+        "name": "arm_sharp_mean",
+        "unknown_or_missing": 0,
+        "values": {
+          "7.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 10,
+        "n": 3,
+        "name": "arm_sharp_min",
+        "unknown_or_missing": 0,
+        "values": {
+          "7.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 11,
+        "n": 3,
+        "name": "arm_angle0",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 12,
+        "n": 3,
+        "name": "arm_angle1",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 13,
+        "n": 3,
+        "name": "arm_angle2",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 14,
+        "n": 3,
+        "name": "arm_angle3",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 15,
+        "n": 3,
+        "name": "arm_angle4",
+        "unknown_or_missing": 0,
+        "values": {
+          "1.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 16,
+        "n": 3,
+        "name": "arm_angle5",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 17,
+        "n": 3,
+        "name": "arm_angle6",
+        "unknown_or_missing": 0,
+        "values": {
+          "2.0": 3
+        }
+      },
+      {
+        "constant_known": true,
+        "distinct_known": 1,
+        "entropy_known_bits": -0.0,
+        "index": 18,
+        "n": 3,
+        "name": "arm_angle7",
+        "unknown_or_missing": 0,
+        "values": {
+          "0.0": 3
+        }
+      }
+    ]
+  }
+]
